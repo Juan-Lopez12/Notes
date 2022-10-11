@@ -1,0 +1,35 @@
+
+
+1.- m10 para poner un margen de 10px
+    m10-20  para margen de 10 arriba y abajo y 20 a los lados (2 valores)
+    m10-20-10-20 para poner 4 valores
+
+2.- p para padding
+
+3.- ff para font-family (establece una fuente)
+
+4.- fz para font-size
+
+5.- c para color 
+
+6.- db para display: block 
+
+7.- br para background-repeat
+
+8.- bdrs para border-radius
+
+9.- 
+
+
+body {
+    margin: 10px;
+    color: #000;
+    display: block;
+    font-family: serif;
+    font-size: ;
+    padding: ;
+    background-repeat: no-repeat;
+    border-radius: ;
+    
+
+}

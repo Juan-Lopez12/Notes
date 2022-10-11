@@ -1,0 +1,244 @@
+
+
+<!--^ ----- ----- Notas de HTML ----- ----- -->
+
+<!--^ ----------------------------------- -->
+<!--^ - IMPORTANTES/OBLIGATORIOS        - -->
+<!--^ ----------------------------------- -->
+
+<!--^ ----- ----- 0.- una etiqueta representa un elemento de una pagina. Atributos="valor", cada atributo tendra un valor, un atributo es una variación dentro de una etiqueta y correspodne a un valor ----- ----- -->
+
+    <html></html>
+
+<!--^ ----- ----- 1.- guardar documentos como index.html, importante poner .html para que el navegador lo pueda reconocer ----- ----- -->
+
+<!--^ ----- ----- 2.- usar "!" para tener la estructura principal HTML ----- ----- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<!--^ ----- ----- 2,1.- con <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> vamos a insertar el icono de la pagina web ----- ----- -->
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<!--^ ----- ----- 2,2.- con <link rel="stylesheet" href="style.css"> vamos a insertar un archivo CSS ----- ----- -->
+
+<link rel="stylesheet" href="style.css">
+
+<!--^ ----------------------------------- -->
+<!--^ -         PARA TEXTO              - -->
+<!--^ ----------------------------------- -->
+
+<!--^ ----- ----- 3.- Usar los <h1></h1> para titulos  ----- ----- -->
+
+<h1></h1>
+<h2></h2>
+<h3></h3>
+<h4></h4>
+<h5></h5>
+<h6></h6>
+
+<!--^ ----- ----- 4.- Usar <p></p> para parrafos ----- ----- -->
+
+<p></p>
+
+<!--^ ----- ----- 5.- usar <b></b> para negritas ----- ----- -->
+
+<b></b>
+
+<!--^ ----- ----- 6.- usar <i></i> para italicas ----- ----- -->
+
+<i></i>
+
+<!--^ ----- ----- 7.- usar <small></small> para letras chiquitas ----- ----- -->
+
+<small></small>
+
+<!--^ ----- ----- 8.- usar Lorem para escribir un texto largo ----- ----- -->
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis iste quaerat quas, sapiente quia nesciunt necessitatibus itaque facere. Facilis eius, provident beatae quis vitae nisi laboriosam libero nemo sequi et?
+
+<!--^ ----- ----- 9.- usar <a href=""></a> para crear un enlace y usar target="_blank" para que nos abra en una nueva pestaña ----- ----- -->
+
+<a href="" target="_blank"></a>
+
+<!--^ ----- ----- 10.- usar ../ para volver una carpeta atras y seleccionar una dirección a otra pagina ----- ----- -->
+
+<a href="../Notas de FalconMasters/notas de HTML de FalconMasters 02-03-2022.html" target="_blank"></a>
+
+<!--^ ----- ----- 11.- usar <br /> para dar un salto de linea ----- ----- -->
+
+<br>
+
+<!--^ ----- ----- 12.- usar <ul></ul> para crear listas no ordenadas, <ol></ol> para las listas ordenadas  y <li></li> para los objetos de la lista ----- ----- -->
+
+<ul>
+    <li></li>
+</ul>
+
+<ol>
+    <li></li>
+</ol>
+
+<!--^ ----------------------------------- -->
+<!--^ -     IMAGENES, VIDEO Y AUDIO     - -->
+<!--^ ----------------------------------- -->
+
+
+<!--^ ----- ----- 13.- usar <img src="" alt=""> para insertar una imagen e importante poner un "titulo" en el alt="" para cuando no se encuente o no cargue la imagen, importante ponerla ya que mejorará su SEO, tambien se puede usar tittle="" para cuando se pase el mouse por encima mostar un texto ----- ----- -->
+
+<img src="" alt="" title="">
+
+<!--^ ----- ----- 14.- usar <video src=""></video> para insertar video y controls="" para poder controlar el reproductor ----- ----- -->
+
+<video src="" controls=""></video>
+
+<!--^ ----- ----- 15.- usar <audio src=""></audio> para insertar audio y controls="" para poder controlar el reproductor ----- ----- -->
+
+<audio src="" controls=""></audio>
+
+
+<!--^ ----------------------------------- -->
+<!--^ -         ESTRUCTURACIÓN          - -->
+<!--^ ----------------------------------- -->
+
+
+<!--^ ----- ----- 16.- usar <div></div> para "dividir" contenido y estructurar mejor usando CSS----- ----- -->
+
+<div>
+    <h4>Nombre del producto</h4>
+    <p>
+        Precio: <b>$99</b>
+    </p>
+</div>
+
+<!--^ ----------------------------------- -->
+<!--^ -         FORMULARIOS             - -->
+<!--^ ----------------------------------- -->
+
+<!--^ ----- ----- 17.- usar <form action=""></form> para crear la caja "formulario", y luego usar <input type="text"> para añadir el tipo de "dato" dentro del formulario, y escoger el tipo de "dato" con type="" ----- ----- -->
+
+<!--^ ----- ----- 17,1.- se puede usar name="" con un nombre para identificar el input en el BackEnd ----- ----- -->
+
+<!--^ ----- ----- 17,2.- usar type="text" para texto (viene por defecto), type="password" para contraseña, type="number" para numeros (con 2 botones para sumar o restar), type="email" para escribir solo formatos MAIL, type="color" para escoger un color, type="range" para tener una barra de rango elegiendo un numero (se puede utilizar min="" y max="" para indicar el minimo y maximo del rango), type="date" para escoger un dia mes y año, type="time" para escoger una hora, type="button" para añadir un botón y usar value="" para añadir el texto dentro del boton (tiene que ir si o si), type="submit" para añadir un botón que envia la información del formulario ----- ----- -->
+
+<!--^ ----- ----- 17,3.- se puede utilziar el atributo required="" para obligar al usuario a completar uno de los campos ----- ----- -->
+
+<!--^ ----- ----- 17,4.- usar value="" para dar un valor dentro del campo y poner texto por defecto ----- ----- -->
+
+<form action="">
+    <input type="text" name="nombre" required=""> <!--^ ----- ----- Mas usado ----- ----- -->
+    <input type="password" required=""> <!--^ ----- ----- Mas usado ----- ----- -->
+    <input type="number">   <!--^ ----- ----- Mas usado ----- ----- -->
+    <input type="email">    <!--^ ----- ----- Mas usado ----- ----- -->
+    <input type="color">   
+    <input type="range" min="1" max="5">
+    <input type="date">
+    <input type="time">
+    <input type="button" value="Botón"> <!--^ ----- ----- Mas usado ----- ----- -->
+    <input type="submit">   <!--^ ----- ----- Mas usado ----- ----- -->
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+</form>
+
+<!--^ ----------------------------------- -->
+<!--^ -         META-DATOS              - -->
+<!--^ ----------------------------------- -->
+
+<!--^ ----- ----- 18.- usar <meta charset="utf-8"> para cambiar a la codificación universal ----- ----- -->
+
+<meta charset="utf-8">
+
+<!--^ ----- ----- 19.- usando <meta> y con el atributo name="" podemos identificar el tipo de meta que queremos usar y con content="" pondremos el contenido de dicho meta ----- ----- -->
+
+<!--^ ----- ----- 19,1.- con name="keywords" usaremos palabras clave, con name="description" describiremos la pagina con un maximo de 70 a 140 caracteres, con name="author" indicaremos el autor de la pagina, con name="copyright" informaremos si tenemos copyright o no escribiendo la empresa registrada (ejemplo: Facebook Inc.), con name="robots" le diremos si queremos que la pagina pueda ser indexable o no (usando index o noindex),  ----- ----- -->
+
+<meta name="keywords" content="palabras, clave">
+
+<!--^ ----------------------------------- -->
+<!--^ -       ESTRUCTURAS SEMANTICAS    - -->
+<!--^ ----------------------------------- -->
+
+<!--^ ----- ----- 20.- Usando <nav></nav> indicaremos la barra de navegación de forma semantica y la estructura debera ir asi ----- ----- -->
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+<!--^ ----- ----- 21.- Con <article></article> vamos a meter los <section></section> donde ira el contenido de la pagina, si hay varios articulos entonces pondremos varios <section></section>, y dentro ira por ejemplo los h1 y parrafos ----- ----- -->
+
+<article>
+    <section>
+        <h1>Titulo</h1>
+        <h2>Subtitulo</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia id ducimus porro! Hic at vitae deserunt incidunt dolores, facilis eligendi odio perspiciatis minima inventore dolore aliquam voluptates temporibus iusto dolorem?
+        </p>
+    </section>
+    <section>
+        <h1>Titulo</h1>
+        <h2>Subtitulo</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia id ducimus porro! Hic at vitae deserunt incidunt dolores, facilis eligendi odio perspiciatis minima inventore dolore aliquam voluptates temporibus iusto dolorem?
+        </p>
+    </section>
+</article>
+
+<!--^ ----- ----- 22.- Con <aside></aside> pondremos contenido extra y este ira abajo del article ----- ----- -->
+
+<aside>
+    <h2>Subtitulo de contenido extra</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus iusto mollitia ipsa quod minima unde ullam, provident voluptas porro veniam obcaecati ab aspernatur atque ipsum natus molestias omnis harum? Consequatur.
+    </p>
+</aside>
+
+<!--^ ----- ----- 23.- Al final de toda la pagina usaremos el <footer></footer> y pondremos cosas como el copyright o las redes sociales o lugares para darnos feedback ----- ----- -->
+
+<footer>
+    <h4>Copyright - Todos los derechos reservados</h4>
+    <p>Siguenos en nuestras <b>redes</b></p>
+    <a href="">Instagram</a>
+    <a href="">Youtube</a>
+    <a href="">Facebook</a>
+    <a href="">Twitter</a>
+</footer>
+
+<!--^ ----------------------------------- -->
+<!--^ -             TABLAS              - -->
+<!--^ ----------------------------------- -->
+
+<!--^ ----- ----- 24.- con <table></table> le diremos al navegador que aca ira una tabla ----- ----- -->
+
+<!--^ ----- ----- 24,1.- con <tr></tr> definiremos las filas y con <td></td> las columnas----- ----- -->
+
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+

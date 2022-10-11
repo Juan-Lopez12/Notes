@@ -1,0 +1,326 @@
+
+
+								Codigos de programación HTML
+	
+						<!--^^ IMPORTANTES/OBLIGATORIOS-->
+	
+	0.- una etiqueta representa un elemento de una pagina. Atributos="valor", cada atributo
+	tendra un valor, un atributo es una variación dentro de una etiqueta y correspodne a un valor
+	
+	1.- guardar documentos como index.html, importante poner .html para que el navegador lo
+																pueda reconocer
+	
+	2.- <html></html> siempre para escribir una pagina web
+	
+	3.- <head></head> va dentro de <html></html>, para información que el usuario
+	no puede ver a primera vista la mayoria de las veces
+	
+	4.- <title></title> va dentro de <head></head>, para cambiar titulo a una
+	pagina web (en el tab)
+	
+	5.- <body></body> va a contener todo el cuerpo del documento html (todo lo que
+	el usuario va a ver)
+	
+						<!--^^ PARA TEXTO-->
+				
+	6.- <h1></h1> hasta el <h6></h6> (1 mas grande, 6 mas pequeño) encabezados/titulares, para
+	poner titulos. Solo usar um solo <h1></h1> por pagina, no varios (tiene un valor semantico). 
+		+SEMANTICA
+	
+	6,1.-<h2></h2> hasta el <h6></h6> usar todos los que quieras. (se usan para subtitulos)
+		+Google así no te penalizará, y te posicionara mejor en los buscadores
+		+SEMANTICA
+
+	7.- <!----> para agregar comentarios y notas (no afecta el codigo 
+															y no sera visible)
+	8.- <br/> para agregar un espaciado
+		(se cierra sola)
+	
+	9.- <p></p> para parrafos
+		+SEMANTICA
+
+	10.- <b></b> para añadir negritas (solo visual, poco enfasis)
+	
+	11.- <strong></strong> para añadir negritas (añade enfasis al navegador y buscadores).
+		Sera mas facil de  buscar. No abusar de ella
+		+SEMANTICA
+	
+	12.- <span></span> no añade cambio visuales, se usa para añadir cierto estilo con CSS
+		(se puede poner bold sin necesidad que el navegador lo busque)
+		
+	13.- <i></i> agrega letras en italica
+	
+	14.- <blockquote></blockquote> para añadir citas
+	
+	15.- <cite></cite> para añadir el autor de la cita
+	
+	16.- <hr/> se usa para añadir una linea separadora entre cada elemento
+		(se cierra sola)
+		
+						<!--^^ PARA ENLACES-->
+	
+	17.- <a href=""></a> para hacer un enlace (te redirige a otra pagina)
+		 <a href="https://www.google.com/"></a>
+		 <a href="imagenes/049.jpg>"></a>
+		 <a target="_blank" href=""></a>
+			Ruta absoluta: usar el enlace con el protocolo "https://"
+			ruta relativa: usar la ruta de la carpeta
+	
+	17,1.- <target="_blank"/> atributo para que nos abra una nueva pestaña, 
+			-ATRIBUTO	(sin las flechas <>)				y no se  cierre el sitio anterior
+	
+	17,2.- <href=""> atributo para poner links
+			-ATRIBUTO
+	
+	18.- <link rel="stylesheet" href="estilos.css"> para añadir archivos css
+	
+	18.1.- <rel="stylesheet"/> atributo que nos indica que sera un link  de estilo 
+			-ATRIBUTO											hoja de cascada
+	
+	19.- <script></script> nos va a enlazar un archivo javascript para ejecutar codigo sin ensuciar
+															todo el resto del documento html
+		 <script src="archivo.js"></script>
+		
+	19,1.- <src=""> atributo para agregar la ruta
+			-ATRIBUTO
+	
+	20.- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> 
+	
+	20,1.- <rel="shortcut icon"> atributo que nos dice que sera un icono
+			-ATRIBUTO
+			
+	20,2.- <type="image/x-icon"> atributo que dice el tipo de imagen que sera
+			-ATRIBUTO
+			
+	21.- <a href="mailto:"></a> para enviar correos
+		 <a href="mailto:juancarloslopezrivero@gmail.com" title="Enviar correo a Juan Carlos">Enviar Mail</a>
+	
+	21,1.- <title=""> para añadir texto al pasar el mouse por encima
+			-ATRIBUTO
+	
+						<!--^^ PARA LISTAS-->
+						
+	22.-   <ul></ul> para listas desordenadas
+	
+	22,1.- <ol></ol> para listas ordenadas
+	
+	22,2. -<ul>
+			 <li><a href="#"></a></li> para que nos redirija desde la lista
+		  </ul>
+	
+	22,3. -<ul>	para hacer sub listas
+			  <ul>
+				  <li>Item#1</li>
+				  <li>Item#2</li>
+			  </ul>
+		  </ul>
+	
+	22,4.- # la almohadilla se usa para que no nos envia a ningun lado
+		
+	23.- <li></li> para contener nuestro item, o contenido número 1 (va dentro de <ul></ul>)
+	
+						<!--^^ PARA IMAGENES-->
+	
+	24.- <img src=""/> para agregar imagenes (rutas relativas o absolutas)
+		(se cierra sola)
+	
+	24,1.- <img src="" alt="" title="" width="" height=""/> para cambiar el tamaño de una imagen
+		
+	24,2.- <width="" height=""> para cambiar el tamaño de una imagen. Tambien se peude 
+			-ATRIBUTO									utilizar solo 1 (width o height)
+			
+	24,3.- <alt=""> para añador texto si la imagen no carga, o hay problema con la imagen
+			++SEMANTICA
+			-ATRIBUTO
+			
+	24,4.- <title=""> para añadir una descripción de la imagen
+			-ATRIBUTO
+			
+		  				<!--^^ PARA TABLAS -->
+
+	25.- <table></table> para crear una tabla
+	25,1.- <table border="3px" width="100%"></table>  para ponerle un borde a la tabla
+			<table border="1"></table> para ponerle un borde a la tabla
+		  	NO RECOMENDADO
+			  DISMINUYE -SEMANTICA
+
+	26.- <tr></tr> para crear una fila (fila de tabla)
+
+	27.- <td></td> para crear una columna que debe ir dentro de cada fila (td es table data, dato de la tabla, y 
+	se almacena una despeus de la otra dentro de un tr [fila de de la tabla])
+		  EJEMPLO: 
+		  <table>
+			  <tr>
+				  <td>Elemento #1</td>
+				  <td>Elemento #2</td>
+				  <td>Elemento #3</td>
+			  </tr>
+		  </table>
+
+						<!--^^ PARA FORMULARIOS -->
+		  
+	28.- <form action="" method=""></form> para hacer un formulario, el ACTION=""recibe como valor una url para procesar los datos del formulario
+				ejemplo <form action="datos.php"></form> el datos.php va a procesar toda la informacion que nosotros
+															 enviemos mediante el formulario (dentro de el)
+
+	28,1.-<method="POST"> o <method="GET"> metodos para definir como enviaremos la informacion
+		  -ATRIBUTO
+
+	29.- <input type="text" value=""> para poner un campo de texto para nombre, correo etc 
+		  		(va dentro de <form action=""></form>)
+
+	29,1.- <value=""> para poner un valor en la caja de texto (ejemplo: para añadir texto)
+		  -ATRIBUTO
+
+	29,2.- <placeholder=""> para poner un valor en la caja de texto (el texto se pondra transparente, 
+			-ATRIBUTO														no sera necesario borrar)
+
+	29,3.- <size=""> para cambiar el tamaño del formulario
+		  -ATRIBUTO
+		  NO RECOMENDADO (se usara CSS oara modificar el tamaño)
+
+	29,4.- <maxlenght=""> para establecer el maximo de caracteres que se pueden escribir dentro del formulario
+		  -ATRIBUTO
+
+	29,5.- <name=""> para establecer al servidor que valor estamos pidiendo	(para indentificar todo el input 
+			-ATRIBUTO																		mediente el name)
+		  
+	29,6.- <id=""> para usarlo junto con el label (al tener el mismo valor y dar click sobre el texto, automaticamente
+			-ATRIBUTO													 se pondra el cursor sobre el campo de texto)
+		  
+	30.- <label for=""></label> para asignar un texto al <input> (poner el mismo valor de la id en for="")
+
+	31.- <input type="password"> para agregar un campo de texto (con caracteres censurados [con puntos])
+
+	32.- <input type="email" name="" id=""> campo de texto para comprobar que un correo es correcto 
+		  
+	33.- <input type="checkbox" name="" id=""> para agregar una casilla (marcar o desmarcar)
+
+	34.- <input type="radio" name="" id=""> para agregar botones de casillas (boton donde solo se puede seleccionar 1)
+	34,1.- <name=""> se usa para unir los botones (poner la misma palabra en <name="">)
+
+	35.- <input type="button" value=""> para agregar botones reales
+
+	36.- <input type="submit" value=""> para agregar un boton real que envia datos
+
+	37.- <select name="" id=""></select> para hacer listas desplegables	
+	37,1.- <option value=""></option> para añadir las opciones (opcioens dentro de la lista[se usa dentro
+																		 de <select name="" id=""></select>])
+
+	38.- <input type="color" name="" id=""> para agregar un boton donde podemos elegir un color
+
+	39.- <input type="range" name="" id=""> para agregar una barra de rango para seleccionar
+	
+		  						<!--^^ +++IMPORTANTE -->
+					<!--^^ PARA CREAR UNA ESTRUCTURA DE CONTENIDO/LAYOUT -->
+		  				<!--^^ +++AÑADE CODIGO SEMANTICO+++ -->
+								<!--^^ +++IMPORTANTE -->
+
+	40.- Cada sitio se divide en 3 partes fundamentales dentro de <body>: <header> (encabezado[]), el contenido 
+		principal (tanto principal como segundario), y el <footer> (pie de pagina)
+			--NO CONFUNDIR <HEAD> CON <HEADER>
+
+	41.- <div></div> para hacer secciones/dividir el contenido (se usa mas que nada para dividir contenido grafico,
+											como imagenes o videos[usar <img> o <video> dentro de <div> por ejemplo])
+	41,1.- <id=""> usar la id para basarnos de aqui a CSS y viceversa (identificarlo y darle diseño)
+		
+	42.- <header></header> para poner el encabezado, usar header dentro de body, dentro va un logotipo y un menu
+	42,1.- <div></div> usar un div y adentro un <img src="" alt=""> (usar div para imagenes y videos etc)
+	42,2.- <img src="" alt=""> usar un img, importante ponerle su descripción en "alt" 
+										ponerle un tamaño tambien con "width" o "height"
+	42,3.- 	<nav></nav> para añadir un menu de navegación, con su ul y li>a
+	
+	43.- <section class="wrapper"></section> para encerrar todo el contenido y contenido segundario en 1 Solo
+	43,1.- <class="wrapper"> se usara como "contenedor" para poner adentro mas secciones
+			-ATRIBUTO
+	43,2.- <section class="main"></section> va dentro de section.wrapper 
+	43,3.- <class="main"> nos va a identificar que este es el contenido principal (es decir que son los articulos)
+			-ATRIBUTO
+	43,4.- <article></article> para agregar articulos (aqui va contenido que google encontrara y le dara importancia)
+	43,5.- <h2></h2> para ponerle un encabezado al articulo
+	43,6.- <p></p> para añadir un contenido al articulo (un parrafo)
+
+	43,7.- <aside></aside> para poner contenido segundario que va "afuera", con contenido no importante para el 
+									buscador pero si para el usuario (como imagenes, publicidad, menus, texto etc)
+	43,8.- <h3></h3> titulo para el sidebar
+	43,9.- <p></p> para el contenido del sidebar
+	
+	44.- <footer></footer> para añadir y decirle al navegador que tenemos un pie de pagina (con información sobre
+															quien es la pagina, otros menus o cosas que queramos)
+	44,1.- <p></p> para añadir contenido al footer (es un ejemplo)
+
+									EJEMPLO DE ESTRUCTURA BASICA DE UNA PAGINA WEB:
+		
+		<header>
+			<div>
+				<img src="" width="" alt="descripción de la imagen">
+			</div>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#">Categoria</a></li>
+				<li><a href="#">Categoria 2</a></li>
+			</ul>
+		</nav>
+
+		<section class="wrapper">
+			<section class="main">
+				<article>
+					<h2>Titulo de la pagina</h2>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, officia!
+						(contenido del articulo)
+					</p>
+				</article>
+			</section>
+		<aside>
+			<h3>Sidebar/contenido segundario</h3>
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, voluptatum.
+				(contenido del del contenido segundario [puede ser imagenes, publicidad, menus, textos etc])
+			</p>
+		</aside>
+		</section>
+
+		<footer>
+			<p>Juan Lopez - MrZerstorer 2022
+				(contenido del pie de pagina [información sobre quien es la pagina, otros menus o lo que queramos])
+			</p>
+		</footer>
+
+						<!--^^ META-DATOS Y OTRAS ETIQUETAS -->
+
+	45.- <meta> los meta-datos son información que le damos al navegador/buscadores para que identifiquen información
+	 		rapdiamente que nosotros queremos, dandole una descripción a google de lo que es nuestro sitio y que lo
+												pueda posicionar dependiendo de lo que busquen los usuarios 
+			-LOS META-DATOS SIEMRPE IRAN DENTRO DE <HEAD></HEAD>
+
+	45,1.- <meta name="description" content="aqui la descrición del sitio web"> para poner un meta con una de
+		 descripción de la pagina, usando un fragmento de texto de aproximadamente 150 a 170 caracteres con la mejor 
+		 descripción que puedas (no escribir todo un parrafo de muchisimos caracteres)
+			<name=""> el name sera el tipo de meta que utilizaremos
+	
+	45,2.- <meta name="keywords" content="ejemplo: diseño, desarollo, paginas web"> para poner palabras claves
+		-YA NO SE USA MUCHO (GOOGLE NO LAS USA) 
+		--pero añadir de todos modos
+
+	46.- <link rel="stylesheet" href="style.css"> para enlazar una hoja de estilos CSS 
+		-VA DENTRO DE HEAD (creo)
+		-ATAJO: link:css 
+		<type="text/css"> atributo OPCIONAL que se solia utilizar para indicar que tipo de contenido se iba a mostrar
+		-YA NO SE USA
+
+	46,1.- <style></style> para agregar/escribir codigo CSS tipo propiedades y reglas
+		(utilizarlo para hacer cosas rapidas o pruebas)
+		-NO RECOMENDADO
+
+	47.- <script></script> para agregar/escribir codigo javascript adentro (puede ir en cualquier lado, 
+										como en head o en body pero no es recomendado [no es lo correcto])
+	
+	47,1.- <script src=""></script> para enlazar/importar un archivo javascript
+
+						<!--^^ EXTRAS -->
+
+	48.- <iframe src="" frameborder="0"></iframe> para enlazar un audio o video
+	
+	

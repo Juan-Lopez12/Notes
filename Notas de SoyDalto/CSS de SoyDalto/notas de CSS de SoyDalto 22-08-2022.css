@@ -1,0 +1,1491 @@
+
+
+/*^ ----- ----- Notas de CSS ----- ----- */
+
+
+/*^ ----------------------------------- */
+/*^ -    IMPORTANTES/OBLIGATORIOS     - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 0.- Una propiedad CSS estara representada por un selector{} y dentro de las llaves vendrna las propiedades: y al lado de los dos puntos el valor; cerrandose con punto y coma ----- ----- */
+
+p {
+    color: green;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -           SELECTORES            - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 1.- usar "*" para usarlo como selector universal  ----- ----- */
+
+* {
+    color: none;
+}
+
+/*^ ----- ----- 2.- usar el nombre del elemento para usarlo el selector de "tipo", especificando el tipo de elemento HTML ----- ----- */
+
+h1 {
+    color: none;
+}
+
+/*^ ----- ----- 3.- usar el "." para usar el selector por clases ----- ----- */
+
+.titulo-h1 {
+    color: none;
+}
+
+/*^ ----- ----- 4.- usar "#" para usar el selector por ID ----- ----- */
+
+#parrafo-p {
+    color: none;
+}
+
+/*^ ----- ----- 5.- para seleccionar por atributo primero se crea el atributo en el HTML y luego en el CSS se utiliza "[]" y adentro se escribe el atributo ----- ----- */
+
+[wenas="eyy"] {
+    color: none;
+}
+
+/*^ ----- ----- 6.- para utilizar los selectores descendientes se escribe el elemento padre y luego el hijo o los varios hijos----- ----- */
+
+h2 b {
+    color: none;
+}
+
+.h2-clase b span {
+    color: none;
+}
+
+/*^ ----- ----- 7.- para seleccionar por pseudo-clase se escribe el elemento o selector y luego :hover o cualquier otra pseudo-clase ----- ----- */
+
+button:hover {
+    color: none;
+}
+
+.titulo-h1:hover {
+    color: none;
+}
+
+.h2-clase b:hover {
+    color: none;
+}
+
+.h2-clase b:hover span {
+    color: none;
+}
+
+/*^ ----- ----- 7,1.- tambien se puede utilizar first-child para indicar el primer hijo de un contenedor padre ----- ----- */
+
+
+/*^ ----------------------------------- */
+/*^ -           ESPECIFICIDAD         - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 8.- La especificidad escogera a que elemento le dara mas importancia por cambiar y su jerarquia va tal que asi: ----- ----- */
+
+
+/*^ ----- ----- 1: !important  ----- ----- */
+
+/*^ ----- ----- 2: estilos en linea ----- ----- */
+
+/*^ ----- ----- 3: identificadores ----- ----- */
+
+/*^ ----- ----- 4: clases ----- ----- */
+/*^ ----- ----- 4: pseudo-clases ----- ----- */
+/*^ ----- ----- 4: atributos ----- ----- */
+
+/*^ ----- ----- 5: elementos ----- ----- */
+/*^ ----- ----- 5: pseudo-elementos ----- ----- */
+
+
+/*^ ----- ----- 9.- para utilizar el !important se debe poner al lado y dentro del valor de la propiedad ----- ----- */
+
+h1 {
+    color: none !important;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -         METODOLOGIA BEM         - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 10.- para usar la metodologia BEM se debe separar por bloques y elementos usando __ y --, ejemplo: contact-form__input--active ----- ----- */
+
+.contact-form__input--active {
+    color: none;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -              MEDIDAS            - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 11.- Hay medidas fijas y relativas, las relativas cambian dependiendo de una variable, y las medidas fijas nunca van a cambiar como los px, cm, mm y pt ----- ----- */
+
+/*^ ----- ----- 11,1.- usar font-size: ; para cambiar el tamaño de la fuente ----- ----- */
+
+.contact-form__h2 {
+    font-size: none;
+}
+
+/*^ ----- ----- 11,2.- Las medidas relativas son rem y em, REM toma el valor del root y EM el valor su padre mas cercano ----- ----- */
+
+/* .contact-form {
+    font-size: 20px;
+}
+
+.contact-form__h2 {
+    font-size: 1em;
+} */
+
+/*^ ----- ----- 11,3.- usar vh y vw (viewport height y viewport width) para usar las medidas relativas al dispositivo y va por porcentajes % ----- ----- */
+
+/* .contact-form {
+    background-color: black;
+    width: 50vw;
+} */
+
+/*^ ----- ----- 11,4.- usar % porcentajes para usar la medida relativa de porcentaje a la caja contenedora ----- ----- */
+
+
+/*^ ----------------------------------- */
+/*^ -       PROPIEDADES DE TEXTO      - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 12.- usar font-size: ; para cambiar el tamaño de letra ----- ----- */
+
+/*^ ----- ----- 12,1.- usar font-family: ; para cambiar la tipografia de la letra ----- ----- */
+
+/*^ ----- ----- 12,2.- usar line-height: ; para cambiar el espacio arriba y abajo de las letras (el valor por defecto es 1) ----- ----- */
+
+/*^ ----- ----- 12,3.- usar font-weight: ; cambiar el grosor de letra ----- ----- */
+
+h2 {
+    font-size: none;
+    font-family: none;
+    line-height: none;
+    font-weight: none;
+}
+
+body {
+    font-family: "helvetica";
+}
+
+/*^ ----- ----- 13.- para encontrar una tipografia ir a https://fonts.google.com/ copiar el link de la fuente que nos da google, y luego implementar la fuente con comillas, se pueden poner varias fuentes, asi en caso de que no cargue una se cargara la siguiente ----- ----- */
+
+/* .contact-form__h2 {
+    font-family: 'Silkscreen', sans-serif;
+} */
+
+
+/*^ ----------------------------------- */
+/*^ -            NORMALIZE CSS        - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 14.- usar normalize.css antes de nuestro archivo css ----- ----- */
+
+
+/*^ ----------------------------------- */
+/*^ -         TEORIA DE CAJAS         - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 15.- Las cajas en bloque son cajas uqe ocupan todo el ancho, y las cajas en linea solo ocupan el espacio que deban ocupar ----- ----- */
+
+/*^ ----- ----- 15,1.- A los elementos en linea no se les puede dar height ni width  ----- ----- */
+
+/*^ ----- ----- 16.- usar background-color: ; para cambiar el color de fondo de una caja ----- ----- */
+
+h2 {
+    background-color: none;
+}
+
+/*^ ----- ----- 17.- usar display: ; para cambiar el tipo de caja del elemento (y asi teniendo diferentes propiedades por usar o manipular) ----- ----- */
+
+h2 {
+    display: block;
+}
+
+/*^ ----- ----- 18.- usar padding: ; para cambiar el espacio entre dentro de la caja y el texto, es un shorthand que va al orden de las manecijas del reloj, pero tambien podemos usar top, right, bottom y left ----- ----- */
+
+/*^ ----- ----- 18,1.- si ponemos padding: 20px; seran 20 pixeles a todos los lados, si ponemos padding: 20px 30px; seran 20 pixeles arriba y abajo pero 30 pixeles a los lados derecha e izquierda, y si usamos padding: 10px 20px 30px; sera 10px arriba 20px derecha 30px abajo y si añadimos un cuarto valor serian 40px a la izquierda ----- ----- */
+
+h2 {
+    padding: none;
+    padding-top: none;
+    padding-right: none;
+    padding-bottom: none;
+    padding-left: none;
+}
+
+/*^ ----- ----- 19.- usar height: ; y width: ; para dar un alto y un alto a la caja ----- ----- */
+
+h2 {
+    height: none;
+    width: none;
+}
+
+/*^ ----- ----- 20.- usar box-sizing: border-box; para hacer que la caja no crezca mas alla de las medidas que le hemos dado en caso que le pongamos un margin o un padding ----- ----- */
+
+.contact-form__h2 {
+    box-sizing: border-box;
+}
+
+/*^ ----- ----- 21.- usar text-align: center; para centrar el texto dentro de una caja, podemos usar los otros valores para manipular el texto y ponerlo al final o al principio tambien ----- ----- */
+
+h2 {
+    text-align: none;
+}
+
+/*^ ----- ----- 22.- usar margin: ; para añadir un espacio entre las cajas, es decir espacio por afuera de las cajas ----- ----- */
+
+/*^ ----- ----- 22,1.- si usamos el valor "auto" se centrara la caja horizontalmente ----- ----- */
+
+h2 {
+    margin: none;
+}
+
+/*^ ----- ----- 23.- usar border-radius: ; para añadir un "borde redondeado" a las esquinas de las cajas, tambien se puede usar para convertirlas en circulos visualmente poniendo 50% en el valor ----- ----- */
+
+h2 {
+    border-radius: none;
+}
+
+/*^ ----- ----- 24.- usar border: ; para añadir un borde a la caja, luego vendra el estilo del borde y por ultimo el color ----- ----- */
+
+/*^ ----- ----- 24,1.- los estilos de borde pueden ser solid, dashed, double, groove, inset, outset y ridge entre otros ----- ----- */
+
+.contact-form__h2 {
+    border: 4px solid blue;
+}
+
+/*^ ----- ----- 25.- usar box-shadow: ; para darle una sombra a la caja, primero se le da tamaño al eje X,despues eje Y, luego cuanto desenfoque va a tener la sombra, despues el tamaño del borde y al final el color de la sombra ----- ----- */
+
+/* h2 {
+    display: inline-block;
+    box-shadow: 2px 20px 15px 0 black ;
+} */
+
+/*^ ----- ----- 26.- usar text-shadow: ; para añadir sombras al texto de la caja, tiene los mismos valores que el box shadow pero sin el cuarto valor de tamaño del borde ----- ----- */
+
+/*^ ----- ----- 26,1.- se puede duplicar el valor para duplicar el efecto y volverlo mas intenso ----- ----- */
+
+/* h2 {
+    text-shadow: 5px 5px 5px green, 5px 5px 5px green;
+} */
+
+/*^ ----- ----- 27.- usar transform: rotate(); para "transformar" la caja, en este caso rotarla (se usan grados [ejemplo: 90deg]) ----- ----- */
+
+.contact-form__h2 {
+    display: inline-block;
+    transform: rotate(45deg);
+}
+
+/*^ ----- ----- 28.- usar outline: ; para añadir un borde que no ocupa un espacio real (es solo visual) ----- ----- */
+
+.contact-form__h2 {
+    outline: 3px solid red;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -              POSITION           - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 28.- usar position: static; para usar el valor por defecto, esta forma no esta posicionada como tal ----- ----- */
+
+.contact-form__h2 {
+    position: static;
+}
+
+/*^ ----- ----- 29.- usar position: relative; para hacer que el espacio donde la caja la siga conservando dentro del DOM, pero podremos moverla a voluntad y cuando se mueva sera solo visual, su espacio reservado seguira siendo el mismo ----- ----- */
+
+/*^ ----- ----- 29,1.- al posicionar una caja se le otorgan 4 propiedades nuevas, top, left, right y bottom, cada una empujara la caja al asignarle un valor ----- ----- */
+
+/*^ ----- ----- 29,2.- al posicionar una caja tambien obtiene la propiedad del z-index: ; la cual nos dejara definir que caja estara por encima de la otra, se recomienda mucho, casi que obligatorio poner valores grandes entre cada uno, como de 100 en en 100, o 100 a 1000, o 1000 en 1000 ----- ----- */
+
+/*^ ----- ----- 29,3.- la unica forma para colocar una caja hijo por debajo de su padre usando z-index: ; es colocando un valor de -1 y no colocar un z-index: ;  la caja padre ----- ----- */
+
+.contact-form__h2 {
+    position: relative;
+    z-index: 100;
+}
+
+/*^ ----- ----- 30.- usar position: absolute; para hacer que el espacio reservado ya no exita nunca mas pero con la caja permaneciendo en el mismo lugar, y si llegamos a usar las propiedades de top, left, right o bottom se empezara a contar desde el viewport de la pantalla, o si no tiene ninguna de esas propiedades se posicionara a base de su contenedor padre ----- ----- */
+
+/*^ ----- ----- 30,1.- si posicionamos la caja padre con un position: relative; por ejemplo, ahi el position absolute SI va a empezar a contar su posición con top, left, right y bottom a partir de su caja padre ----- ----- */
+
+/*^ ----- ----- 30,2.- al usar absolute el ancho y alto se va a adaptar dependiendo del contenido de la caja asi sea un elemento tipo bloque ----- ----- */
+
+/*^ ----- ----- 30,3.- usar opacity: ; para cambiar la opacidad de la caja, 0 es totalmente opaco y 1 es visible, se cambia usando comas "," del 0,1 al 0,9 ----- ----- */
+
+/*^ ----- ----- 30,4.- podemos pegar las cajas a cualquiera de los lados utilizando right: 0; por ejemplo, y se pegara a la derecha moviendose 0 pixeles de espacio, funciona con todas las otras propiedades ----- ----- */
+
+/*^ ----- ----- 30,5.- si usamos top 0, left 0, right 0, bottom 0 y un margin: auto; la caja se va a centrar automaticamente ----- ----- */
+
+.contact-form__h2 {
+    position: absolute;
+    opacity: 1;
+}
+
+/*^ ----- ----- 31.- usar position: fixed; para usarlo como absolute (ya su espacio no estara reservado) pero dejarlo fijado en un lugar al scrollear ----- ----- */
+
+.titulo-h1 {
+    position: fixed;
+}
+
+/*^ ----- ----- 32.- usar position: sticky; para que mantega el espacio reservado, y que ademas se comporte como un fixed, el bloque se quedara justo donde este, y cuando se scrolle y el bloque toque la parte mas alta del viewport ahi es cuando empezara a ser fixed, quedandose fijado al scrollear (hay que aplicar un valor al top, bottom, left o right para que funcione)----- ----- */
+
+.titulo-h1 {
+    position: sticky;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -              DISPLAY            - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 33.- usar display: inline-block; para que se comporte como un objeto INLINE pero al que se le puede modificar el alto y ancho ----- ----- */
+
+.h2-clase {
+    display: inline-block;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -             OVERFLOW            - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 34.- usar overflow: ; decidir que hacer con el texto que se sobresale de una caja. El valor por defecto es "visible", usar "auto" para que se añada un scroll automatico hacia los lados que hagan falta decidido por el sistema, usar "scroll" para que obligatoriamente ponga la barra de scroll, asi no sea necesario,  ----- ----- */
+
+#parrafo-p {
+    overflow: auto;
+
+    background-color: gray;
+    border: 1px solid green;
+    width: 300px;
+    height: 200px;
+    margin: 20px 200px;
+    color: greenyellow;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/*^ ----- ----- 34,1.- tambien se puede usar el overflow para "cortar" el restante de una imagen que se sobre sale de su caja ----- ----- */
+
+.contact-form {
+    margin: 50px 10px;
+}
+
+.img-container, .img-container-2 {
+    display: inline-block;
+    margin: 10px 0px;
+    margin-left: 170px;
+    width: 320px;
+    height: 350px;
+    border: 4px solid cyan;
+    background: grey;
+}
+
+.img-container {
+    overflow: hidden; /** el como seria en hidden */
+}
+
+.img-container-2 {
+    overflow: visible; /** el como seria en visible  */
+}
+
+.img-container-2__img,
+.img-container__img {
+    width: 330px;
+    top: 60px;
+    left: 30px;
+    outline: red;
+    position: relative;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -              FLOAT              - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 35.- usar float: ; para hacer que la caja "flote" hacia derecha o izquierda, se recomienda solo usarlo con imagenes para dar un efecto de que el texto rodee la imagen ----- ----- */
+
+.container-float {
+    width: 50%;
+    margin: 20px 30px;
+    box-sizing: border-box;
+    outline: 2px solid cyan;
+}
+
+.container-float__img {
+    width: 250px;
+    float: left; /** este es la imagen con el float: ; */
+    padding: 0 15px 0px 0px;
+}
+
+.container-float__p {
+    font-size: 25px;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -         PSEUDO-ELEMENTOS        - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 36.- Los pseudo-elementos son selectores de elementos que no forman parte del DOM pero que si estan ahí visualmente (como el outline) ----- ----- */
+
+/*^ ----- ----- 36,1.- usar ::first-line para modificar la primera linea con CSS referente al viewport (no funciona en inline, pero si en todos los demas displays, como block, inline block, flex etc) ----- ----- */
+
+.container-float__p::first-line {
+    color: red;
+}
+
+/*^ ----- ----- 36,2.- usar ::first-letter para modificar la primera letra ----- ----- */
+
+.container-float__p::first-letter {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/*^ ----- ----- 36,3.- usar ::placeholder para cambiar el estilo del placeholder o del content="" de los elementos ----- ----- */
+
+.contact-form {
+    background: rgb(168, 168, 168);
+    padding: 50px 20px;
+}
+
+input {
+    padding: 6px;
+}
+
+input::placeholder { 
+    color: rgba(49, 155, 49, 0.726); /** el color de letra del placeholder cambiara y se ira cuando se empiede a escribir algo */
+    background:orange; /** lo mismo con el fondo y cualquier propiedad visual de CSS */
+}
+
+/*^ ----- ----- 36,4.- usar ::selection para cambiar el estilo de la selección que hagamos con el mouse al texto ----- ----- */
+
+input::selection {
+    color: rgb(255, 153, 0);
+    background: cyan;
+    display: inline-block;
+}
+
+/*^ ----- ----- 36,5.- usar ::before y ::after para añadir un "contenido" antes o despues de un elemento, este sera un elemento que no pertenece al DOM y ademas sera hijo del elemento al que se le aplica (el atributo content="" es obligatorio) ----- ----- */
+
+.container-b {
+    box-sizing: content-box;
+    width: 50%;
+    height: 300px;
+    padding: 20px;
+    margin: 30px auto;
+    background: #c2c2c2;
+    font-size: 30px;
+}
+
+.container-b__b {
+    font-weight: normal;
+    font-size: 45px;
+}
+
+.container-b__b::before {
+    content: "me fui ";
+    font-weight: bold;
+    color: rgb(0, 153, 255);
+    background: rgb(255, 230, 0);
+}
+
+.container-b__b::after {
+    content: " buenas vacaciones";
+    font-weight: bold;
+    color: rgb(255, 187, 0);
+    background: rgb(0, 238, 255);
+}
+
+
+/*^ ----------------------------------- */
+/*^ -           PSEUDO-CLASES         - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 37.- usar :hover para cambiar los estilos CSS al pasar el mouse por encima de la caja o elemento, funcionara al igual que un eventListener, usar transition: ; para modificar el tiempo en el que se haran los cambios (aplica al elemento original, no al de hover) ----- ----- */
+
+.container-b:hover {
+    background: #919191;
+}
+
+.container-b {
+    transition: all .3s;
+}
+
+/*^ ----- ----- 38.- usar :link para cambiar los estilos CSS de un link ----- ----- */
+
+.container-a-prueba {
+    height: 200px;
+    width: 200px;
+    background: rgb(0, 238, 255);
+    margin: 30px auto;
+}
+
+.container-a-prueba__a,
+.container-a-prueba__a-2,
+.container-a-prueba__a-3 {
+    display: inline-block;
+    text-align: center;
+    background: white;
+    font-size: 24px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.container-a-prueba__a:link {
+    color: rgb(85, 165, 19);
+}
+
+/*^ ----- ----- 38,1.- usar :visited para cambiar los estilos CSS de un link que ya haya sido visitado ----- ----- */
+
+.container-a-prueba__a-3:visited {
+    color: rgb(207, 135, 0);
+}
+
+/*^ ----- ----- 39.- usar :active para cambiar el estilo CSS de un elemento que esta siendo activado por "un click" (como un botón) ----- ----- */
+
+.container-buttonActive {
+    height: 250px;
+    width: 250px;
+    background-color: blue;
+    margin: 20px auto;
+    transition: 0.3s all;
+}
+
+.container-buttonActive:active {
+    background: red;
+    width: 400px;
+}
+
+/*^ ----- ----- 40.- usar :focus para cambiar el estilo CSS de un elemento cuando esta en foco, como los inputs ----- ----- */
+
+.form-focus {
+    width: 60%;
+    height: 450px;
+    margin: 20px auto;
+    background: #acacac;
+}
+
+.form-focus__form,
+.form-focus__form-2 {
+    margin: 20px 30px;
+    height: 40px;
+    width: 350px;
+    /* transition: .5s all; */
+    font-size: 20px;
+}
+
+.form-focus__form:focus {
+    background-color: aqua;
+    outline: orange 5px solid;
+    padding: 13px;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -            OBJECT-FIT           - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 41.- usar object-fit: contain; (valor por defecto) para que las resoluciones de la imagen no se distorsionen, siempre tendra una resolución uniforme y se ajustara al contenedor pero si pasar a deformarse ----- ----- */
+
+/*^ ----- ----- 41,1.- usar object-fit: cover; (recomendado) para hacer que la imagen se ajuste al tamaño total del contenedor PERO sin llegar a deformarse, recortando los espacios/bordes ----- ----- */
+
+/*^ ----- ----- 41,2.- usar object-fit: none; para que la imagen quede con su resolución original pero las resoluciones que no quepan en el contenedor quedaran ocultas ----- ----- */
+
+.container-objectFit {
+    display: inline-block;
+    margin: 20px;
+    width: 350px;
+    height: 500px;
+    /* display: flex; */
+    outline: 2px solid red;
+}
+
+.container-objectFit__img,
+.container-objectFit__img-2,
+.container-objectFit__img-3,
+.container-objectFit__img-4 {
+    height: 100%;
+    width: 100%;
+}
+
+.container-objectFit__img {
+    object-fit: none;
+}
+
+.container-objectFit__img-2 {
+    object-fit: cover;
+}
+.container-objectFit__img-3 {
+    object-fit: contain;
+}
+
+/*^ ----- ----- 42.- usar object-position: ; para decidir que lado se vera en una imagen al usar object-fit: ; (es una propiedad que se usa para trabajar con imagenes dentro de contenedores) , sus valores son left, right, bottom y top, aparte de que se pueden usar medidas para correr la imagen con "bordes" ----- ----- */
+
+.container-objectFit__img-2 {
+    object-position: left;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -             CURSOR              - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 43.- usar cursor: ; para cambiar el como se vera el cursor cuando este por encima de una caja o cuando se haga click o se mantenga el click. Los valores son: pointer, row-resize, etc ----- ----- */
+
+.container-objectFit__img-2 {
+    cursor: pointer;
+}
+
+/*^ ----------------------------------- */
+/*^ -             COLORES             - */
+/*^ ----------------------------------- */
+
+/*^ ----- ----- 44.- se pueden usar los colores por sus nombres, como red, blue, green etc ----- ----- */
+
+.container-colors__div-1,
+.container-colors__div-2,
+.container-colors__div-3,
+.container-colors__div-4,
+.container-colors__div-5 {
+    display: inline-block;
+    margin: 20px;
+    height: 150px;
+    width: 150px;
+} 
+
+.container-colors__div-1 {
+    background-color: aqua;
+}
+
+/*^ ----- ----- 44,1.- o usar hexadecimal como #a5a5a5 (gris) y se le puede añadir 2 digitos mas para añadir la opacidad ----- ----- */
+
+.container-colors__div-2 {
+    background-color: #adff2f;
+}
+
+.container-colors__div-3 {
+    background-color: #acff2fc9;
+}
+
+/*^ ----- ----- 44,2.- o usar RGB como rgb(255, 165, 0) (naranja), se modificar la opacidad con un valor que va desde el 1.000 al 0.000 ----- ----- */
+
+.container-colors__div-4 {
+    background-color: rgb(255, 165, 0);
+}
+
+.container-colors__div-5 {
+    background-color: rgba(255, 166, 0, 0.747);
+}
+
+/*^ ----------------------------------- */
+/*^ -  RESPONSIVE DESIGN Y MOBILE FIRST -  PARTE 1  - */
+/*^ ----------------------------------- */
+
+/*^ ----- ----- 45.- responsive design es hacer que las pagins se adapten a difernetes resoluciones y mobile first sera diseñar de forma que se empiece por resolución mobil y luego tablet y luego escritorio y wide screen, para hacer todo esto se usan media queries (@media only screen and() ) ----- ----- */
+
+.container-responsive__div {
+    display: inline-block;
+    width: 49%;
+    background: lightgray;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container-responsive__div:nth-child(2) {
+    background: #9e9e9e;
+}
+
+.container-responsive__h2-div,
+.container-responsive__h1-div {
+    font-size: 34px;
+}
+
+@media only screen and (max-width: 800px) {
+
+.container-responsive__div {
+    display: block;
+    width: 100%;
+}
+
+.container-responsive__h2-div,
+.container-responsive__h1-div {
+    font-size: 24px;
+}
+
+}
+
+
+/*^ ----------------------------------- */
+/*^ -    PRUEBA DE MENU RESPONSIVE    - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- MENU RESPONSIVE ----- ----- */
+
+.nav-responsive__ul {
+    display: none;
+}
+
+/*^ ----- ----- MENU DESKTOP ----- ----- */
+
+.nav {
+    background-color: #00ac86;
+}
+
+.nav__ul {
+    background-color: #00ac86;
+    position: relative;
+    top: 0;
+    width: 80%;
+    display: block;
+    margin-top: 0;
+}
+
+.nav__li {
+    display: inline-block;
+    padding: 20px;
+}
+
+.nav__li:hover {
+    background: #008a6c;
+}
+
+.nav__li:hover > .nav__li-a {
+    color: #9c9c9c;
+}
+
+.nav__li:hover > .nav__li-icon {
+    color: #9c9c9c;
+}
+
+
+.nav__li-icon {
+    color: white;
+    margin-right: 10px;
+}
+
+.nav__li-a {
+    color: white;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .nav__ul {
+        padding-inline-start: 0;
+    }
+}
+
+/*^ ----- ----- MENU RESPONSIVE ----- ----- */
+
+.nav-responsive__button-container {
+    background-color:#007f96;
+    width: 100%;
+    height: 41px;
+}
+
+.nav-responsive__button {
+    float: right;
+    font-size: 25px;
+    padding: 6px 20px;
+    /* width: 100%; */
+    /* background-color: rgb(54, 170, 0); */
+}
+
+/*^ ----- ----- MEDIA QUERY MOBILE (500 PX) ----- ----- */
+
+@media only screen and (max-width: 500px) {
+    .nav__ul {
+        display: none;
+    }
+
+    .nav {
+        width: 100%;
+        background-color: #007f96;
+    }
+
+    .nav-responsive__ul {
+        box-sizing: border-box;
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 37px;
+        list-style: none;
+        padding: 0;
+        margin-top: 37px;
+    }
+    
+    .nav-responsive__li-container {
+        position: relative;
+        left: -100%;
+        height: calc(100vh - 64px);
+        background-color: #00d9ff;
+        width: 75%;
+        transition: all .2s;
+    }
+
+    .nav-responsive__li {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .nav-responsive__li-icon {
+        margin-right: 5px;
+        /* width: 30px; */
+        color: #00414d;
+        display: inline-block;
+        position: relative;
+        right: 0;
+    }
+
+    .nav-responsive__li-a {
+        text-decoration: none;
+        color: #00414d;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+
+    .nav-responsive__ul:hover > .nav-responsive__li-container {
+        left: 0%;
+
+    }
+
+}
+
+
+/*^ ----------------------------------- */
+/*^ -              FLEXBOX            - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 46.- usar display: flex; para convertir una caja en una caja flexible, con un main axis (eje X horizontal) y un cross axis (eje Y vertical), la caja seguira comportandose como bloque a menos que se use display: inline-flex;, PERO los elementos dentro de la caja se van a comportar de manera flexible. Los nietos no tendran ningun cambio, y se le tendra que aplicar un display: flex; al hijo de la caja para afectar al nieto ----- ----- */
+
+.container-flex {
+    display: flex;
+    margin: 20px;
+}
+
+.flex__p {
+    padding: 15px;
+    margin: 8px;
+}
+
+.flex__p--orange {
+    background-color: #ffb515;
+    outline: 3px solid #ce9211;
+}
+
+.flex__p--green {
+    background-color: #91ff00;
+    outline: 3px solid #64b100;
+}
+
+/*^ ----- ----- 47.- usar flex-direction: ; para cambiar la dirección del main axis, cambiando asi la dirección del contenido de la caja ----- ----- */
+
+/*^ ----- ----- 47,1.- tambien se puede usar row-reverse y column-reverse para cambiar la misma dirección pero hacia el lado opuesto del mismo ----- ----- */
+
+
+.flex-column {
+    flex-direction: column;
+}
+
+.p-column {
+    width: 350px;
+    height: 350px;
+}
+
+/*^ ----- ----- 48.- usar flex-wrap: wrap; para hacer que los elementos flexibles se tiren hacia abajo cuando lleguen al ancho minimo de la caja ----- ----- */
+
+/*^ ----- ----- 48,1.- usar flex-wrap: wrap-reverse; para usar la función de wrap, pero que en vez de que los elementos se tiren hacia abajo, se vaya para arriba ----- ----- */
+
+/*^ ----- ----- 48,2.- usar flex-flow: column wrap; para abreviar (short-hand) y usar flex-direction y flex-wrap en una sola linea de codigo ----- ----- */
+
+.container-flex-grow {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.flex-grow__div {
+    background: #00f1dd;
+    width: 140px;
+    height: 140px;
+    margin: 10px;
+    text-align: center;
+}
+
+.flex-grow__div--orange {
+    background-color: #ffae00;
+}
+
+.flex-grow__div--green {
+    background-color: #88f000;
+}
+
+/*^ ----- ----- 49.- usar justify-content: ; para modificar el margen entre las cajas flexibles y el espaciado entre cada una HORIZONTALMENTE ----- ----- */
+
+/*^ ----- ----- 49,1.- usar justify-content: center; para centrar todos los elementos al centro de su caja contenedora ----- ----- */
+
+/*^ ----- ----- 49,2.- usar justify-content: space-around; para centrarlos a cada uno solo en horizontal con un margen (como un margin auto), el margen estara en el lado izquierdo y derecho de las cajas ----- ----- */
+
+/*^ ----- ----- 49,3.- usar justify-content: space-between; para centarlos pero no le dara margen un margen izquierdo a la primera ni uno derecho a la ultima caja, dejando un espacio uniforme entre todas haciendo que todas esten separadas a la misma distancia (no les dara margen a las cajas que estan pegadas al final del borde del contenedor padre)----- ----- */
+
+/*^ ----- ----- 49,4.- usar justify-content: space-evenly; para que cada caja tenga un margen como el del space-around o como un margin auto, pero ahora cada caja tendra la misma distancia y el mismo margen exacto ----- ----- */
+
+.container-flex-justify-content {
+    display: flex;
+    margin: 20px;
+    justify-content: space-evenly;
+    height: 95vh;
+    outline: 3px solid #ff4800;
+}
+
+.flex-justify-content__div {
+    background-color: #00f1dd;
+    width: 140px;
+    height: 140px;
+    margin: 10px;
+    text-align: center;
+    
+}
+
+.flex-justify-content__div--orange {
+    background-color: #ffae00;
+}
+
+.flex-justify-content__div--green {
+    background-color: #88f000;
+}
+
+/*^ ----- ----- 50.- usar align-items: ; para cambiar la posición de las cajas flexibles verticalmente, centrandolas o poniendolas donde queramos, ya sea al principio al final de la caja contenedora ----- ----- */
+
+/*^ ----- ----- 50,1.- usar align-items: center; para centrar los elementos verticalmente ----- ----- */
+
+/*^ ----- ----- 50,2.- usar align-items: flex-end; para mover los elementos al final de la caja padre ----- ----- */
+
+/*^ ----- ----- 50,3.- usar align-items: flex-start; para mover los elementos al inicio de la caja padre ----- ----- */
+
+/*^ ----- ----- 50,4.- si usamos align-items: strech; y el alto de los elementos flexibles no estan definidas, los elementos se van a estirar hacia abajo por completo ----- ----- */
+
+.container-flex-justify-content {
+    align-items: flex-start;
+}
+
+/*^ ----- ----- 51.- usar align-content: ; para cambiar la posición de las cajas flexibles verticalmente como el align-items pero aca todas las cajas se quedaran juntas y no dejaran un margen entre si (todos los valores son los mismos que usa el align-items) ----- ----- */
+
+/* .container-flex-justify-content {
+    align-content: flex-end;
+} */
+
+/*^ ----- ----- 52.- usar align-items: baseline; posicionar todos los elementos en la parte mas baja de la caja y que con un flex-wrap: wrap-reverse; los elementos suban ----- ----- */
+
+.container-flex-justify-content {
+    align-content: baseline;
+    flex-wrap: wrap-reverse;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -        FLEX-BOX . PROPIEDADES DE LOS ITEMS      - */
+/*^ ----------------------------------- */
+
+
+.container-flex-itemsProperty,
+.container-flex-itemsProperty-2,
+.container-flex-shrink {
+    display: flex;
+    margin: 20px;
+    margin-top: 60px;
+    justify-content: space-evenly;
+    height: 95vh;
+    outline: 3px solid #ff4800;
+}
+
+.flex-itemsProperty__div,
+.flex-itemsProperty-2__div,
+.flex-shrink__div {
+    background-color: #00f1dd;
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+    text-align: center;
+}
+
+.flex-items-property__div--orange,
+.flex-items-property-2__div--orange,
+.flex-shrink__div--orange {
+    background-color: #ffae00;
+}
+
+.flex-items-property__div--green,
+.flex-items-property-2__div--green,
+.flex-shrink__div--green {
+    background-color: #88f000;
+    
+}
+
+/*^ ----- ----- 53.- si usamos un margin-top: auto; en un elemento flexible este ira al lado contrario del que le dijo y se quedara hasta el final del todo, y si le damos "auto" a todas las direcciones (podemos usar solo margin: auto; para abreviar) se centrara completamente ----- ----- */
+
+.flex-items-property__div--orange {
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+}
+
+/*^ ----- ----- 54.- usar align-self: ; para posicionar un elemento flexible verticalmente (los valores son los mismos que los de align-items [strech, flex-start, flex-end, center, baseline])  ----- ----- */
+
+.flex-items-property__div--green {
+    align-self: flex-end;
+}
+
+/*^ ----- ----- 55.- usar flex-grow: ; para hacer que el espacio que sobre en el contenedor se reparta entre todos los elementos, haciendolos flexibles completamente ----- ----- */
+
+/*^ ----- ----- 55,1.- si usamos un min-width: ; y un flex-wrap: ; con el flex-grow: ; se respetara el el ancho minimo del contenedor y las cajas que no quepan pasaran hacia abajo, usando todo el espacio restante que tenga el contenedor ----- ----- */
+
+.container-flex-itemsProperty-2 {
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.flex-itemsProperty-2__div {
+    min-width: 160px;
+    /* flex-grow: 1; */
+}
+
+/*^ ----- ----- 55,2.- si usamos el flex-grow: ; en mas de un elemento podemos usar valores como 1 o 3 por ejemplo, esto hara que el elemento que tenga valor de 3 le dara 3 partes del sobrante del contenedor a esa caja, y el elemento con valor de 1 le dara 1 parte del sobrante del contenedor ( 1/4 y 3/4)  ----- ----- */
+
+.flex-items-property-2__div--orange {
+    flex-grow: 3;
+}
+
+.flex-items-property-2__div--green {
+    flex-grow: 1;
+}
+
+/*^ ----- ----- 56.- usar flex-shrink: 2; para modificar el espacio que ESA CAJA va a otorgar a las demas cuando el contenedor se encoja, una vez se llegue al ancho que cada caja debe tener, dejara de otorgar espacio y todas las cajas creceran por igual. El valor por defecto es 1. ----- ----- */
+
+/*^ ----- ----- 56,1.- se puede usar flex-basis: ; como si para cambiar el ancho de las cajas flex, esta propiedad tiene mas importancia que el width normal, y es recomendado usarse para las cajas flexibles ----- ----- */
+
+/*^ ----- ----- 56,2.- si usamos flex-basis: ; y flex-shrink: .5; con un valor de menor a 1, el efecto sera inverso, y esa caja otorgara menos espacio que las otras ----- ----- */
+
+/*^ ----- ----- 56,3.- y si usamos flex-shrink: 0; con un valor de 0, esa caja JAMÁS va a otorgar espacio a las demas ocajas ----- ----- */
+
+.flex-shrink__div {
+    width: 260px;
+    margin: 0;
+    min-width: 150px;
+    flex-grow: 1;
+}
+
+.flex-shrink__div--orange {
+    flex-shrink: 3;
+    flex-basis: 260px;
+}
+
+.flex-shrink__div--green {
+    flex-basis: 300px;
+    flex-shrink: 0;
+}
+
+/*^ ----- ----- 57.- usar order: ; para posicionar las cajas en la dirección hacia donde apunte el main axis. Funciona como si fuera un z-index. ----- ----- */
+
+.flex-shrink__div--orange {
+    order: 100;
+}
+
+
+/*^ ----------------------------------- */
+/*^ - PRACTICA DE FORMULARIO CON FLEX-BOX  - */
+/*^ ----------------------------------- */
+
+
+.container-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #005bd1;
+    margin: 50px 50px;
+    padding: 20px;
+    /* border: 6px solid #00c795;
+    border-radius: 10px; */
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.form {
+    min-width: 400px;
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+    order: 50;
+}
+
+.form__input {
+    width: 100%;
+    padding: 7px;
+    margin: 6px 0;
+    border-radius: 10px;
+    border: 5px solid #00c795;
+    background: #b9b9b9;
+}
+
+.form__input::placeholder {
+    background: none;
+}
+
+.form__input:focus {
+    background: linear-gradient(to top, transparent, #b9b9b9);
+    outline: none;
+    border: 5px solid #18ffc5;
+}
+
+.form__text-area {
+    min-height: 150px;
+    resize: none;
+}
+
+.form__div-img {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    order: 10;
+}
+
+.form__img {
+    width: 80%;
+    border-radius: 20%;
+    margin: auto;
+    min-width: 400px;
+}
+
+.form input[type="submit"] {
+    background-color: #00c795;
+    padding: 12px;
+    width: 100%;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #18ffc5;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -           DISPLAY: GRID;        - */
+/*^ ----------------------------------- */
+
+/*^ ----- ----- GRID es un sistema display que se usa para los layauts ----- ----- */
+
+/*^ ----- ----- 58.- usar grid-template-rows: ; para crear filas por medidas, y grid-template-columns: ; para crear columnas ----- ----- */
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px 1fr;
+    margin: 40px;
+    border: 3px solid black;
+}
+
+.grid__div {
+    border: 1px solid black;
+    background-color: #a5a5a5;
+}
+
+/*! ----- ----- 59.- OBSOLETA usar grid-row-gap: ; y grid-colum-gap: ; para añadir un espacio entre las grid, se puede usar grip-gap: ; para abreviar ----- ----- */
+
+/* .grid-container {
+    grid-gap: 10px;
+} */
+
+/*^ ----- ----- 60.- usar grid-row-start: ; y grid-row-end: ; para definir cuantas casillas ocupara una elemento grid ----- ----- */
+
+/*^ ----- ----- 60,1.- para abreviar se utiliza grid-row: ; y grid-column: ; ----- ----- */
+
+/*^ ----- ----- 60,2.- el 1 / 3 significa, la linea donde empezara y la linea donde terminara ----- ----- */
+
+.grid__div:first-child {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    background: #00e1ff;
+}
+
+/*^ ----- ----- 60,3.- se puede usar 1 / span (numero) para indicar cuantas filas o columnas ocupara, sin necesidad de contar la linea exacta de donde quedara ----- ----- */
+
+.grid__div:nth-child(2) {
+    grid-column: 3 / span 2;
+    background-color: #15ff00;
+}
+
+/*^ ----- ----- 61.- usar la función repeat(cantidad, valor) para indicar cuantas veces repetiremos un mismo valor, y asi acortando el proceso (se puede poner varios valores, y todos se van a repetir por igual [ejemplo: repeat(3, 100px 150px)]) ----- ----- */
+
+.grid-container {
+    grid-template-columns: repeat(3, 150px) 1fr;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -    GRID IMPLICITO Y EXPLICITO   - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 62.- GRID IMPLICITO son las casillas creadas automaticamentes, y el explicito las que nosotros mismos creamos ----- ----- */
+
+/*^ ----- ----- 62,1.- usar grid-auto-rows: ; para darle un tamaño a las casillas que se vayan a crear automaticamnete ----- ----- */
+
+/*^ ----- ----- 62,2.- podemos usar grid-auto-flow: column; para hacer que las filas creadas automaticamente sean ahora columnas ----- ----- */
+
+/*^ ----- ----- 62,3.- usar grid-auto-flow: dense; para que en caso de que tengamos casillas vacias en medio de la grilla, el sistema las rellene automaticamente con el elemento mas cercano ----- ----- */
+
+.grid-container {
+    grid-auto-columns: 200px;
+    grid-auto-flow: column;
+    background-color: #525252;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -           GRID DINAMICO         - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 63.- se puede utilizar min-content y max-content en un repeat() para hacer que las grillas se adapten al minimo o maximo de su contenido ----- ----- */
+
+/*^ ----- ----- 63,1.- usar minmax dentro de un repeat, para especificar el minimo tamaño que puede tener una grilla, y el maximo tamaño que puede alcanzar a tener una grilla ----- ----- */
+
+/*^ ----- ----- 63,2.- y podemos usar el min-content dentro del minmax para hacer que el minimo tamaño sea dependiente del contenido ----- ----- */
+
+.grid-container-dinamico {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 270px));
+    grid-template-rows: repeat(3, 150px);
+    margin: 40px;
+    border: 3px solid black;
+    background-color: #525252;
+}
+
+.grid-dinamico__div {
+    border: 1px solid black;
+    background-color: #a5a5a5;
+}
+
+/*^ ----- ----- 64.- usar auto-fill dentro de un repeat, para hacer que se generen columnas automaticamente en caso de que haya espacio ----- ----- */
+
+.grid-container-dinamico {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+
+/*^ ----------------------------------- */
+/*^ -   GRID ALINEACIÓN Y CONTROL DE FRUJOS   - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 65.- usar justify-items: ; para alinear los items horizontalmente, los valores son los mismos que en flex ----- ----- */
+
+/*^ ----- ----- 65,1.- usar align-items: ; para alinear los items verticalmente ----- ----- */
+
+.grid-container-alineacion {
+    display: grid;
+    grid-template-rows: repeat(3, 150px);
+    grid-template-columns: repeat(3, 150px);
+    margin: 40px;
+    border: 3px solid black;
+    background-color: #525252;
+    justify-items: start;
+    align-items: end;
+}
+
+.grid-alineacion__div {
+    border: 1px solid black;
+    background-color: #a5a5a5;
+    font-size: 30px;
+    padding: 30px;
+}
+
+/*^ ----- ----- 66.- usar justify-content: ; para alinear las celdas horizontalmente ----- ----- */
+
+/*^ ----- ----- 66,1.- usar align-content: ; para centrar las celdas verticalmente ----- ----- */
+
+/*^ ----- ----- 66,2.- tambien le podemos dar un space-around, space-between y un space-evenly a los content ----- ----- */
+
+.grid-container-alineacion-2 {
+    display: grid;
+    grid-template-rows: repeat(3, 150px);
+    grid-template-columns: repeat(3, 150px);
+    margin: 40px;
+    border: 3px solid black;
+    background-color: #525252;
+    justify-content: center;
+    align-content: end;
+    height: 600px;
+}
+
+.grid-alineacion-2__div {
+    border: 1px solid black;
+    background-color: #a5a5a5;
+    font-size: 30px;
+    padding: 30px;
+}
+
+/*^ ----- ----- 67.- usar align-self: ; para alinear una grilla en especifico, es decir un item ----- ----- */
+
+/*^ ----- ----- 67,1.- se puede usar place-self: ; como short-hand para estas 2 ----- ----- */
+
+.grid-alineacion-2__div:first-child {
+    align-self: start;
+    justify-self: start;
+    background-color: cyan;
+}
+
+/*^ ----- ----- 68.- usar order: ; como un z-index, al igual que en flex. Este se posicionara en el orden al que vaya la grilla ----- ----- */
+
+.grid-alineacion-2__div:nth-child(3) {
+    background-color: #33ff00;
+    order: 10;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -    PRATICA DE GALERIA CON GRID  - */
+/*^ ----------------------------------- */
+
+
+.grid-container-collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+}
+
+.grid-container-collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -            GRID AREA            - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 69.- usar grid-template-areas: ; para definir una area del grid, haciendo el trabajo mucho mas facil ----- ----- */
+
+/*^ ----- ----- 69,1.- usar grid-area: ; para definir el nombre de la area del item ----- ----- */
+
+.grid-area-container {
+    background-color: #cecece;
+    margin: 20px;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main aside"
+    "main main aside"
+
+    "footer footer footer";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    /* height: 92vh; */
+    gap: 20px;
+}
+
+.grid-area__div {
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.grid-area__div--header {
+    background-color: #ffad32;
+    grid-area: header;
+    height: 20px;
+}
+
+.grid-area__ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.grid-area__li {
+    margin: 0 10px;
+    padding: 0;
+}
+
+.grid-area__div--main {
+    background-color: #2bffff;
+    grid-area: main;
+}
+
+.grid-area__div--aside {
+    background-color: #fffc41;
+    grid-area: aside;
+}
+
+.grid-area__div--footer {
+    background-color: #7bff00;
+    grid-area: footer;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -     RESPONSIVE DESIGN Y MOBILE FIRST -  PARTE 2       - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 70.- usar @media con screen para consultar un medio y cambiar los estilos (@media es una regla CSS) ----- ----- */
+
+/*^ ----- ----- 70,1.- hay operados AND y OR ----- ----- */
+
+/*^ ----- ----- 70,2.- las orientacioens son landscape el cual es mas ancho que alto, y portrait el cual es mas alto que ancho ----- ----- */
+
+/*^ ----- ----- 70,3.- MOBILE FIRST es cuando diseñamos primero para mobile y que se vaya adaptando a tablet, escritorio y ultra wide ----- ----- */
+
+.responsive-design {
+    background-color: #ffc70e;
+    margin: 20px;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+    .responsive-design {
+        background-color: #7eff33;
+    }
+}
+
+/*^ ----------------------------------- */
+/*^ -    PRUEBA DE RESPONSIVE DESIGN  - */
+/*^ ----------------------------------- */
+
+.responsive-web__header,
+.responsive-web__main,
+.responsive-web__aside,
+.responsive-web__footer {
+    padding: 20px;
+}
+
+.responsive-web__header

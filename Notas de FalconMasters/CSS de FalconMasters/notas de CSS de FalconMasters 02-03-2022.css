@@ -1,0 +1,754 @@
+
+
+                                Codigos y reglas de CSS
+
+                                /*^^ IMPORTANTES/OBLIGATORIO/SINTAXIS */
+        
+        0.- una regla css es todo el conjunto de grupos que hacemos para darle estilo a un elemento, se compone de varias
+        cosas y este incluye: 
+                
+                1 selector que nos indica a que/quien nosotros le vamos a modificar el aspecto (ejemplo: con body
+                                                                                modificamos todo el documento, o h2), 
+        
+                1 propiedad para selecioanr que queremos modificar de nuestro selector (ejemplo: background para cambiar 
+                                                                                                                el fondo), 
+        
+        y 1 valor para decir a que valor queremos cambiar en la propiedad (ejemplo: #000000 es un codigo hexadecimal
+        que significa que sera color negro, se puede usar black tambien)  
+                -LO MEJOR ES USAR CODIGO HEXADECIMAL
+        
+                Ejemplo: 
+
+                body {
+                background: #000000;
+                }
+
+                                        /*^^ SELECTORES */
+
+        1.- * {margin: 0; padding: 0;} para poner un SELECTOR UNIVERSAL y cambiar el aspecto de todos los elementos 
+                                        (se suele usar para cambiar el margin y el padding [padding es un margen interno])
+                                        
+        1,1.- margin:0; para agregar margen
+        1,2.- padding:0; para agregar un margen interno que tienen los elementos
+                -PROPIEDAD
+                
+        2.- h2 {} para hacer un selector de etiqueta (funciona con  todos los h )
+        
+        2,1.- color:; para modificar el color de la FUENTE/LA TIPOGRAFIA (la letra)
+                -PROPIEDAD
+
+        2,2.- h1,h2,h3,h4,h5,h6 {} para modificar varios h al mismo tiempo 
+                                (selector de etiqueta para todos los elementos h )
+                Ejemplo h1,h2,h3,h4,h5,h6 {
+                color:red
+                }
+
+        3.- font-size:; para cambiar el tamaño de la fuente (modificar los pixeles de la letra)
+
+        4.- p span a estos son selectores descendentes, se usa para especificar un elemento exacto, buscando dentro
+                                de otros elementos (el resultado sera siemrpe buscar el ultimo elemento, en este caso el a )
+
+        5.- .clase usar el punto ( . ) y el nombre de la clase para usar el selector de clases y aplicar cambios a todas
+                las etiquetas con esa clase, se puede usar cuantas veces quiera la misma clase (el atributo class="")
+
+        5,1.- #laID usar la id  ( # ) y el nombre de la ID para para aplicar cambios (solo se puede usar 1 misma id)
+
+        6.- a[href=""] esto es un selector para especificar un link con una url en especifico
+                
+                                basicamente se especifica el atributo y el valor
+
+        6,1.- a:link se usa para seleccionar todas las etiquetas a (anchor) las que aun no se les ha dado click 
+        6,2.- a:visited se usa para seleccionar todas las etiquetas a (anchor) que ya fueron visitadas 
+                (LE PODEMOS DAR UN ESTILO ESPECIFICO A LINKS)
+                +PSEUDO-CLASE
+
+        6,3.- "+" ul + p esto es un selector adyacente ( + ) y se usa para seleccionar solamente el elemento que le sigue 
+                                        al primer elemento. En este caso solo el priemr parrafo  despues de todos los ul
+
+        6,4.- ">" div > ul esto es un selector, se usa para seleccionar hijos directos (no agarra al hijo de otro hijo)
+                +muy recomendado al trabajar con JavaScript
+                div.clase > ul para usar una clase dentro del div
+                div#laID > ul para usar la ID dentro del div
+                
+        6,5.- "~" p ~ ul elemento hermano, es como el "+" pero menos estricto. Este selector agarrara a todos los 
+                div p ~ ul   elementos que le sigan al "~" en vez de solo al priemero (como en el "+")
+                        En este acaso agarrar a todos los ul dentro de p
+                
+                                        /*^^ UNIDADES DE MEDIDA */
+
+        7.- MEDIDAS RELATIVAS: son medidas que se adaptan al trabajo, mas que nada en DISEÑO RESPONSIVE 
+                (sobre todo em y rem, px es relativa pero casi que se considera abosluta al no ser tan flexible como em o rem)
+
+        7,1.- 16px medida para cambiar el tamaño de los pixeles
+        7,2.- 16em los em (1 em) representa el valor del elemento padre (o el elemento mas cercano) en su tamaño fuente
+                es decir, si body vale 16px, 1em vale 16px, y 2em serian 32px, y .5em seria 8px
+
+                Ejemplo: si ponemos div p el em tomara el tamaño del div (al ser su padre mas cercano), y si el div no tiene
+                tamaño, tomara el tamaño del body (si p esta en div, tomara el tamaño de la etiqueta donde esta encerrado, 
+                                                                                                        en este caso del div)
+        
+        7,3.- 16rem tomara el valor directamente del body? (creo)
+
+        8.- 16% para usar el tamaño del documento o el tamaño del padre, no se usa tanto para las fuentes, se suelen 
+                                                                        usan para las cajas (para el DISEÑO RESPONSIVE)
+
+        9.- UNIDADES ABSOLUTAS: son medidas que se establecen y no cambian, (ya no se usan)
+
+        9,1.- 16cm
+        9,2.- 16mm
+        9,3.- 16in
+
+                                        /*^^ UNIDES DE COLOR */
+
+        10.- color:; para cambiar el color de la fuente
+
+        11.- ejemplos de palabras clave para colores: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive,
+                                                        orange, purple, red, silver, teal, white, yellow, skyblue, brown
+
+        12.- maneras de usar colores con precisión son: decimales (rgb, rgba), hexadecimales(#000000) 
+                                                                        y porcentajes (rgb %, hsl %, hsla)
+
+        12,1.- h1{color: rgb(102, 255, 0);} para los decimales 
+                h1{color: rgba(102, 255, 0, 0.5)} para decimales con opacidad (valor alfa, se maneja del 0 al 1
+                                                                                                        y con decimales)
+                esta forma no es recomendada / no es eficiente 
+
+        12,2.- h2{color: #05ffff;} para los hexadecimales
+                esta forma es la mas usada y recomendada (no olvidar la almhoadilla "#")
+
+        12,3.- h3{color: hsl(290, 100%, 50%);} para los porcentajes (no se usa mucho)
+                h3{color:rgb(10%, 20%, 30%);}
+
+                                        /*^^ MODELO DE CAJA */
+
+        13.- ELEMENTOS EN LINEA, ELEMENTOS BLOQUE Y ELEMENTOS EN LINEA BLOQUE: 
+
+                -todos los elementos en un sitio web son 
+                rectangulares, se pueden modificar visualmente pero en el fondo son rectangulares. Los elementos en linea 
+                (como los enlaces <a> por ejemplo) no abarcan todo el documento (todo el espacio), solo abarcan lo que tienen 
+                que abarcar (lo que necesitan), si hay 2 elementos de tipo linea se pondra 1 al lado del otro, al contrario de 
+                los elementos bloque. A los elementos en linea no le podemos dar un ancho ni un alto (si le podemos dar un 
+                margin y un padding), pero para poder darles un ancho y alto hay que modificarlo y hacer los elementos en 
+                                                                                linea bloque (otro tipo de elemento)
+                
+                -Los elementos bloque (como los <div> o los <p>) aun que haya espacio no se ponen al lado del otro, los 
+                elementos bloque por defecto tiene el 100% del espacio que peuda contener (se estira lo mas que pueda, y el 
+                elemento en linea se estira lo que necesita)
+
+        14.- {width:;} para modificar el ancho de la caja
+
+        15.- {height:;} para modificar la altura de la caja (normalmente no se suele utilziar la propiedad height, se ponen 
+                                                                height automaticos y que crezcan conforme el contenido)
+
+        16.- {background:;} para modificar el fondo de la caja
+
+        17.- {margin:;} para agregar margenes externos 
+        17,1.- {margin: 20px 50px;} si agregamos 2 medidas la primera representa el margen hacia arriba y hacia abajo,
+                                                                        y la segunda representa el margen hacia los lados
+
+        17,2.- {margin: 10px 10px 10px 10px;} si agregamos 4 valores/medidas, un valor representa un lado del elemento.
+                        Desde arriba, abajo, izquierda y derecha (los valores van en orden de las manecillas del reloj)
+
+        18.- {padding:;} para agregar un margen interior (el contenido crece, si tenemos un height de 200px y un padding de 
+                30px el resultado final sera 260 pixeles de caja, y si queriamos una medida height de 200px tendremos 
+                que restarle 60px y tendriamos 140px de height, y si teniamos un border de 10px le restamos 20px y 
+                tendriamos 120px [recordar que la medida crece tambien a derecha e izquierda])
+
+        19.- {border:;} para agregar un borde (la caja crecera aun mas)
+        19,1.- {border:10px solid #000;}
+        
+        19,2.- TIPOS DE BORDES:
+                dotted - Define un borde punteado.
+                dashed - Define un borde discontinuo.
+                solid - Define un borde sólido.
+                double - Define un doble borde.
+                groove- Define un borde ranurado en 3D. El efecto depende del valor del color del borde.
+                ridge- Define un borde acanalado en 3D. El efecto depende del valor del color del borde.
+                inset- Define un borde de inserción 3D. El efecto depende del valor del color del borde.
+                outset- Define un borde de inicio 3D. El efecto depende del valor del color del borde.
+                none - No define fronteras
+                hidden - Define un borde oculto.
+
+        20.- {display:;} para poner una caja al lado de la otra incluso cuando son en bloque 
+                (las cajas display por defecto ya son "block" pero la podemos forzar a que sean inline o inline-block) 
+
+        20,1.- {display: inline;} para forzarla a que sea en linea
+        20,2.- {display: block;} para forzarla a que sea bloque
+        20,3.- {display: inline-block;} para forzaral a que sea en linea bloque
+
+                                        /*^^ FONDOS */
+
+        21.- body {background:} para poner un fondo a todo el documento/pagina (usar body)
+
+        22.- {background: url(../imagenes/)} para añadir una imagen usar "url", si usamos una imagen funcionara como una 
+        textura y se repetira la imagen en la pagina (se recomienda usar una textura que se pueda repetir y verse bien)
+        22,1.- para regresar una pagina hacia atras usar los 2 puntos " ../ "
+
+        22.- {background-repeat: no-repeat;} para que el fondo no se repita
+        22,1.- {background-repeat: repeat-x} para que el fondo se repita en horizontal (solia ser util para menus)
+        22,2.- {background-repeat: repeat-y} para que el fondo se repita en vertical
+
+        23.- {background-attachment: fixed;} para que el fondo este fijo en la pantalla y que no se modifique 
+                                                                                (para que no se mueva con el scroll)
+
+        23,1.- {background-attachment: scroll;} para que el fondo se mueva al subir o bajar
+
+        24.- {background-position:;} para modificar como se posiciona el fondo (ejemplo: 50% 0, 500px 200px)
+        24,1.- {background-position:center 0;} para centrar el fondo en el medio del documento 
+                                                                (y 0 pra no desplazarlo verticalmente)
+
+        25.- div {background: url(../imgaenes);} tambien podemos añadir imagenes de fondo a los div o a cualquier etiqueta
+
+        
+        26.- {background-size: cover;} para que el fondo cubra toda la pantalla
+        26,1.- {background-attachment: fixed; para que el fondo cubra toda la pantalla y no se recorte
+                background-size: 100% 100%;}
+
+                                        /*^^ POSICIONAMIENTO DE CAJA */
+
+        27.- {position:static;} es el posicionamiento por defecto del navegador (practicamente nunca se usa)
+        27,1.- .caja {position:static;} ejemplo de como usar una posición en un div con una clase 
+
+        28.- {position:relative;} se usa para posicionar una caja y despues desplazarla desde su posición original 
+                (dejando el espacio vacio, osea que los demas elementos no se van a recorrer para ocupar el espacio vacio,
+                                                                es decir, es solo un cambio visual ya que la caja sigue ahi)
+
+        28,1.- {top:;}  estas son las propiedades que nos permite desplazar las cajas
+                {bottom:;}
+                {right:;}
+                {left:;} si queremos que se desplace de izquierda a derecha {añadiendo pixeles a la izq} usamos esta
+
+        29.- {position:absolute;} nos desplaza la caja desde el elemento padre y el espacio desaparece, dejando a los 
+                demas elementos ocupar el espacio que se dejo (los elementos se van a recorrer), la caja se pondra hasta 
+                arriba y a la izquierda de todo el documento y practicamente funciona por cordenadas
+                -NO SE SUELE USAR MUCHO
+
+                Si queremos que la caja se desplaze desde la caja de otro elemento en vez de desde el documento usamos
+                un elemento/clase con un {position:relative;} y adentro de ese elemento/clase metemos una caja con 
+                                                                                {position:absolute;} la cual desplazaremos
+
+                Ejemplo: 
+                .caja_padre {
+                        width: 500px;
+                        height: 500px;
+                        background: #000;
+                        position: relative;
+                }
+                .caja {
+                        position: absolute;
+                        top: ;
+                        bottom: ;
+                        right: ;
+                        left: ;
+                }
+
+        29.- {position:fixed;} nos desplaza la caja por cordenadas A PARTIR DE NUESTRA VENTANA, y si hacemos un scroll, 
+                el elemento/caja se quedara fijo pegado en la pantalla y no afecta a los elementos (puede haber un 
+                elemento debajo o arriba de el y no se va a desplazar nunca)
+                -SE SUELE UTILIZAR POCO (pero si se utiliza, son pocas pero si se utiliza)
+
+        30.- {float:left;} para desplazar todas las cajas hacia la izquierda, acomodandose todas unas al lado del otro. 
+                Nos permite hacer los diseños que vemos en internet, es la base para crear DISEÑOS DE COLUMNA, los cuales
+                son diseños avanzados y profesional
+                (si queremos que desde un elemento en especifico [el cuarto elemento por ejemplo] ya no se posicionen
+                                                tienes que hacer una pequeña "roptura" y decir que a partir de aqui ya no)
+
+        30,1.- {float:left;} tambien se puede usar para hacer que el texto rodee la imagen
+                                                        (se pondra al rededor de toda la imagen)
+
+        30,2.- {clear:both;} se usa para "limpiar" el float desde el punto donde se ponga (se debe poner en una clase)
+                ejemplo: .limpiar {
+                        clear:both;
+                }
+
+        30,3.- {float:right;} para desplazar todas las cajas hacia la derecha
+
+                                        /*^^ TEXTO Y TIPOGRAFIA */
+        
+        31.- {color:red;} para añadir color al texto
+        31,1.- {font-style:;} para cambiar el estilo de la letra a cursiva, italica o normal
+
+        32.- {font-family:;} para agregar fuentes, se usan comas " , " para agregar varios tipos de fuente, y podemos 
+                agregar varias fuentes para que en caso de que los usuarios no tengan 1 fuente, el buscador use la otra 
+                etc (si el usuario no tienen ninguna fuente se usara la predetermiada del navegador)
+                Para cargar una imagen personalizada hay que agregarla/cargarla al servidor
+
+                Ejemplo de varias fuentes: {font-family:arial, helvetica, sans-serif, "mariad pro";}
+
+        32,1.- {font-family: "mariad pro";} se debe agregar comillas si el nomrbe de la fuente tiene un espacio
+
+        33.- {font-size:;} para cambiar el tamaño del texto/fuente
+
+        33,1.- {font-size:15pt;} 15pt es una unidad de medida (son puntos)
+
+        34.- {font-weight:;} para cambiar la anchura de la letra (ejemplo: "bold" para poner las letras en negritas)
+                bold: para negritas
+                normal: para normal
+                100: se pueden utilizar numeros 
+
+        35.- {text-align:center;} para centrar el texto (solo funciona si es una caja bloque, no se puede con tipo inline)
+                                tambien funciona con imagenes (usar un div)
+
+        35,1.- {text-align:left;} para acomodarlo hacia la izquierda
+        35,2.- {text-align:right;} para acomodarlo hacia la derecha
+
+        36.- {line-height:;} para cambiar el inter-liniado, es decir cambiar el tamaño de linea entre cada texto
+                +se suele usar mucho
+        
+        37.- {text-decoration:;} para agregar un decorado al texto 
+        37,1.- {text-decoration:underline;} para agregarle un sub-rayado al texto (los enlaces ya vienen con underline)
+        37,2.- {text-decoration:none;} para quitar un decorado al texto (se puede utilizar el decorado de  enlaces)
+        37,3.- {text-decoration:overline;} para agregar una linea por enciam del texto (no se usa nunca lol)
+        37,4.- {text-decoration:line-through;} se usa para tachar el texto 
+
+        38.- {text-transform:;} se usa para establecer/convertir todo el texto en mayusculas, minusculas, en capital etc
+        38,1.- {text-transform:capitalize;} para capitalizar la primera letra de todas las palabras
+        38,2.- {text-transform:uppercase;} para poner todas las palabras en mayuscula
+        38,3.- {text-transform:lowercase;} para poner todas las palabras en minusculas 
+                -Se suelen utilizar para los encabezados o enlaces (no para parrafos)
+
+        39.- {letter-spacing:;} para añadir espaciado entre las letras
+        39,1.- {letter-spacing:normal;} para ponerlo por defecto (se puede usar cualquier medida)
+
+        40.- {word-spacing:;} para añadir espaciado entre cada palabra
+        
+        41.- {text-shadow:;} para agregar una sombra al texto, 
+        41,1.- {text-shadow:5px 5px 5px #000;} 5px horizontal de izq a der, 5px verticalmente, 5px de tamaño y un color
+                Es mejor usarlo en enbacezados o titulos, nunca en textos de amplia lectura como parrafos o definiciones
+                -se suele ver muy feo si se añade asi, mejor añadir una sombra muy pequeñita 
+                (mejor usarlo en diseños con sobmras en especifica)
+                +RECOMENDADO usar si el texto esta por encima de una imagen donde es dificil leer el texto
+                Ejemplo: 
+                        p {
+                        font-size: 20px;
+                        font-style: normal;
+                        color: #fff;
+                        text-shadow: 1px 1px 0px rgb(0, 0, 0);
+                }
+                -se suele ver muy feo si se añade asi, mejor añadir una sombra muy pequeñita 
+                                                (mejor usarlo en diseños con sobmras en especifica)
+                
+                                        /*^^ ENLACES */
+
+        42.- a {font-size: 20px;} podemos cambiar el tamaño del texto a los enlaces
+
+        42,1.- {color:#000;} podemos cambiarle el color al texto de los enlaces
+
+        42,2.- {text-decoration:none;} para cambiar la decoración del texto, con "none" le quitamos el sub-rayado a
+                                                los enlaces que el navegador agrega por defecto (se suele usar muchisimo)
+                                
+        42,3.- {margin:;} para añadir un margen al texto de los enlaces (margen por afuera del bloque)
+
+        42,4.- {padding:;} para añadir un padding al texto (padding/margen por adentro del bloque y el texto)
+                        +IMPORTANTE cuando se escribe un a:hover
+                
+        42,5.- {box-shadow}: para añadir una sombra a los elementos 
+                Ejemplo: {box-shadow}: 0px 5px 0px #149da1;
+
+        43.- ESTADOS DE LOS ENLACES/PSEUDO CLASES: los enlaces tienen 4 estados, Y DEBEN IR EN ESTE ORDEN (tal vez?)
+
+                -estado de enlaces que ya han sido visitados, y tendran un color diferente
+                -estado de enlaces que no se han visitado, y tendran un color
+                -estado de "hover" de cuando pasamos el mouse por encima de un enlace
+                -estado al hacer click o sostener sobre un enlace, y cambiara el color
+
+        44.- a:link {color:;} para agregar color a los enlaces no visitados
+
+        44,1.- a:visited {color:;} para agregar color a los enlaces visitados
+
+        45.- a:hover {} para poner un efecto al pasar el mouse por encima del link
+        
+                Ejemplo: a:hover {text-decoration:underline;
+                                font-size:30px;
+                                background:#000;
+                                color:#fff;} 
+
+        46.- a:active {} para modificar que pasa cuando el usuario da click sobre el enlace
+
+                Ejemplo: a:active {background:#ff8000;} y el fondo cambia de color al dar click
+
+        47.- EJEMPLO DE BOTON
+
+            a {
+                font-size: 20px;
+                text-decoration: none;
+                margin: 10px 15px 10px 10px;
+                background: #2ce4eb;
+                color: #fff;
+                padding: 10px 20px;
+                display: inline-block;
+                box-shadow: 0px 5px 0px #149da1;
+            }
+            
+            a:hover {
+                box-shadow: 0px 2px 0px #149da1;
+                background: #30f8ff;
+            }
+            
+            a:active {
+                box-shadow: none;
+                background: #ccc;
+            }
+
+                                        /*^^ IMAGENES */
+
+        48.- img {height:;} para darle una altura a la imagen 
+        48,1.- {width:;} para darle una anchura a la imagen
+                (si ponemos un height o width en CSS nos dara mas prioridad en vez del tamaño de imagen en HTML)
+
+        48,2.- {width:400px; height:auto;} para poner un width y que el height sea auto, o vice versa
+                        (a pesar que de todas maneras ya sera automatico si ponemos solo width)
+
+        48,3.- img {width:100%;} para hacer que la imagen abargue un porcentaje de la caja, y asi poder hacer diseño responsive
+                Ejemplo: 
+
+                img {
+                        width: 100%;
+                        height: auto;
+                    }
+                    
+                    div{
+                        background: #ccc;
+                        width:800px;
+                    }
+        48,4.- {margin:auto;} para centrar una imagen en horizontal (es necesario tenerlo en un div/contenedor, tener un 
+                                                                {display:block;} en la imagen y ponerle un ancho a la iamgen)
+                    Ejemplo: 
+
+                    div{
+                        background: #ccc;
+                        width:100%;
+                    }
+                    
+                    img {
+                        width: 300px;
+                        height: auto;
+                        margin:auto;
+                        display: block;
+                    }
+        
+        48,5.- {margin:auto;} tambien funciona para centrar cualquier contenedor, como un div un section etc 
+                                                        (la caja/contenedor siemrpe tiene que tener su ancho)
+
+        49.- img {border-radius:;} para añadirle un borde redondeado a las imagenes
+                    
+        49,1.-{border-radius: 50%;} para convertir la imagen en un circulo 
+                        (se suele usar en redes sociales para las fotos de perfil)
+
+        50.- {box-shadow:;} para añadir una sombra a la imagen (esta sombra tambien respeta el redondeado)
+                    Ejemplo de sombra: 
+                    img {
+                        border-radius: 10px;
+                        box-shadow: 5px 5px 5px #424242;
+                    }
+
+        51.- {border:;} para agregar un marco de fotografia (es necesario añadir un padding para que se vea mejor, y dejar 
+                                        un espacio en blanco en el borde, aparte de que el borde respeta el borde redondeado)
+                Ejemplo:
+
+                img {
+                        width: 300px;
+                        height: auto;
+                        display: block;
+                        border-radius: 10px;
+                        padding: 10px;
+                        border: 1px solid #000;
+                }              
+
+        51,1.- TIPOS DE BORDES:
+
+                dotted - Define un borde punteado.
+                dashed - Define un borde discontinuo.
+                solid - Define un borde sólido.
+                double - Define un doble borde.
+                groove- Define un borde ranurado en 3D. El efecto depende del valor del color del borde.
+                ridge- Define un borde acanalado en 3D. El efecto depende del valor del color del borde.
+                inset- Define un borde de inserción 3D. El efecto depende del valor del color del borde.
+                outset- Define un borde de inicio 3D. El efecto depende del valor del color del borde.
+                none - No define fronteras
+                hidden - Define un borde oculto.
+
+                                        /*^^ LISTAS */
+
+        52.- ul {list-style-type:;} para modificar el simbolo de las listas desordenadas (discos, circulos y cuadrados) 
+                                                                                                ,por defecto esta en disc 
+        
+        52,1.- {list-style-type:disc;} para poner discos
+        52,2.- {list-style-type:circle;} para poner circulos
+        52,3.- {list-style-type:square;} para poner cuadrados
+
+        53.- ol {list-style-type:;} para cambiar el ordenamiento de las listas ordenadas
+
+        53,1.- {list-style-type:decimal;} para ordenamiento decimal (es el que viene por defecto)
+        53,2.- {list-style-type:decimal-leading-zero;} para añadir un cero (0) al inicio del ordenamiento decimal
+        53,3.- {list-style-type:upper-latin;} para ordenamiento abecedario en mayusculas
+        53,4.- {list-style-type:lower-latin;} para ordenamiento abecedario en minusculas
+
+        54.- {list-style-position:inside;} para dejar un espaciado al lado de las listas, se utilizar para especificar que 
+                                                                                hay un espaciado y decir que hay una lista
+        54,1.- {list-style-position:outside;} para poner el valor por defecto
+
+        55.- Ejemplo de menu:
+
+                nav {
+                        width: 100%;
+                        background: #000;
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                }
+                
+                nav li {
+                        display: inline-block;
+                }
+                
+                nav li a {
+                        padding: 10px 20px;
+                        display: inline-block;
+                        color: #fff;
+                }
+                
+                nav li a:hover {
+                        background: #ccc;
+                        color: #000;
+                }
+
+                                        /*^^ TABLAS */
+
+        56.- table {border:;} para añadirle un borde a la tabla (borde exterior)
+        56,1.- table td {border:;} para añadirle un borde a cada una de las celdas de la tabla 
+                Ejemplo: table {border: 1px solid #000;}
+                         table td {border: 1px solid #000; padding:20px;} (recomendable darle un padding al table td)
+
+        56,2.- {border-collapse: collapse;} para quitar quitar la separación/margen entre las celdas
+        56,3.- {border-collapse: separate;} el valor por defecto el cual añade separación 
+
+        57.- table tr:hover {background:;} para añadir un fondo y que sea facil de navegar por la tabla
+                Ejemplo: 
+                    table tr:hover {
+                        background: #ccc;
+                    }
+                    
+                    table td:hover {
+                        background: #000;
+                        color: #fff;
+                    }
+                
+                  
+                                        /* FORMULARIOS */
+
+        58.- {box-sizing:border-box;}
+             -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box; se puede usar en formularios (en el inputm y textarea) y en divs, cajas contenedores
+                etc y funciona para que al añadir paddings, margenes, bordes etc, la caja no crezca, si no que nos restara
+                                                         pixeles de la misma caja para que se mantenga del mismo tamaño
+
+        59.- input:focus, textarea:focus {
+                border: 2px solid #1668c4;} para añadir un borde al estar escribiendo en una caja de un formulario
+        
+        59,1.- {outline: none;} para quitar el borde negro por defecto
+        59,2.- {outline: transparent;}
+
+        60.- textarea {resize:;} se usa para decirle al navegador cuanto se le puede cambiar/ajustar el tamaño a un textarea
+        60,1.- {resize: :horizontal;} para que solo se pueda ajustar  horizontalmente 
+        60,2.- {resize: both;} para que se pueda ajustar hacia ambos lados (es el que viene por defecto)
+        60,3.- {resize: vertical;} para que solo se pueda ajustar verticalmente 
+        60,4.- {max-height:;} para definir su altura maxima
+        60,5.- {min-height:;} para definir su altura minima
+
+        61,.- input [type="submit"] {} es un selector avanzado para seleccionar todos los imputs que tengan el atributo type y 
+                                                                                                                el valor submit
+        61,1.- {display: block; margin: auto;} para centrar un contenido que sea o este dentro de una caja
+        61,2.- {display: inline; text-align: center;} para centrar un contenido que sea inline
+
+        62.- cursor: pointer; para que al tener el mouse encima de una caja aparezca una mano, simulando un boton
+        
+        63.- EJEMPLO DE FORMULARIO:
+
+            form {
+                width: 25%;
+                border: 1px solid #ccc;
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            label {
+                font-size: ;
+                display: block;
+                width: 100%;
+            }
+            
+            textarea {
+                resize: vertical;
+                max-height: 300px;
+                min-height: 100px;
+            }
+            
+            input, textarea {
+                margin-bottom: 20px;
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                border: 1px solid #ccc;
+            }
+            
+            input:focus, textarea:focus {
+                border: 2px solid #1668c4;
+                /* border-radius: 5px; */
+                outline: none;
+            }
+             
+            
+            input[type="submit"] {
+                margin-bottom: 0px;
+                background: #1668c4;
+                border-radius: 5px;
+                color: #fff;
+                border: none;
+            }
+            
+            input[type="submit"]:hover {
+                background: #4a88f4;
+                cursor: pointer;
+            }
+            
+            input[type="submit"]:active {
+                background: #003f86;
+            
+            }
+
+                                        /*^^ LAYAOUT DE ESTRUCTURA  BASICA */
+
+        64.- * {margin: 0; padding: 0;} para borrar todos los margenes y paddings que añade el navegador por defecto, 
+                                                                y asi nos dara un diseño desde cero como nosotros queremos
+
+        65.- body {background: #e6e6e6;} para cambiar el fondo de todo el documento body y trabajar mejor, podemos cambiarle
+                                                                        tambien el tipo de letra y el tamaño (16px por defecto)
+
+                                                {HEADER/ENCABEZADO}
+
+        66.- header, .main, footer {background: #fff;} para añadir un fondo blanco y trabajar mejor (borrarlo luego)
+        66,1.- {width: 90%;} ancho del header/encabezado, usar porcentajes para el diseño responsive
+        66,2.- {margin: 20px auto;} para centrar el contenido/caja y que tenga 20px arriba y abajo en cada elemento
+        55,3.- {max-width: 1000px;} para definir que el tamaño maximo de anchura seran 1000px
+        
+        67.- header nav {background: #528fd5;} para añadirle color al menu de navegación
+        67,1.- {overflow: hidden;} para ocultar el contenido que sobrepasa nuestro contenedor o tambien para limpiar
+        67,2.- nuestros {float:left} (lo usaremos para limpiar el {float:left;} de nuestro header nav ul li)
+
+        68.- header nav ul {list-style:none;} para quitarle los puntos (discos) a la lista
+
+        69.- header nav ul li {float: left;} para que todos los li (la lista) se junten hacia la izquierda
+
+        70.- header nav ul li a {padding: 10px 20px;} para añadir un padding arriba y abajo a los enlaces del menu de 
+                                                navegación si no le ponemos un {display:block;} el padding no funcionara.
+        70,1.- {display: block;} para que el padding funcione
+        70,2.- {color: #fff;} Color de la fuente blanco
+        70,3.- {text-decoration: none;} para quitar el sub-rayado de los enlaces
+
+        71.- header nav ul li a:hover {background: #75acec;} para añadirle un efecto al pasar el mouse por encima de los links
+
+                                                  {MAIN}
+
+        72.- .main .articles {width: 68.5%;} para ponerle un width/ancho a los articulos del 68.5% de  todo el 
+                                                                                        documento/pagina (del elemento padre)
+        72,1.- {float: left;} para mover todos los elementos a la izquierda juntos
+        72,2.- {background: #fff;} el {background:#fff;} sera temporal, es solo para visualizar la caja
+        72,3.- {margin-right: 1.5%;} para añadirle un margen en porcentajes entre los articulos y el aside (se puso primero 70%
+                 para el {width} de articles y un 30% para el {aside}, pero al añadir el margin-right, ya no seria 100% si no 
+                 101.5% asi que se hace la matematica y se recalcula para volver a dejarlo como 100% sumando todos)
+
+        73.- aside {width: 30%;} para ponerle un ancho de 30% (30% por que ya le pusimos un 68.5% a los articulo)
+        73,1.- {background: #ff8000;} un fondo para el aisde/contenido segundario
+        73,2.- {float: left;} un {float: left;} por que al ponerle una medida especial de 30% la estamos poniendo hacia abajo,
+                                        asi que le ponemos un {float: left;} para acomodarlo denuevo en forma de columna
+        73,3.- {padding: 20px;} para añadirle un padding interno al aside/contenido segundario
+        73,4.- {box-sizing: border-box;} cuando agreguemos el padding, la caja crecera y ya no sera de 30%, con la propiedad
+                de {box-sizing: border-box;} arreglamos el problema, haciendo que la caja se amolde al tamaño original (30%)
+
+        74.- .main .articles article {padding: 20px;} para añadir un padding al interior de los articulos
+        74,1.- {background: #fff;} para ponerle un fondo blanco a los articulos
+        74,2.- {margin-bottom: 20px;} para que tenga un margen solo hacia abajo de los articulos de 20px
+
+                                                {FOOTER}
+
+        75.- footer {background: #000;} solo para visualizar como se ve el footer
+        75,1.- {color: #fff;} para añadirle un color blanco a la fuente (letras)
+        75,2.- {clear: both;} para limpiar los {float: left;} los cuales dejan un rastro por defecto en los elementos
+            anteriores y siguientes de esta propiedad. Con {clear: both;} nosotros le decimos que vas a limpiar a partir de
+            aqui los {float: left;} y digamos que de alguna manera me vas a dar un salto de linea no visual, si no que en la 
+            estructura vamos a tener una separación. Asi respetando al final todo el tamaño
+        75,3.- {padding: 10px 0px;} para añadir un padding de 10px arriba y abajo, y 0 a los lados
+        75,4.- {text-align: center;} para centrar el footer
+
+                                        {EJEMPLO DE LA ESTRUCTURA EN CSS}
+
+                * {
+                        margin: 0;
+                        padding: 0;
+                 }
+                        
+                body {
+                        background: #e6e6e6;
+                 }
+                        
+                header, .main, footer {
+                        /* background: #fff; */
+                        width: 90%;
+                        max-width:1000px;
+                        margin: 20px auto;
+                }
+                        
+                header nav {
+                        background: #528fd5;
+                        overflow: hidden;
+                }
+                        
+                header nav ul {
+                        list-style: none;
+                 }
+                        
+                header nav ul li {
+                        float: left;
+                }
+                        
+                header nav ul li a {
+                        padding: 10px 20px;
+                        display: block;
+                        color: #fff;
+                        text-decoration: none;
+                 }
+                        
+                header nav ul li a:hover {
+                        background: #75acec;
+                 }
+                        
+                .main .articles {
+                        width: 68.5%;
+                        float: left;
+                        margin-right: 1.5%;
+                }
+                        
+                aside {
+                        width: 30%;
+                        background: #ff8000;
+                        float: left;
+                        padding: 20px;
+                        box-sizing: border-box;
+                 }
+                        
+                .main .articles article {
+                        padding: 20px;
+                        background: #fff;
+                        margin-bottom: 20px;
+                }
+                        
+                footer {
+                        background: #000;
+                        color: #fff;
+                        clear: both;
+                        padding: 10px 0px;
+                        text-align: center;
+                }

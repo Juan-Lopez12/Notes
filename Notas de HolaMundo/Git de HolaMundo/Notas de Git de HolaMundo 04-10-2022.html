@@ -1,0 +1,126 @@
+
+<!--^ ----------------------------------- -->
+<!--^ -           NOTAS DE GIT          - -->
+<!--^ ----------------------------------- -->
+
+
+<!--^ ----------------------------------- -->
+<!--^ -         COMANDOS BASICOS        - -->
+<!--^ ----------------------------------- -->
+
+
+<!--^ ----- ----- 1.- usar "ls" para listar todos los archivos y carpetas dentro de un directorio ----- ----- -->
+
+<!--^ ----- ----- 2.- usar "pwd" para saber en que carpeta estamos actualmente ----- ----- -->
+
+<!--^ ----- ----- 3.- usar "cd + 'nombre de la carpeta'" para movernos a otra carpeta ----- ----- -->
+
+<!--^ ----- ----- 4.- usar "cd .." para salir de la carpeta ----- ----- -->
+
+<!--^ ----- ----- 5.- usar "mkdir + 'nombre de la carpeta'" para crear un nuevo repositorio ----- ----- -->
+
+<!--^ ----- ----- 6.- usar "git init" para inicializar un directorio como si fueramos a gestionar un proyecto ----- ----- -->
+
+<!--^ ----- ----- 6,1.- los archivos .git estan ocultos, el "." punto indica que es invisible, y no saldran al usar el comando de "ls" ----- ----- -->
+
+<!--^ ----- ----- 6,2.- usar "ls -a" para mostar todos los directorios y archivos, incluyend olos que se encuentren ocultos ----- ----- -->
+
+
+<!--^ ----------------------------------- -->
+<!--^ -      FLUJO DE TRABAJO EN GIT    - -->
+<!--^ ----------------------------------- -->
+
+
+<!--^ ----- ----- con git, nosotros creamos, modificamos o eliminamos archivos en nuestro pc, que luego pasaremos a una estapa de STAGE con git add a los archivos especificos que seleccionamos (git no trackeara esto. Y  lo que buscamos con STAGE es verificar todos los cambios que nosotros queremos hacer antes de pasar al repositorio de COMMIT). Luego con git commit vamos a pasar todos los archivos de stage al repositorio, estando seguros que hicimos todos los cambios que queriamos, y despues como paso opcional podemos usar git push para pasar todos los archivos de commit a un servidor en la nube como github  ----- ----- -->
+
+<!--^ ----- ----- importante de que si queremos eliminar un archivo, hay que añadirlo con git add al stage, y luego ahi eliminarlo, de esta manera se eliminara tambien cuando ya este en el repositorio de COMMIT ----- ----- -->
+
+
+<!--^ ----- ----- 7.- usar "code ." para abrir el editor de codigo con la carpeta en la que estemos en git ----- ----- -->
+
+<!--^ ----- ----- 8.- usar "git status" para ver el estado actual del repositorio ----- ----- -->
+
+<!--^ ----- ----- 9.- usar "git add 'nombre del archivo'" para agregar un archivo al seguimiento de git ----- ----- -->
+
+<!--^ ----- ----- 9,1.- podemos usar expresiones regulares como " git add '*.html' " y asi añadira todos los archivos con esa extensión ----- ----- -->
+
+<!--^ ----- ----- 9,2.- o tambien usar un "." punto al final de "git add" para que añada todos los archivos dentro del listado en rojo que salen en "git status"        ESTO NO ES RECOMENDADO/MALA PRACTICA        a menos que estemos 100% seguro que todos los archivos sean archivos utiles que vayamos a comprometer ----- ----- -->
+
+<!--^ ----- ----- 9,3.- si queremos añadir varios archivos al mismo tiempo escribimos un archivo separamos con un espacio y luego el nombre del otro archivo "git add archivo1.html archivo2.html " ----- ----- -->
+
+<!--^ ----- ----- 9,4.- si modificamos un archivo añadido con "add" y luego escribimos git status en consola, nos mostrara el archivo antiguo listo para hacer commit y el mismo archivo pero ya modificado, para actualizarlo hay que escribir denuevo git add 'nombre del archivo' ----- ----- -->
+
+<!--^ ----- ----- 10.- usar "git commit -m 'Aquí el mensaje con sentido que hable de lo que se hizo en stage'" ----- ----- -->
+
+<!--^ ----- ----- 10,1.- podemos usar solo "git commit" y nos abrira un nuevo archivo en el editor de texto, el cual nos pedira que escribamos nuestro mensaje hasta que cerremos el archivo ----- ----- -->
+
+<!--^ ----- ----- 11.- usar "rm 'nombre del archivo'" para eliminar un archivo ----- ----- -->
+
+<!--^ ----- ----- 11,1.- podemos usar "git rm 'nombre del archivo'" para que automaticamente se elimine y se añada al stage ----- ----- -->
+
+<!--^ ----- ----- 12.- con "git restore --staged 'nombre del archivo'" podemos devolver un archivo fuera del stage ----- ----- -->
+
+<!--^ ----- ----- 13.- con "git restore 'nombre del archivo'" podemos recuperar un archivo, funciona con los archivos borrados ----- ----- -->
+
+<!--^ ----- ----- 14.- usar "mv 'nombre del archivo a remplazar' 'nombre del archivo final'" para cambiar el nombre de un archivo ----- ----- -->
+
+<!--^ ----- ----- 14,1.- al cambiar el nombre, apareceran como eliminado el viejo nombre y aparecera "sin seguimiento" al nuevo nombre del archivo, y tendremos que añadirlos con git add a ambos ----- ----- -->
+
+<!--^ ----- ----- 14,2.- si usamos "git mv 'viejo nombre del archivo' 'nuevo nombre del archivo'" se va a agregar a stage automaticamente el nuevo cambio del nombre ----- ----- -->
+
+
+<!--^ ----------------------------------- -->
+<!--^ - COMO IGNORAR ARCHIVO + CONSEJOS - -->
+<!--^ ----------------------------------- -->
+
+
+<!--^ ----- ----- 15.- podemos crear un archivo llamado ".gitignore" donde escribiremos el nombre de todos los archivos que queremos que git ignore para que no se suban ni al stage ni al repositorio COMMIT. Tambien podemos escribir las rutas de los archivos. Despues debemos subir el archivo .gitignore al COMMIT ----- ----- -->
+
+<!--^ ----- ----- 16.- usar "git status -s" para mostrar el estado de git de manera resumida y mas limpia ----- ----- -->
+
+<!--^ ----- ----- 17.- usar "git diff" para visualizar en la consola todos los cambios que se han realizado y salimos de ella con la letra "Q" ----- ----- -->
+
+<!--^ ----- ----- 17,1.- usar "git diff --staged" para ver los cambios a nuestros archivos en STAGE ----- ----- -->
+
+<!--^ ----- ----- 18.- usar "git log" para ver TODO el historial del los commits, mostrando el nombre, email, fecha y hora junto a la descripción de cada COMMIT ----- ----- -->
+
+<!--^ ----- ----- 18,1.- usar "git log --oneline" para ver una version resumida del historial, con un identificador y la descripción de cada COMMIT ----- ----- -->
+
+
+<!--^ ----------------------------------- -->
+<!--^ -            RAMAS EN GIT         - -->
+<!--^ ----------------------------------- -->
+
+
+<!--^ ----- ----- 19.- usar "git branch" para saber en que rama estamos actualmente ----- ----- -->
+
+<!--^ ----- ----- 20.- usar "git checkout -b 'nombre de la rama'" para crear una nueva rama ----- ----- -->
+
+<!--^ ----- ----- 21.- usar "git checkout 'nombre de la rama'" para cambiar de rama ----- ----- -->
+
+<!--^ ----- ----- 20,1.- algunas empresas prefieren poner como nombre de las ramas "features/nombre-de-la-funcionalidad", y otras empresas prefieren poner solo el número del ticket que quieren arreglar como "SS-4515" por ejemplo ----- ----- -->
+
+<!--^ ----- ----- 21.- usar "cat 'nombre del archivo'" para ver el contenido del archivo ----- ----- -->
+
+<!--^ ----- ----- 22.- usar "git merge 'nombre de la rama'" para fusionar la nueva rama a la rama principal MASTER. Es importante que estemos primero dentro de la rama MASTER o la rama a la que le queremos fusionar la otra encima ----- ----- -->
+
+
+<!--^ ----------------------------------- -->
+<!--^ -          SUBIR A GITHUB         - -->
+<!--^ ----------------------------------- -->
+
+
+<!--^ ----- ----- 23.- En github creamos un nuevo repositorio ----- ----- -->
+
+<!--^ ----- ----- 23,1.- usando "git remote add origin 'aqui el enlace que nos dan'" la subimos usando la terminal ----- ----- -->
+
+<!--^ ----- ----- 23,2.- con "remote" indicamos que el servidor sera remoto, y con "add origin" le indicamos de donde vamos a obtener el codigo y a donde vamos a subirlo ----- ----- -->
+
+<!--^ ----- ----- 24.- usar "git push" para subir nuestros cambios, pero la rama de master/main no se encuentra creada en github asi que indicaremos que queremos creala usando "-u origin main", con -u cremaos la rama, origin donde se creara, y luego el nombre de la rama (haremos esto la primera vez que creamos un repositorio) ----- ----- -->
+
+<!--^ ----- ----- 25.- usar "git push" para subir cualquier cambio ----- ----- -->
+
+<!--^ ----- ----- 26.- si queremos crear una nueva rama pero no queremos hacer un MERGE con MASTER PERO si queremos subirla al repositorio escribimos lo siguiente: ----- ----- -->
+
+<!--^ ----- ----- 26,1.- creamos una rama con "git checkout -b 'nombre de la rama'" y luego "git push -u origin 'ramaC'" y esto creara esta rama en el repositorio ----- ----- -->
+
