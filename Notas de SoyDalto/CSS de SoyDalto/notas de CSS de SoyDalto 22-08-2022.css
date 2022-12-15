@@ -1481,11 +1481,414 @@ input::selection {
 /*^ -    PRUEBA DE RESPONSIVE DESIGN  - */
 /*^ ----------------------------------- */
 
+
+.responsive-web {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "header header header"
+    "main main main"
+    "aside aside aside"
+    "footer footer footer";
+    gap: 7px;
+    background-color: #b4b4b4;
+    /* margin: 20px; */
+    padding: 5px;
+}
+
+.responsive-web__header {
+    grid-area: header;
+}
+
+.responsive-web__main {
+    grid-area: main;
+}
+
+.responsive-web__aside {
+    grid-area: aside;
+}
+
+.responsive-web__footer {
+    grid-area: footer;
+}
+
 .responsive-web__header,
 .responsive-web__main,
 .responsive-web__aside,
 .responsive-web__footer {
     padding: 20px;
+    border-radius: 5px;
 }
 
-.responsive-web__header
+.responsive-web__header {
+    background-color: #2bffff;
+}
+
+.responsive-web__main {
+    background-color: #ffc70e;
+}
+
+.responsive-web__aside {
+    background-color: #fffc41;
+}
+
+.responsive-web__footer {
+    background-color: #7eff33;
+}
+
+@media screen and (min-width: 900px) {
+
+    .responsive-web {
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .responsive-web {
+        grid-template-areas: 
+        "header header header"
+        "main main aside"
+        "footer footer footer";
+        gap: 7px;
+    }
+
+}
+
+
+/*^ ----------------------------------- */
+/*^ -           TRANSITION            - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 71.- Transition se usa para ir mostrando el progreso de un cambio, y sera reflejada en forma de animación de sus frames  ----- ----- */
+
+/*^ ----- ----- 71,1.- transition-property: ; se usa para especificar que propiedad queremos animar ----- ----- */
+
+/*^ ----- ----- 71,2.- transition-duration: ; se usa para especificar el tiempo que va a durar la animación. Si añadimos un segundo valor separado por coma, esa sera la duración de la segunda propiedad ----- ----- */
+
+/*^ ----- ----- 71,3.- transition-delay: ; especificara cuanto tiempo tomara antes de empezar la animación  ----- ----- */
+
+/*^ ----- ----- 72.- transition-timing-function: ; para especificar la curva del tiempo que tomara la animación (la transición en función del tiempo) ----- ----- */
+
+/*^ ----- ----- 72,1.- los valores de transition-timing-function: ; son: linear, ease, ease-in, ease-out, ease-in-out, step-start, step-end, step(int, start|end), initial y inherit ----- ----- */
+
+.transition {
+    height: 120px;
+    padding: 30px;
+    margin: 20px;
+    background-color: #ffc70e;
+}
+
+.transition__div {
+    height: 100px;
+    width: 100px;
+    background-color: #2bffff;
+    transition-property: background;
+    transition-duration: 1s;
+    /* transition-delay: .5s; */
+    transition-timing-function: ease;
+}
+
+.transition__div:hover {
+    background-color: #7eff33;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -           Animaciones           - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 73.- Las animaciones son como los transition pero con otras reglas ----- ----- */
+
+/*^ ----- ----- 73,1.- Se debe usar @KeyFrames para definir una animación junto con su nombre ----- ----- */
+
+/*^ ----- ----- 74.- Con animatiom-name: ; para darle la animación a un elemento con el nombre de la animación ----- ----- */
+
+/*^ ----- ----- 75.- Podemos definir como se va a comportar una animación dentro de keyframes con: from {} y to {}, y con porcentajes ----- ----- */
+
+/*^ ----- ----- 76.- Usar animation-iteration-count: ; para definir cuantas veces se va a repetir la animación ----- ----- */
+
+/*^ ----- ----- 77.- Usar animation-direction: ; para cambiar la direción de la animación ----- ----- */
+
+/*^ ----- ----- 77,1.- Las propiedades son: reverse, alternate, alternate-reverse ----- ----- */
+
+/*^ ----- ----- 78.- usar animation-fill-mode: ; para definir como se va a quedar el elemento al final ----- ----- */
+
+/*^ ----- ----- 78,1.- con none volvera a la normalidad ----- ----- */
+
+/*^ ----- ----- 78,2.- con backwards se quedara con el primer fotograma clave ----- ----- */
+
+/*^ ----- ----- 78,3.- con forwards se quedara con la ultima posición en la que esta ----- ----- */
+
+/*^ ----- ----- 78,4.- con both se empezara de golpe con el primer frame de la animación y se quedara con la ultima posición de la animación ----- ----- */
+
+.animation {
+    height: 120px;
+    padding: 30px;
+    margin: 20px;
+    background-color: #ffc70e;
+}
+
+.animation__div {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    background-color: #2bffff;
+    animation-name: desplazarse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes desplazarse {
+    0% {
+        left: 0;
+    }
+
+    50% {
+        background-color: #fffc41;
+    }
+
+    100% {
+        left: 80%;
+        background-color: #7eff33;
+    }
+}
+
+
+/*^ ----------------------------------- */
+/*^ -            TRANSFORM            - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 79.- Transform nos permite transformar un elemento de varias formas  ----- ----- */
+
+/*^ ----- ----- 80.- Con el valor translateX se movera el elemento en el eje X (horizontal) ----- ----- */
+
+/*^ ----- ----- 80,1.- Si usamos porcentajes se va a mover la distancia que sea del tamaño del ancho del elemento, si el elemento mide 80px el 100% sera moverlo 80px en el eje X ----- ----- */
+
+/*^ ----- ----- 80,2.- si usamos translateY sera lo mismo pero en el eje Y ----- ----- */
+
+/*^ ----- ----- 80,3.- si usamos valores negativos con porcentajes el elemento se ira hacia la otra dirección del eje ----- ----- */
+
+/*^ ----- ----- 80,4.- si usamos translate( x, y) trabajara como un shorthand para los 2 valores ----- ----- */
+
+.transform {
+    background-color: #ffc70e;
+    padding: 40px;
+    margin: 20px;
+    display: flex;
+    
+}
+
+.transform__div {
+    margin: 0 30px;
+    background-color: #7eff33;
+    height: 80px;
+    width: 80px;
+    display: flex;
+}
+
+.transform__div-1 {
+    transform: translatey(-100%);
+}
+
+.transform__p {
+    color: #000;
+    margin: auto;
+}
+
+/*^ ----- ----- 81.- Usar scale() para cambiar el tamaño de un elemento basandose en su escala ----- ----- */
+
+/*^ ----- ----- 81,1.- tambiem podemos usar scaleX() y scaleY()  ----- ----- */
+
+.transform__div-2 {
+    transition: ease 1s transform;
+}
+
+.transform__div-2:hover {
+    transform: translatey(-100%) scalex(1.5);
+}
+
+/*^ ----- ----- 82.- usar skew(deg) para rotar un elemento ----- ----- */
+
+.transform__div-3 {
+    transition: ease 1s transform;
+}
+
+.transform__div-3:hover {
+    transform: rotate(45deg);
+}
+
+/*^ ----- ----- 83.- usar clip-path: ; para recortar un elemento de la manera que queraos, como circulos hexagonos, cruces, mensajes etc ----- ----- */
+
+/*^ ----- ----- 83,1.- usar https://bennettfeely.com/clippy/ para crear las formas ----- ----- */
+
+/*^ ----- ----- 83,2.- usar https://www.cssmatic.com/box-shadow para generar sombras ----- ----- */
+
+.transform__div-4 {
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+}
+
+
+/*^ ----------------------------------- */
+/*^ -            BACKGROUND           - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 84.- usar background: url(); para añadir un fondo mediante url de internet o local ----- ----- */
+
+/*^ ----- ----- 85.- usar background-size: ; para modificar el tamaño del fondo ----- ----- */
+
+/*^ ----- ----- 85,1.- sus valores son x, y (se pueden utilizar porcentajes y px) ----- ----- */
+
+/*^ ----- ----- 85,2.- cover hara que la iamgen se ajuste al tamaño del contenedor, en vez de ser del tamaño de la imagen original ----- ----- */
+
+.background-container {
+    display: flex;
+}
+
+.background {
+    background-color: #ffc70e;
+    margin: 20px;
+    height: 360px;
+    width: 360px;
+}
+
+.background--1 {
+    background: url(img/doge\ computer.png);
+    background-size: cover;
+}
+
+/*^ ----- ----- 85,3.- con contain la imagen completa se ajustara al contenedor pero se repetira ----- ----- */
+
+/*^ ----- ----- 85,4.- con background-repeat: ; decidiremos si el fondo se repite o no ----- ----- */
+
+.background--2 {
+    background: url(img/doge\ computer.png);
+    background-color: #ffc70e;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*^ ----- ----- 86.- usar background-origin: ; para decidir desde donde empezara a verse el background ----- ----- */
+
+/*^ ----- ----- 86,1.- con sus valores son border-box, padding-box, content-box ----- ----- */
+
+/*^ ----- ----- 87.- con background-clip: ; es lo mismo que origin pero se recortara la imagen ----- ----- */
+
+/*^ ----- ----- 88.- usar background-position: ; para definir la posición del fondo. Se debe especificar X & Y ----- ----- */
+
+/*^ ----- ----- 89.- usar background-attachment: ; para definir el comportambiento del fondo. Con scroll el fondo se quedara bajara al scrollear, con fixed se quedara fijado y tomara como referencia el viewport ----- ----- */
+
+
+/*^ ----------------------------------- */
+/*^ -          VARIBLES EN CSS        - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 90.- una variable en css es un espacio que se almacena en memoria. Existan variables grobales que pueden ser usadas por cualquier selector y las variables locales ----- ----- */
+
+/*^ ----- ----- 91.- para crear variables grobales usar el selector :root{ }, y dentro de root escribieremos "--nombre-de-la-variable: ;" ----- ----- */
+
+/*^ ----- ----- 91,1.- si definimos la variable dentro de un "p" por ejemplo, esa variable solo estara disponible para los elementos "p". A estos se le conoce como variables locales ----- ----- */
+
+/*^ ----- ----- 91,2.- podemos redefinir una variable dentro de una etiqueta, volviendo a escribir su nombre y escribiendo un valor distinto, esto solo afectara a dichos elementos  ----- ----- */
+
+:root {
+    --color-verde: #7eff33;
+}
+
+.variables-css {
+    display: flex;
+}
+
+.variables-css__div {
+    margin: 30px;
+    height: 300px;
+    width: 300px;
+}
+
+.variables-css__div-1 {
+    background: var(--color-verde);
+}
+
+.variables-css__div-2 {
+    background: #2bffff;
+}
+
+
+/*^ ----------------------------------- */
+/*^ -             FILTER              - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 92.- usar filter: ; para trabajar con filtros. none hace que tenga ninguno ----- ----- */
+
+/*^ ----- ----- 92,1.- blur() hara que tenga un desenfoque ----- ----- */
+
+/*^ ----- ----- 92,2.- brightness() para cambiar la escala de brillo ----- ----- */
+
+/*^ ----- ----- 92,3.- contrast() para cambiar el nivel de contraste ----- ----- */
+
+/*^ ----- ----- 92,4.- drop-shadow() para añadir una sombra a la imagen, se usa en imagenes transparentes  ----- ----- */
+
+/*^ ----- ----- 92,5.- grayscale() para cambiar la escala de grises ----- ----- */
+
+/*^ ----- ----- 92,6.- hue-rotate() para rotar la gama de colores ----- ----- */
+
+/*^ ----- ----- 92,7.- invert() para invertir la gama de colores ----- ----- */
+
+/*^ ----- ----- 92,8.- opacity() para añadir opacidad ----- ----- */
+
+/*^ ----- ----- 92,9.- saturate() para saturar el elemento ----- ----- */
+
+/*^ ----- ----- 92,10.- sepia() para convertirlo en sepia ----- ----- */
+
+/*^ ----- ----- 92,11.-  ----- ----- */
+
+.filter {
+    filter: contrast(30);
+    background-color: #fff;
+}
+
+.filter__div {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background: red;
+    margin: 40px;
+    border-radius: 50%;
+    filter: blur(20px);
+}
+
+.filter__div:first-child {
+    animation: trasladar 3s alternate infinite;
+}
+
+@keyframes trasladar {
+    0% {
+        transform: translate(0);
+    }
+
+    100% {
+        transform: translate(160px);
+    }
+}
+
+
+/*^ ----------------------------------- */
+/*^ - OTRAS PROPIEDADES, FUNCIONES, Y SELECTORES CURIOSOS DE CSS - */
+/*^ ----------------------------------- */
+
+
+/*^ ----- ----- 93.- direction: ; cambiara el orden desde donde se leen las letras. Sus valores son: ltr, rtl ----- ----- */
+
+/*^ ----- ----- 94.- letter-spacing: ; va a añadir un espaciado entre cada letra la cantidad que nosotros le digamos ----- ----- */
+
+/*^ ----- ----- 95.- scroll-behavior: ; para hacer que el movimiento del scroll cambie. smooth hara que sesa de manera suave ----- ----- */
+
+/*^ ----- ----- 96.- user-selected: ; para cambiar si el usuario puede selecionar texto. Con none evitaremos que seleccione ----- ----- */
+
+/*^ ----- ----- 97.- https://www.w3schools.com/cssref/css_selectors.php para referencias de todos los tipos de selectores ----- ----- */
