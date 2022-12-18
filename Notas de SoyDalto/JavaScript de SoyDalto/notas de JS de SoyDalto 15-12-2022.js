@@ -238,7 +238,407 @@ if (nombreCondicional == "Juan") {
     document.write(`<br /><br /> <b>Tu nombre es ${nombreCondicional}<b/>`);
 
 } else {
-    document.write(`<br /><br /> <b>Tu nombre es otro<b/>`);
+    document.write(`<br /><br /> Tu nombre es otro`);
 }
 
 
+
+
+//? ----------------------------------- 
+//* -       HISTORIA DE COFRA 1       - 
+//* ----------------------------------- 
+
+
+const dineroDiv = document.getElementById('dineroDiv');
+
+const dineroDeRoberto = document.getElementById('dineroDeRoberto');
+const dineroDePedro = document.getElementById('dineroDePedro');
+const dineroDeCofla = document.getElementById('dineroDeCofla');
+
+const dineroEnTotal = document.querySelector('.dineroTotal')
+const tipoHelado = document.querySelector('.tipoDeHelado');
+const vuelto = document.querySelector('.vuelto');
+
+const facturaHelado = (dineroVuelto, precio, helado) => {
+    dineroVuelto = dineroVuelto - precio;
+    dineroVuelto = dineroVuelto.toFixed(2);
+    tipoHelado.innerHTML = helado
+    vuelto.innerHTML = dineroVuelto;
+};
+
+dineroDiv.addEventListener('input', () => {
+
+    let dineroRoberto = dineroDeRoberto.value;
+    let dineroPedro = dineroDePedro.value;
+    let dineroCofla = dineroDeCofla.value;
+    
+    dineroRoberto = Number(dineroRoberto);
+    dineroPedro = Number(dineroPedro);
+    dineroCofla = Number(dineroCofla);
+
+    const dineroTotal = dineroRoberto + dineroPedro + dineroCofla;
+    let dineroVuelto = dineroTotal;
+
+    dineroEnTotal.innerHTML = `${dineroTotal}$ USD`;
+
+    if (dineroTotal < 0.6) {
+
+        const helado = `Lo siento, pobre de mierda, no te alcanza para ningun helado`;
+        const precio = 0;
+        facturaHelado(dineroVuelto, precio, helado);
+
+    } else if (dineroTotal >= 0.6 && dineroTotal < 1) {
+        
+        const helado = `Palito de helado de agua`;
+        const precio = 0.6;
+        facturaHelado(dineroVuelto, precio, helado);
+
+    } else if (dineroTotal >= 1 && dineroTotal < 1.6) {
+
+        const helado = `Palito de helado de crema`;
+        const precio = 1;
+        facturaHelado(dineroVuelto, precio, helado);
+
+    } else if (dineroTotal >= 1.6 && dineroTotal < 1.7) {
+
+        const helado = `Bombón helado marca heladix`;
+        const precio = 1.6;
+        facturaHelado(dineroVuelto, precio, helado);
+
+    } else if (dineroTotal >= 1.7 && dineroTotal < 1.8) {
+
+        const helado = `Bombón helado marca heladovich`;
+        const precio = 1.7;
+        facturaHelado(dineroVuelto, precio, helado);
+
+    } else if (dineroTotal >= 1.8 && dineroTotal < 2.9) {
+
+        const helado = `Bombón helado marca helardo`;
+        const precio = 1.8;
+        facturaHelado(dineroVuelto, precio, helado);
+
+    } else if (dineroTotal >= 2.9) {
+
+        const helado = `Potecito de helado con confites o Pote de 1/4 KG`;
+        const precio = 2.9;
+        facturaHelado(dineroVuelto, precio, helado);
+
+    }
+});
+
+
+
+
+//^ ----------------------------------- 
+//^ -             ARRAYS              - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 22.- Un array es una manera de guardar mas de 1 dato, y de diferentes tipos ----- ----- 
+
+//^ ----- ----- 22,1.- para definir una array usamos corchetes [] y se paramos cada elemento por una coma "," ----- ----- 
+
+//^ ----- ----- 22,2.- los arrays tienen un indice, y ese index empieza desde 0, para aceder a los elementos desde el indice usamos corchetes [] y el número del indice  ----- ----- 
+
+
+const arrays = ["Juan", 24, "Caracas"];
+
+const frutas = ["banana", "manzana", "pera", 5, 9, "pedro"];
+
+document.write(`<br /><br /> ${frutas}`);
+document.write(`<br /><br /> ${frutas[1]}`);
+
+
+//^ ----------------------------------- 
+//^ -         ARRAYS ASOCIATIVOS      - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 23.- Los arrays asociativos es una manera de crear arrays, pero que su indice no sea un numero, si no un nombre al que nosotros le definimos ----- ----- 
+
+const br = "<br /><br />";
+
+const pc = {
+    nombrePC: "JuanPC",
+    grafica: "Nvidia GT 710",
+    procesador: "AMD Athlon II X3",
+    ram: "3GB",
+    espacio: "300GB",
+};
+
+document.write(`${br}${pc["nombrePC"]}`);
+
+const nombrePC = pc["nombrePC"];
+const grafica = pc["grafica"];
+const procesador = pc["procesador"];
+const ram = pc["ram"];
+const espacio = pc["espacio"];
+
+const fraseArrayAsociativo = 
+    `${br} El nombre de mi PC es <b>${nombrePC }</b> <br>
+    La grafica es: <b>${grafica}</b> <br>
+    El procesador es: <b>${procesador}</b> <br> 
+    La memoria ram es: <b>${ram}</b> <br>
+    El espacio en disco es de <b>${espacio}</b> <br>`;
+
+document.write(`${fraseArrayAsociativo}`);
+
+
+//^ ----------------------------------- 
+//^ -       BUCLES E ITERACIÓN        - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 24.- Un bucle "while" es como un "if", si una condición se cumple ejecutara el bloque, y al terminar, volvera a preguntar la condición y se volvera a ejecutar, hasta que la condición no sea verdadera ----- ----- 
+
+
+let numero1Bucles = 0;
+
+if (numero1Bucles < 10) {
+
+    numero1Bucles++;
+    numero1Bucles++;
+
+    document.write(br, numero1Bucles, br);
+
+};
+
+
+let numero2Bucles = 0;
+
+while (numero2Bucles < 6) {
+
+    numero2Bucles++;
+
+    document.write(numero2Bucles + "<br>");
+};
+
+document.write("<br>");
+
+
+//^ ----- ----- 25.- Con el "do while" primero se ejecuta el bloque de codigo, y luego se pregunta la condición, si es verdadera, seguira ejecutandose ----- ----- 
+
+
+let numero3Bucles = 0;
+
+do {
+
+    numero3Bucles++;
+
+    document.write(numero3Bucles + "<br>");
+
+} while (numero3Bucles <= 6);
+
+
+//^ ----- ----- 26.- La sentencia "break" nos permite romper un bucle, podemos usar un "if" y si la condición se cumple poner un break, asi se detendra en la parte que le indiquemos ----- ----- 
+
+
+let numero1Break = 0;
+
+while (numero1Break < 100) {
+
+    numero1Break++;
+    document.write(numero1Break);
+
+    if (numero1Break === 10) {
+
+        break;
+        
+    };
+
+};
+
+document.write("fin");
+
+
+//^ ----- ----- 27.- Un ciclo "for" es como un "if" o un "while", pero se va a repetir las veces que nosotros le indiquemos ----- ----- 
+
+//^ ----- ----- 27,1.- un "for" esta constituido por 3 partes: la declaración e iniciailización, la condición, y al final el aumento o decremento ----- ----- 
+
+//^ ----- ----- 27,2.- tambien podemos declarar la variable por fuera y añadirla dentro del "for", ejemplo: for (i; i >= 0; i--) ----- ----- 
+
+//^ ----- ----- 27,3.- se puede usar un break en "for" tambien ----- ----- 
+
+
+document.write("<br>");
+
+for (let i = 6; i >= -3; i--) {
+
+    if (i === -2) {
+        break
+    };
+    
+    document.write(i + "<br>");
+
+};
+
+
+//^ ----- ----- 28.- Con "continue" lo usamos como un break, pero en vez de que termine el bucle, este solo saltara esa o esas iteraciones, y luego continuara con normalidad ----- ----- 
+
+
+document.write("<br>");
+
+for (let i = 20; i > 0; i--) {
+
+    if (i <= 15 && i > 9) {
+        continue
+    };
+    
+    document.write(i + "<br>");
+
+}
+
+
+//^ ----- ----- 29.- Con "forin" podemos hacer un for de manera resumida, y nos permitira iterar sobre el indice de un arreglo, y nos devolvera su posición ----- ----- 
+
+
+document.write("<br>");
+
+
+const animales = ["gato", "perro", "tiranosaurio rex"];
+animales.tamano = "grande"
+
+for (animal in animales) {
+    
+    document.write(animal + "<br>");
+
+};
+
+
+document.write("<br>");
+
+
+for (animal in animales) {
+    
+    document.write(animales[animal] + "<br>")
+
+};
+
+
+//^ ----- ----- 30.- "forof" es lo mismo que un "forin" pero nos devolvera su valor ----- ----- 
+
+
+document.write(`${br}${br}`);
+
+
+for (animal of animales) {
+    
+    document.write(animal + "<br>");
+
+};
+
+document.write(`<br> ${animales.tamano}`);
+
+
+
+document.write(`${br}`);
+
+for (componente in pc) {
+
+    document.write(`<b>${componente}:</b> <br>`);
+    document.write(`${pc[componente]}<br>`);
+    document.write("<br>");
+
+};
+
+
+//^ ----- ----- 30,1.- tambien podemos recorrer un bucle dentro de otro bucle ----- ----- 
+
+//^ ----- ----- 31.- La sentencia label nos permite darle un nombre a un bucle, y usarlo para terminarlo por ejemplo ----- ----- 
+
+
+const array1Bucle = ["maría", "josefa", "roberta"];
+const array2Bucle = ["pedro", "marcelo", array1Bucle, "josé"];
+
+forRancio: for (let array in array2Bucle) {
+
+    if (array == 2) {
+        
+        for (let array of array1Bucle) {
+
+            if (array === "maría") {
+                continue
+            };
+
+            document.write(array + "<br>");
+            break forRancio;
+
+        };
+
+    } else {
+
+        document.write(array2Bucle[array] + "<br>");
+
+    };
+};
+
+
+//^ ----------------------------------- 
+//^ -            FUNCIONES            - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 32.- Una función es una porción de codigo que encapsulamos para volverlo a reutilizar mas adelante ----- ----- 
+
+//^ ----- ----- 32,1.- se crea con la palabra reservada "function()" ----- ----- 
+
+//^ ----- ----- 32,1.- se puede crear una función de varias maneras, usando "function 'nombre_de_variable()'" o "'nombre_de_variable' = function()" ----- ----- 
+
+const inputRespuestaFunction1 = document.getElementById('inputRespuestaFunction');
+const respuestaFunction1 = document.getElementById('respuestaFunction');
+
+function saludarFunction(a, b, c, d) {
+    
+    a.addEventListener('input', () => {
+    
+        if (c === undefined || d === undefined ) {
+
+            if (a.value === "bien" ) {
+                
+                b.innerHTML = "me alegro"
+                
+            } else if (a.value === "mal") {
+                
+                b.innerHTML = "que pena"
+                
+            } else {
+                
+                b.innerHTML = ""
+                
+            };
+            
+        } else {
+            
+            if (a.value === "bien" ) {
+                
+                b.innerHTML = c
+                
+            } else if (a.value === "mal") {
+                
+                b.innerHTML = d
+                
+            } else {
+                
+                b.innerHTML = ""
+                
+            };
+            
+        }
+
+    
+    });
+
+};
+
+saludarFunction(inputRespuestaFunction1, respuestaFunction1);
+
+
+const inputRespuestaFunction2 = document.getElementById('inputRespuestaFunction2');
+const respuestaFunction2 = document.getElementById('respuestaFunction2');
+
+saludarFunction(inputRespuestaFunction2, respuestaFunction2, "guay", "pucha")
+
+saludo 
+
+
+//^ ----- ----- 33.-  ----- ----- 
