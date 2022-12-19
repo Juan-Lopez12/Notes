@@ -623,7 +623,7 @@ function saludarFunction(a, b, c, d) {
                 
             };
             
-        }
+        };
 
     
     });
@@ -636,9 +636,79 @@ saludarFunction(inputRespuestaFunction1, respuestaFunction1);
 const inputRespuestaFunction2 = document.getElementById('inputRespuestaFunction2');
 const respuestaFunction2 = document.getElementById('respuestaFunction2');
 
-saludarFunction(inputRespuestaFunction2, respuestaFunction2, "guay", "pucha")
-
-saludo 
+saludarFunction(inputRespuestaFunction2, respuestaFunction2, "guay", "pucha");
 
 
-//^ ----- ----- 33.-  ----- ----- 
+//^ ----- ----- 33.- Un return le asocia un valor a la función. Las funciones ejecutan codigo pero estan vacias, el return hara que la función acabe y nos dara un dato (se puede usar como un break), ya sea string, numero, booleano, array etc ----- ----- 
+
+
+function saludarFunction2() {
+    return "todo okay";
+    alert("hola");
+};
+
+const saludoFunction = saludarFunction2();
+
+document.write("<br>" + saludoFunction);
+
+
+//^ ----- ----- 34.- Un parametro es una manera de definir una variable dinamicamente dentro de una función ----- ----- 
+
+
+function sumaFunction(num1,num2) {
+
+    document.write(br);
+
+    const res = num1 + num2;
+
+    return res;
+
+    // document.write(res);
+    
+};
+
+// sumaFunction(12,32);
+
+// sumaFunction(22,55);
+
+const resultadoFunction = sumaFunction(20,25);
+
+document.write(resultadoFunction);
+
+
+function saludarFunction3(nombre) {
+
+    const frase = `¡Hola ${nombre}! ¿Cómo estás?`;
+    
+    document.write(br);
+    document.write(frase);
+
+}
+
+saludarFunction3("Pedro");
+
+
+//^ ----- ----- 35.- Una función flecha es otra manera de crear una función de manera mucho mas resumida ----- ----- 
+
+
+const saludarFlecha = (nombre) => {
+    
+    const frase = `¡Hola ${nombre}! ¿Cómo estás?`;
+    
+    document.write(br);
+    document.write(frase);
+
+}
+
+saludarFlecha("Pedro");
+
+
+
+//^ ----- ----- 35,1.- las funciones flechas pueden ser resumidas aun mas. Por ejemplo, si solo recibe un parametro no hace falta ponerle parentesis ----- ----- 
+
+//^ ----- ----- 35,2.- Si la función tiene una sola linea de codigo no hace falta ponerle corchetes ----- ----- 
+
+const saludarFlecha2 = nombre => `${br} ¡Hola ${nombre}! ¿Cómo estás?`;
+
+document.write(saludarFlecha2("Pedro"));
+
