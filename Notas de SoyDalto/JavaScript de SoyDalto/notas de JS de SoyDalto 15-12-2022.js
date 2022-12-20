@@ -712,3 +712,83 @@ const saludarFlecha2 = nombre => `${br} ¡Hola ${nombre}! ¿Cómo estás?`;
 
 document.write(saludarFlecha2("Pedro"));
 
+
+
+
+
+//? ----------------------------------- 
+//^ -       HISTORIA DE COFLA 2       - 
+//^ ----------------------------------- 
+
+
+const fiestaDeHora = document.getElementById('fiestaHora');
+const fiestaDeMinutos = document.getElementById('fiestaMinutos')
+const fiestaDeNombre = document.getElementById('fiestaNombre');
+const fiestaDeEdad = document.getElementById('fiestaEdad');
+const fiestaDeBoton = document.getElementById('fiestaBoton');
+const fiestaDeRespuesta = document.getElementById('fiestaRespuesta');
+
+let fiestaHora = fiestaDeHora;
+let fiestaMinutos = fiestaDeMinutos;
+
+let minutos = 0;
+let hora = 11;
+
+
+
+
+fiestaDeBoton.addEventListener('click', () => {
+    
+    let fiestaNombre = fiestaDeNombre.value;
+    let fiestaEdad = fiestaDeEdad.value;
+    let fiestaRespuesta = fiestaDeRespuesta;
+    // fiestaNombreRes = fiestaNombre.value
+    // fiestaEdadRes = fiestaEdad.value
+    console.log(fiestaNombre)
+    console.log(fiestaEdad)
+
+
+    actualizarHora();
+});
+
+
+
+
+actualizarHora = () => {
+
+    minutos = minutos + 27;
+    
+        
+    if (minutos >= 60) {
+        
+        hora++
+        
+        minutos = minutos - 60;
+
+    };
+
+    if (hora > 12) {
+        
+        hora = hora - 12;
+        
+    };
+
+    if (minutos <= 9 || minutos == 0) {
+        
+        console.log(hora);
+        console.log("0" + minutos);
+        console.log(br);
+        fiestaHora.innerHTML = hora;
+        fiestaMinutos.innerHTML = "0" + minutos;
+
+    } else {
+        
+        console.log(hora);
+        console.log(minutos);
+        console.log(br);
+    
+        fiestaHora.innerHTML = hora;
+        fiestaMinutos.innerHTML = minutos;
+    };
+
+};
