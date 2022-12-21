@@ -724,121 +724,120 @@ document.write(saludarFlecha2("Pedro"));
 
 
 const fiestaDeHora = document.getElementById('fiestaHora');
-const fiestaDeMinutos = document.getElementById('fiestaMinutos');
+const fiestaDeMinutos = document.getElementById('fiestaMinutos')
 const fiestaDeAM = document.getElementById('fiestaAM');
 
 const fiestaDeNombre = document.getElementById('fiestaNombre');
 const fiestaDeEdad = document.getElementById('fiestaEdad');
 
 const fiestaDeBoton = document.getElementById('fiestaBoton');
-const fiestaDeRespuesta = document.getElementById('fiestaDeRespuesta');
+const fiestaDeRespuesta = document.getElementById('fiestaRespuesta');
+
+let fiestaHora = fiestaDeHora;
+let fiestaMinutos = fiestaDeMinutos;
 
 const fiestaAM = "A.M.";
-const fiestaPM = "P.M.";
+const fiestaPM = "P.M."
 
 let paseGratis = true;
 
 
 fiestaDeBoton.addEventListener('click', () => {
     
-    const fiestaNombre = fiestaDeNombre.value;
-    const fiestaEdad = fiestaDeEdad.value;
+    let fiestaNombre = fiestaDeNombre.value;
+    let fiestaEdad = fiestaDeEdad.value;
+    let fiestaRespuesta = fiestaDeRespuesta;
     
-    resetearDatos();
-    verificarAM(tiempo);
+    resetearDatos()
 
     if (tiempo.hora >= 8 && tiempo.hora < 11) {
 
-
-        fiestaDeRespuesta.innerHTML = `Lo siento che, ya se acabo la fiesta.`;
+        fiestaRespuesta.innerHTML = `Lo siento che, ya se acabo la fiesta.`
         
-
     } else if (fiestaEdad >= 18 && tiempo.hora >= 2 && tiempo.hora < 8 && paseGratis === true) {
 
-
-        fiestaDeRespuesta.innerHTML = `ERES LA PRIMERA PERSONA EN LLEGAR DESPUES DE LAS 2 AM, TU ENTRADA ES GRATIS. ¡Disfruta de la fiesta!`;
+        fiestaRespuesta.innerHTML = `ERES LA PRIMERA PERSONA EN LLEGAR DESPUES DE LAS 2 AM, TU ENTRADA ES GRATIS. ¡Disfruta de la fiesta!`
+        
         actualizarHora(tiempo, tiempo.extrasEs27);
+        verificarAM(tiempo)
+
+
         paseGratis = false;
 
-
-    } else if (fiestaEdad >= 18 && fiestaEdad <= 49 && fiestaNombre != "") {
+    } else if   (fiestaEdad >= 18 && fiestaEdad <= 49 && fiestaNombre != "") {
         
-
-        fiestaDeRespuesta.innerHTML = `Wenas ${fiestaNombre}, puedes pasar`;
+        fiestaRespuesta.innerHTML = `Wenas ${fiestaNombre}, puedes pasar`
+        
         actualizarHora(tiempo, tiempo.extrasEs27);
-        
+        verificarAM(tiempo)
 
     } else if (fiestaNombre == "" && fiestaEdad >= 18) {
 
-
-        fiestaDeRespuesta.innerHTML = `Hola persona misteriosa, puede pasar`;
+        fiestaRespuesta.innerHTML = `Hola persona misteriosa, puede pasar`
+        
         actualizarHora(tiempo, tiempo.extrasEs27);
-
+        verificarAM(tiempo)
 
     } else if (fiestaEdad >= 50 && fiestaEdad <= 79  ) {
 
-
-        fiestaDeRespuesta.innerHTML = `Puede pasar anciano ¡Disfrute de la fiesta!`;
+        fiestaRespuesta.innerHTML = `Puede pasar anciano ¡Disfrute de la fiesta!`
+        
         actualizarHora(tiempo, tiempo.extrasEs27);
-
+        verificarAM(tiempo)
 
     } else if (fiestaEdad >= 80) {
 
-
-        fiestaDeRespuesta.innerHTML = `Weeeeeenas señor esqueleto, pase y diviertase`;
+        fiestaRespuesta.innerHTML = `Weeeeeenas señor esqueleto, pase y diviertase`
+        
         actualizarHora(tiempo, tiempo.extrasEs27);
-
+        verificarAM(tiempo)
 
     } else if ( fiestaEdad < 18 && fiestaEdad >= 13) {
         
-
-        fiestaDeRespuesta.innerHTML = `Che ${fiestaNombre}, tenés que ser mayor de edad para pasar`;
+        fiestaRespuesta.innerHTML = `Che ${fiestaNombre}, tenés que ser mayor de edad para pasar`
+        
         actualizarHora(tiempo, tiempo.extrasEs1);
-
+        verificarAM(tiempo)
 
     } else if (fiestaEdad < 13 && fiestaEdad >= 7) {
         
+        fiestaRespuesta.innerHTML = `Mejor vuelve en unos años nené`
 
-        fiestaDeRespuesta.innerHTML = `Mejor vuelve en unos años nené`;
         actualizarHora(tiempo, tiempo.extrasEs1);
-
+        verificarAM(tiempo)
 
     } else if (fiestaEdad <= 6 && fiestaEdad >= 1) {
         
-
-        fiestaDeRespuesta.innerHTML = `Hey bebito, vulve cuando tengas licencia de conducir ok?`;
+        fiestaRespuesta.innerHTML = `Hey bebito, vulve cuando tengas licencia de conducir ok?`
+        
         actualizarHora(tiempo, tiempo.extrasEs1);
+        verificarAM(tiempo)
 
+    } else if (fiestaRespuesta.textContent == `¿Eri mudo conche tu mare? Decimé tu nombre y edad` || fiestaRespuesta.textContent == `No tengo toda la noche, decimé tu edad`) {
 
-    } else if (fiestaDeRespuesta.textContent == `¿Eri mudo conche tu mare? Decimé tu nombre y edad` || fiestaDeRespuesta.textContent == `No tengo toda la noche, decimé tu edad`) {
+        fiestaRespuesta.innerHTML = `No tengo toda la noche, decimé tu edad`
 
-
-        fiestaDeRespuesta.innerHTML = `No tengo toda la noche, decimé tu edad`;
         actualizarHora(tiempo, tiempo.extrasEs1);
-
+        verificarAM(tiempo)
 
     } else if (fiestaNombre == "" && fiestaEdad == 0) {
 
+        fiestaRespuesta.innerHTML = `¿Eri mudo conche tu mare? Decimé tu nombre y edad`
 
-        fiestaDeRespuesta.innerHTML = `¿Eri mudo conche tu mare? Decimé tu nombre y edad`;
         actualizarHora(tiempo, tiempo.extrasEs1);
-
-
-    } else if (fiestaDeRespuesta.textContent == `¿Eri mudo conche tu mare? Decimé tu nombre y edad`) {
-
-
-        fiestaDeRespuesta.innerHTML = `No tengo toda la noche, decimé tu edad`;
+        verificarAM(tiempo)
 
 
     } else if (fiestaEdad == 0) {
 
+        fiestaRespuesta.innerHTML = `${fiestaNombre}, decimé tu edad boludo`
+        
+        fiestaDeNombre.value = `${fiestaNombre}`
 
-        fiestaDeRespuesta.innerHTML = `${fiestaNombre}, decimé tu edad boludo`;
-        fiestaDeNombre.value = `${fiestaNombre}`;
         actualizarHora(tiempo, tiempo.extrasEs1);
+        verificarAM(tiempo)
 
-
-    };
+    }
     
 });
 
@@ -854,36 +853,40 @@ const tiempo = {
         extras: 1,
     },
 
-};
+}
 
 
 const resetearDatos = () => {
 
-    fiestaDeNombre.value = "";
-    fiestaDeEdad.value = "";
+    fiestaDeNombre.value = ""
+    fiestaDeEdad.value = ""
 
-};
+}
 
 
 const verificarAM = (tiempo) => {
+
+    fiestaDeAM.innerHTML = fiestaPM
+
+    if (tiempo.hora > 11) {
+
+        fiestaDeAM.innerHTML = fiestaAM
+
+    }
     
-    fiestaDeAM.innerHTML = fiestaPM;
+    if (tiempo.hora == 11) {
 
-    if (tiempo.hora >= 11) {
+        fiestaDeAM.innerHTML = fiestaPM
 
+    }
+    
+    if (tiempo.hora >= 1 && tiempo.hora <= 8) {
 
-        fiestaDeAM.innerHTML = fiestaAM;
+        fiestaDeAM.innerHTML = fiestaAM
 
+    }
+}
 
-    } else if (tiempo.hora >= 1 && tiempo.hora <= 8) {
-
-
-        fiestaDeAM.innerHTML = fiestaAM;
-
-
-    };
-
-};
 
 const actualizarHora = (tiempo, extra) => {
 
@@ -891,7 +894,8 @@ const actualizarHora = (tiempo, extra) => {
     
     if (tiempo.minutos >= 60) {
         
-        tiempo.hora++;
+        tiempo.hora++
+        
         tiempo.minutos = tiempo.minutos - 60;
 
     };
@@ -902,29 +906,17 @@ const actualizarHora = (tiempo, extra) => {
         
     };
 
-
     if (tiempo.minutos == 0 || tiempo.minutos <= 9) {
         
-        fiestaDeHora.innerHTML = tiempo.hora;
-        fiestaDeMinutos.innerHTML = "0" + tiempo.minutos;
-        
+        fiestaHora.innerHTML = tiempo.hora;
+        fiestaMinutos.innerHTML = "0" + tiempo.minutos;
+
     } else {
     
-        fiestaDeHora.innerHTML = tiempo.hora;
-        fiestaDeMinutos.innerHTML = tiempo.minutos;
+        fiestaHora.innerHTML = tiempo.hora;
+        fiestaMinutos.innerHTML = tiempo.minutos;
 
     };
 
-
-    if (tiempo.hora >= 11 && tiempo.hora < 12) {
-
-        fiestaDeAM.innerHTML = fiestaPM;
-
-    } else if (tiempo.hora >= 1 && tiempo.hora <= 8) {
-
-        fiestaDeAM.innerHTML = fiestaAM;
-
-    };
-    
 };
 
