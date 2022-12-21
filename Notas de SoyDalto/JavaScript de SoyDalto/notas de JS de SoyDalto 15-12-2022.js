@@ -735,7 +735,6 @@ const fiestaDeRespuesta = document.getElementById('fiestaRespuesta');
 
 let fiestaHora = fiestaDeHora;
 let fiestaMinutos = fiestaDeMinutos;
-
 const fiestaAM = "A.M.";
 const fiestaPM = "P.M."
 
@@ -918,5 +917,6 @@ const actualizarHora = (tiempo, extra) => {
 
     };
 
+    
 };
 
