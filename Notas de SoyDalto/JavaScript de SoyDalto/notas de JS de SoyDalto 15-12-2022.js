@@ -938,7 +938,7 @@ const actualizarHora = (tiempo, extra) => {
 //^ ----------------------------------- 
 
 
-
+const asistenciaClase = document.getElementById('asistenciaClaseDia')
 
 const asistenciaPosicion = document.getElementById('asistenciaPosicion');
 const asistenciaAlumno = document.getElementById('asistenciaAlumno');
@@ -948,10 +948,11 @@ let asistenciaDePosicion = asistenciaPosicion;
 const asistenciaBotonPresentes = document.getElementById('asistenciaBotonPresentes');
 const asistenciaBotonAusentes = document.getElementById('asistenciaBotonAusentes');
 
-const asistenciaResultado = document.getElementById('asistenciaResultado');
-
 const asistenciaDivBotones = document.getElementById('asistenciaDivBotones');
 
+const asistenciaResultado = document.getElementById('asistenciaResultado');
+
+let finSemestre = false;
 
 
 const listaAlumnos = {
@@ -1062,8 +1063,10 @@ console.log(alumnosTest)
 const contadorInicial = 0;
 let alumnoContador = contadorInicial;
 
-const contadorClaseDia = 0;
-let contadorClase = contadorClaseDia;
+const contadorClase = 1;
+let contadorClaseDia = contadorClase;
+
+asistenciaClaseDia.innerHTML = contadorClase
 
 asistenciaPosicion.innerHTML = alumnosTest[0][1].posicion
 
@@ -1073,34 +1076,75 @@ asistenciaAlumno.innerHTML = alumnosTest[0][1].nombre
 asistenciaDivBotones.addEventListener('click', (e) => {
 
     console.log(alumnosTest[alumnoContador][1].nombre)
-    // console.log(alumnosTest[0][1].asistencias++)
     console.log(alumnosTest[alumnoContador][1].asistencias)
-    // alumnoContador++
 
 
-    if (e.target && e.target.id === "asistenciaBotonPresentes") {
 
-        
+
+    
+    if (e.target && e.target.id === "asistenciaBotonPresentes" && contadorClaseDia < 4) {
+
+        if (alumnoContador != -1) {
+
+            alumnosTest[alumnoContador][1].asistencias++
+
+        }
+
+        if (alumnoContador == 18) {
+
+            alumnoContador = alumnoContador - 19
+            contadorClaseDia++
+        }
+
+        asistenciaClaseDia.innerHTML = contadorClaseDia
         asistenciaPosicion.innerHTML = alumnosTest[alumnoContador + 1][1].posicion;
-        
         asistenciaAlumno.innerHTML = alumnosTest[alumnoContador + 1][1].nombre;
-        
-        alumnosTest[alumnoContador][1].asistencias++
-        
-        console.log("Si vino")
         
         alumnoContador++
 
-    } else if (e.target && e.target.id === "asistenciaBotonAusentes") {
+        console.log("Si vino")
 
+    } else if (e.target && e.target.id === "asistenciaBotonAusentes" && contadorClaseDia < 4) {
+
+        if (alumnoContador == 18) {
+
+            alumnoContador = alumnoContador - 19
+            contadorClaseDia++
+        }
         
+        asistenciaClaseDia.innerHTML = contadorClaseDia
         asistenciaPosicion.innerHTML = alumnosTest[alumnoContador + 1][1].posicion;
-        
         asistenciaAlumno.innerHTML = alumnosTest[alumnoContador + 1][1].nombre;
         
+        alumnoContador++
+
         console.log("no vino!")
         
-        alumnoContador++
     }
 
+    if (contadorClaseDia == 4 && finSemestre === false ) {
+
+        alumnosTest.forEach(([key, value]) => {
+    
+            if (value.asistencias <= 2) {
+                
+                asistenciaResultado.innerHTML += `<b>${value.posicion} | ${value.nombre}: <span style="color: red;"> ${value.asistencias} DESAPROBADO </span> </b> <hr>`
+
+            } else {
+
+                asistenciaResultado.innerHTML += `<b>${value.posicion} | ${value.nombre}: <span style="color: green;"> ${value.asistencias} </span> </b> <hr>`
+
+            }
+
+            
+        
+            console.log(value.posicion)
+            console.log(value.nombre)
+            console.log(value.asistencias)
+        
+        });
+
+        finSemestre = true;
+
+    }
 })
