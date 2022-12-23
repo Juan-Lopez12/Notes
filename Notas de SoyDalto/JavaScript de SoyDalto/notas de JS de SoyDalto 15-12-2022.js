@@ -723,8 +723,17 @@ document.write(saludarFlecha2("Pedro"));
 //^ ----------------------------------- 
 
 
+
+
+//^ ----------------------------------- 
+//^ -           Problema 1            - 
+//^ ----------------------------------- 
+
+
+
+
 const fiestaDeHora = document.getElementById('fiestaHora');
-const fiestaDeMinutos = document.getElementById('fiestaMinutos')
+const fiestaDeMinutos = document.getElementById('fiestaMinutos');
 const fiestaDeAM = document.getElementById('fiestaAM');
 
 const fiestaDeNombre = document.getElementById('fiestaNombre');
@@ -735,8 +744,9 @@ const fiestaDeRespuesta = document.getElementById('fiestaRespuesta');
 
 let fiestaHora = fiestaDeHora;
 let fiestaMinutos = fiestaDeMinutos;
+
 const fiestaAM = "A.M.";
-const fiestaPM = "P.M."
+const fiestaPM = "P.M.";
 
 let paseGratis = true;
 
@@ -747,94 +757,94 @@ fiestaDeBoton.addEventListener('click', () => {
     let fiestaEdad = fiestaDeEdad.value;
     let fiestaRespuesta = fiestaDeRespuesta;
     
-    resetearDatos()
+    resetearDatos();
 
     if (tiempo.hora >= 8 && tiempo.hora < 11) {
 
-        fiestaRespuesta.innerHTML = `Lo siento che, ya se acabo la fiesta.`
+        fiestaRespuesta.innerHTML = `Lo siento che, ya se acabo la fiesta.`;
         
     } else if (fiestaEdad >= 18 && tiempo.hora >= 2 && tiempo.hora < 8 && paseGratis === true) {
 
-        fiestaRespuesta.innerHTML = `ERES LA PRIMERA PERSONA EN LLEGAR DESPUES DE LAS 2 AM, TU ENTRADA ES GRATIS. ¡Disfruta de la fiesta!`
+        fiestaRespuesta.innerHTML = `ERES LA PRIMERA PERSONA EN LLEGAR DESPUES DE LAS 2 AM, TU ENTRADA ES GRATIS. ¡Disfruta de la fiesta!`;
         
         actualizarHora(tiempo, tiempo.extrasEs27);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
 
         paseGratis = false;
 
     } else if   (fiestaEdad >= 18 && fiestaEdad <= 49 && fiestaNombre != "") {
         
-        fiestaRespuesta.innerHTML = `Wenas ${fiestaNombre}, puedes pasar`
+        fiestaRespuesta.innerHTML = `Wenas ${fiestaNombre}, puedes pasar`;
         
         actualizarHora(tiempo, tiempo.extrasEs27);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     } else if (fiestaNombre == "" && fiestaEdad >= 18) {
 
-        fiestaRespuesta.innerHTML = `Hola persona misteriosa, puede pasar`
+        fiestaRespuesta.innerHTML = `Hola persona misteriosa, puede pasar`;
         
         actualizarHora(tiempo, tiempo.extrasEs27);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     } else if (fiestaEdad >= 50 && fiestaEdad <= 79  ) {
 
-        fiestaRespuesta.innerHTML = `Puede pasar anciano ¡Disfrute de la fiesta!`
+        fiestaRespuesta.innerHTML = `Puede pasar anciano ¡Disfrute de la fiesta!`;
         
         actualizarHora(tiempo, tiempo.extrasEs27);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     } else if (fiestaEdad >= 80) {
 
-        fiestaRespuesta.innerHTML = `Weeeeeenas señor esqueleto, pase y diviertase`
+        fiestaRespuesta.innerHTML = `Weeeeeenas señor esqueleto, pase y diviertase`;
         
         actualizarHora(tiempo, tiempo.extrasEs27);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     } else if ( fiestaEdad < 18 && fiestaEdad >= 13) {
         
-        fiestaRespuesta.innerHTML = `Che ${fiestaNombre}, tenés que ser mayor de edad para pasar`
+        fiestaRespuesta.innerHTML = `Che ${fiestaNombre}, tenés que ser mayor de edad para pasar`;
         
         actualizarHora(tiempo, tiempo.extrasEs1);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     } else if (fiestaEdad < 13 && fiestaEdad >= 7) {
         
-        fiestaRespuesta.innerHTML = `Mejor vuelve en unos años nené`
+        fiestaRespuesta.innerHTML = `Mejor vuelve en unos años nené`;
 
         actualizarHora(tiempo, tiempo.extrasEs1);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     } else if (fiestaEdad <= 6 && fiestaEdad >= 1) {
         
-        fiestaRespuesta.innerHTML = `Hey bebito, vulve cuando tengas licencia de conducir ok?`
+        fiestaRespuesta.innerHTML = `Hey bebito, vuelve cuando tengas licencia de conducir ok?`;
         
         actualizarHora(tiempo, tiempo.extrasEs1);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     } else if (fiestaRespuesta.textContent == `¿Eri mudo conche tu mare? Decimé tu nombre y edad` || fiestaRespuesta.textContent == `No tengo toda la noche, decimé tu edad`) {
 
-        fiestaRespuesta.innerHTML = `No tengo toda la noche, decimé tu edad`
+        fiestaRespuesta.innerHTML = `No tengo toda la noche, decimé tu edad`;
 
         actualizarHora(tiempo, tiempo.extrasEs1);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     } else if (fiestaNombre == "" && fiestaEdad == 0) {
 
-        fiestaRespuesta.innerHTML = `¿Eri mudo conche tu mare? Decimé tu nombre y edad`
+        fiestaRespuesta.innerHTML = `¿Eri mudo conche tu mare? Decimé tu nombre y edad`;
 
         actualizarHora(tiempo, tiempo.extrasEs1);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
 
     } else if (fiestaEdad == 0) {
 
-        fiestaRespuesta.innerHTML = `${fiestaNombre}, decimé tu edad boludo`
+        fiestaRespuesta.innerHTML = `${fiestaNombre}, decimé tu edad boludo`;
         
-        fiestaDeNombre.value = `${fiestaNombre}`
+        fiestaDeNombre.value = `${fiestaNombre}`;
 
         actualizarHora(tiempo, tiempo.extrasEs1);
-        verificarAM(tiempo)
+        verificarAM(tiempo);
 
     }
     
@@ -852,39 +862,39 @@ const tiempo = {
         extras: 1,
     },
 
-}
+};
 
 
 const resetearDatos = () => {
 
-    fiestaDeNombre.value = ""
-    fiestaDeEdad.value = ""
+    fiestaDeNombre.value = "";
+    fiestaDeEdad.value = "";
 
-}
+};
 
 
 const verificarAM = (tiempo) => {
 
-    fiestaDeAM.innerHTML = fiestaPM
+    fiestaDeAM.innerHTML = fiestaPM;
 
     if (tiempo.hora > 11) {
 
-        fiestaDeAM.innerHTML = fiestaAM
+        fiestaDeAM.innerHTML = fiestaAM;
 
-    }
+    };
     
     if (tiempo.hora == 11) {
 
-        fiestaDeAM.innerHTML = fiestaPM
+        fiestaDeAM.innerHTML = fiestaPM;
 
-    }
+    };
     
     if (tiempo.hora >= 1 && tiempo.hora <= 8) {
 
-        fiestaDeAM.innerHTML = fiestaAM
+        fiestaDeAM.innerHTML = fiestaAM;
 
-    }
-}
+    };
+};
 
 
 const actualizarHora = (tiempo, extra) => {
@@ -893,7 +903,7 @@ const actualizarHora = (tiempo, extra) => {
     
     if (tiempo.minutos >= 60) {
         
-        tiempo.hora++
+        tiempo.hora++;
         
         tiempo.minutos = tiempo.minutos - 60;
 
@@ -920,3 +930,177 @@ const actualizarHora = (tiempo, extra) => {
     
 };
 
+
+
+
+//^ ----------------------------------- 
+//^ -            Problema 2           - 
+//^ ----------------------------------- 
+
+
+
+
+const asistenciaPosicion = document.getElementById('asistenciaPosicion');
+const asistenciaAlumno = document.getElementById('asistenciaAlumno');
+
+let asistenciaDePosicion = asistenciaPosicion;
+
+const asistenciaBotonPresentes = document.getElementById('asistenciaBotonPresentes');
+const asistenciaBotonAusentes = document.getElementById('asistenciaBotonAusentes');
+
+const asistenciaResultado = document.getElementById('asistenciaResultado');
+
+const asistenciaDivBotones = document.getElementById('asistenciaDivBotones');
+
+
+
+const listaAlumnos = {
+    
+    alumno1: {
+        nombre: "Pedro Sanchez",
+        posicion: 1,
+        asistencias: 0,
+    },
+    alumno2: {
+        nombre: "Jessica Uribe",
+        posicion: 2,
+        asistencias: 0,
+    },
+    alumno3: {
+        nombre: "Juan López",
+        posicion: 3,
+        asistencias: 0,
+    },
+    alumno4: {
+        nombre: "Luis Alfonso",
+        posicion: 4,
+        asistencias: 0,
+    },
+    alumno5: {
+        nombre: "Maria Peréz",
+        posicion: 5,
+        asistencias: 0,
+    },
+    alumno6: {
+        nombre: "Jerald Grimes",
+        posicion: 6,
+        asistencias: 0,
+    },
+    alumno7: {
+        nombre: "Latoya Williamson",
+        posicion: 7,
+        asistencias: 0,
+    },
+    alumno8: {
+        nombre: "Christina Brekke Jr.",
+        posicion: 8,
+        asistencias: 0,
+    },
+    alumno9: {
+        nombre: "Shawna Frami",
+        posicion: 9,
+        asistencias: 0,
+    },
+    alumno10: {
+        nombre: "Kara Lueilwitz",
+        posicion: 10,
+        asistencias: 0,
+    },
+    alumno11: {
+        nombre: "Ms. Cassandra Fay",
+        posicion: 11,
+        asistencias: 0,
+    },
+    alumno12: {
+        nombre: "Sergio Smith",
+        posicion: 12,
+        asistencias: 0,
+    },
+    alumno13: {
+        nombre: "Hope Kemmer",
+        posicion: 13,
+        asistencias: 0,
+    },
+    alumno14: {
+        nombre: "Marianne Ferry",
+        posicion: 14,
+        asistencias: 0,
+    },
+    alumno15: {
+        nombre: "Ervin Nader",
+        posicion: 15,
+        asistencias: 0,
+    },
+    alumno16: {
+        nombre: "Miss Simon Goldner",
+        posicion: 16,
+        asistencias: 0,
+    },
+    alumno17: {
+        nombre: "Byron Heaney",
+        posicion: 17,
+        asistencias: 0,
+    },
+    alumno18: {
+        nombre: "Antoinette Swift",
+        posicion: 18,
+        asistencias: 0,
+    },
+    alumno19: {
+        nombre: "Phyllis Nienow",
+        posicion: 19,
+        asistencias: 0,
+    },
+}
+
+
+const alumnosTest = Object.entries(listaAlumnos)
+
+console.log(alumnosTest)
+
+
+const contadorInicial = 0;
+let alumnoContador = contadorInicial;
+
+const contadorClaseDia = 0;
+let contadorClase = contadorClaseDia;
+
+asistenciaPosicion.innerHTML = alumnosTest[0][1].posicion
+
+asistenciaAlumno.innerHTML = alumnosTest[0][1].nombre
+
+
+asistenciaDivBotones.addEventListener('click', (e) => {
+
+    console.log(alumnosTest[alumnoContador][1].nombre)
+    // console.log(alumnosTest[0][1].asistencias++)
+    console.log(alumnosTest[alumnoContador][1].asistencias)
+    // alumnoContador++
+
+
+    if (e.target && e.target.id === "asistenciaBotonPresentes") {
+
+        
+        asistenciaPosicion.innerHTML = alumnosTest[alumnoContador + 1][1].posicion;
+        
+        asistenciaAlumno.innerHTML = alumnosTest[alumnoContador + 1][1].nombre;
+        
+        alumnosTest[alumnoContador][1].asistencias++
+        
+        console.log("Si vino")
+        
+        alumnoContador++
+
+    } else if (e.target && e.target.id === "asistenciaBotonAusentes") {
+
+        
+        asistenciaPosicion.innerHTML = alumnosTest[alumnoContador + 1][1].posicion;
+        
+        asistenciaAlumno.innerHTML = alumnosTest[alumnoContador + 1][1].nombre;
+        
+        console.log("no vino!")
+        
+        alumnoContador++
+    }
+
+})
