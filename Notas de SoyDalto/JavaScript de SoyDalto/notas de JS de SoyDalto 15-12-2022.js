@@ -1067,10 +1067,13 @@ const contadorClase = 1;
 let contadorClaseDia = contadorClase;
 
 asistenciaClaseDia.innerHTML = contadorClase
-
 asistenciaPosicion.innerHTML = alumnosTest[0][1].posicion
-
 asistenciaAlumno.innerHTML = alumnosTest[0][1].nombre
+
+// let asistenciaMinima = contadorClaseDia / 10 
+
+// let test = contadorClaseDia - asistenciaMinima
+
 
 
 asistenciaDivBotones.addEventListener('click', (e) => {
@@ -1078,11 +1081,16 @@ asistenciaDivBotones.addEventListener('click', (e) => {
     console.log(alumnosTest[alumnoContador][1].nombre)
     console.log(alumnosTest[alumnoContador][1].asistencias)
 
+    let asistenciaMinima = contadorClaseDia / 10 
 
+    let test = contadorClaseDia - asistenciaMinima
 
+    console.log( `test es ${test}`)
+    console.log(asistenciaMinima)
+    console.log(contadorClaseDia)
 
     
-    if (e.target && e.target.id === "asistenciaBotonPresentes" && contadorClaseDia < 4) {
+    if (e.target && e.target.id === "asistenciaBotonPresentes" && contadorClaseDia < 20) {
 
         if (alumnoContador != -1) {
 
@@ -1090,43 +1098,23 @@ asistenciaDivBotones.addEventListener('click', (e) => {
 
         }
 
-        if (alumnoContador == 18) {
-
-            alumnoContador = alumnoContador - 19
-            contadorClaseDia++
-        }
-
-        asistenciaClaseDia.innerHTML = contadorClaseDia
-        asistenciaPosicion.innerHTML = alumnosTest[alumnoContador + 1][1].posicion;
-        asistenciaAlumno.innerHTML = alumnosTest[alumnoContador + 1][1].nombre;
-        
-        alumnoContador++
+        actualizarEstudiantes()
 
         console.log("Si vino")
 
-    } else if (e.target && e.target.id === "asistenciaBotonAusentes" && contadorClaseDia < 4) {
+    } else if (e.target && e.target.id === "asistenciaBotonAusentes" && contadorClaseDia < 20) {
 
-        if (alumnoContador == 18) {
-
-            alumnoContador = alumnoContador - 19
-            contadorClaseDia++
-        }
-        
-        asistenciaClaseDia.innerHTML = contadorClaseDia
-        asistenciaPosicion.innerHTML = alumnosTest[alumnoContador + 1][1].posicion;
-        asistenciaAlumno.innerHTML = alumnosTest[alumnoContador + 1][1].nombre;
-        
-        alumnoContador++
+        actualizarEstudiantes()
 
         console.log("no vino!")
         
     }
 
-    if (contadorClaseDia == 4 && finSemestre === false ) {
+    if (contadorClaseDia == 20 && finSemestre === false ) {
 
         alumnosTest.forEach(([key, value]) => {
     
-            if (value.asistencias <= 2) {
+            if (value.asistencias <= test) {
                 
                 asistenciaResultado.innerHTML += `<b>${value.posicion} | ${value.nombre}: <span style="color: red;"> ${value.asistencias} DESAPROBADO </span> </b> <hr>`
 
@@ -1135,9 +1123,7 @@ asistenciaDivBotones.addEventListener('click', (e) => {
                 asistenciaResultado.innerHTML += `<b>${value.posicion} | ${value.nombre}: <span style="color: green;"> ${value.asistencias} </span> </b> <hr>`
 
             }
-
             
-        
             console.log(value.posicion)
             console.log(value.nombre)
             console.log(value.asistencias)
@@ -1148,3 +1134,19 @@ asistenciaDivBotones.addEventListener('click', (e) => {
 
     }
 })
+
+const actualizarEstudiantes = () => {
+
+    if (alumnoContador == 18) {
+
+        alumnoContador = alumnoContador - 19
+        contadorClaseDia++
+    }
+    
+    asistenciaClaseDia.innerHTML = contadorClaseDia
+    asistenciaPosicion.innerHTML = alumnosTest[alumnoContador + 1][1].posicion;
+    asistenciaAlumno.innerHTML = alumnosTest[alumnoContador + 1][1].nombre;
+    
+    alumnoContador++
+
+}
