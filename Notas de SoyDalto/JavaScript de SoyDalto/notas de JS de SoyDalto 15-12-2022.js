@@ -938,12 +938,10 @@ const actualizarHora = (tiempo, extra) => {
 //^ ----------------------------------- 
 
 
-const asistenciaClase = document.getElementById('asistenciaClaseDia')
+const asistenciaClase = document.getElementById('asistenciaClaseDia');
 
 const asistenciaPosicion = document.getElementById('asistenciaPosicion');
 const asistenciaAlumno = document.getElementById('asistenciaAlumno');
-
-let asistenciaDePosicion = asistenciaPosicion;
 
 const asistenciaBotonPresentes = document.getElementById('asistenciaBotonPresentes');
 const asistenciaBotonAusentes = document.getElementById('asistenciaBotonAusentes');
@@ -953,6 +951,8 @@ const asistenciaDivBotones = document.getElementById('asistenciaDivBotones');
 const asistenciaResultado = document.getElementById('asistenciaResultado');
 
 let finSemestre = false;
+
+const clasesTotales = 22;
 
 
 const listaAlumnos = {
@@ -1052,101 +1052,104 @@ const listaAlumnos = {
         posicion: 19,
         asistencias: 0,
     },
-}
+};
 
 
-const alumnosTest = Object.entries(listaAlumnos)
+const listaAlumnosArray = Object.entries(listaAlumnos);
 
-console.log(alumnosTest)
-
-
-const contadorInicial = 0;
-let alumnoContador = contadorInicial;
+const alumnoContadorInicial = 0;
+let alumnoContador = alumnoContadorInicial;
 
 const contadorClase = 1;
 let contadorClaseDia = contadorClase;
 
-asistenciaClaseDia.innerHTML = contadorClase
-asistenciaPosicion.innerHTML = alumnosTest[0][1].posicion
-asistenciaAlumno.innerHTML = alumnosTest[0][1].nombre
-
-// let asistenciaMinima = contadorClaseDia / 10 
-
-// let test = contadorClaseDia - asistenciaMinima
+asistenciaClaseDia.innerHTML = contadorClase;
+asistenciaPosicion.innerHTML = listaAlumnosArray[0][1].posicion;
+asistenciaAlumno.innerHTML = listaAlumnosArray[0][1].nombre;
 
 
 
 asistenciaDivBotones.addEventListener('click', (e) => {
 
-    console.log(alumnosTest[alumnoContador][1].nombre)
-    console.log(alumnosTest[alumnoContador][1].asistencias)
+    let asistenciaMinima = contadorClaseDia / 10;
 
-    let asistenciaMinima = contadorClaseDia / 10 
-
-    let test = contadorClaseDia - asistenciaMinima
-
-    console.log( `test es ${test}`)
-    console.log(asistenciaMinima)
-    console.log(contadorClaseDia)
-
+    let promedioAsistenciaMinima = contadorClaseDia - asistenciaMinima;
     
-    if (e.target && e.target.id === "asistenciaBotonPresentes" && contadorClaseDia < 20) {
+    if (e.target && e.target.id === "asistenciaBotonPresentes" && contadorClaseDia <= clasesTotales) {
 
         if (alumnoContador != -1) {
 
-            alumnosTest[alumnoContador][1].asistencias++
+            listaAlumnosArray[alumnoContador][1].asistencias++;
 
-        }
+        };
 
-        actualizarEstudiantes()
+        actualizarEstudiantes();
 
-        console.log("Si vino")
+    } else if (e.target && e.target.id === "asistenciaBotonAusentes" && contadorClaseDia <= clasesTotales) {
 
-    } else if (e.target && e.target.id === "asistenciaBotonAusentes" && contadorClaseDia < 20) {
-
-        actualizarEstudiantes()
-
-        console.log("no vino!")
+        actualizarEstudiantes();
         
-    }
+    };
 
-    if (contadorClaseDia == 20 && finSemestre === false ) {
+    if (contadorClaseDia == (clasesTotales + 1) && finSemestre === false) {
 
-        alumnosTest.forEach(([key, value]) => {
-    
-            if (value.asistencias <= test) {
-                
-                asistenciaResultado.innerHTML += `<b>${value.posicion} | ${value.nombre}: <span style="color: red;"> ${value.asistencias} DESAPROBADO </span> </b> <hr>`
+        mostrarListaAsistencias(promedioAsistenciaMinima);
 
-            } else {
+    };
+});
 
-                asistenciaResultado.innerHTML += `<b>${value.posicion} | ${value.nombre}: <span style="color: green;"> ${value.asistencias} </span> </b> <hr>`
 
-            }
-            
-            console.log(value.posicion)
-            console.log(value.nombre)
-            console.log(value.asistencias)
-        
-        });
 
-        finSemestre = true;
-
-    }
-})
 
 const actualizarEstudiantes = () => {
 
-    if (alumnoContador == 18) {
+    if (alumnoContador == (listaAlumnosArray.length - 1)) {
 
-        alumnoContador = alumnoContador - 19
-        contadorClaseDia++
-    }
+        alumnoContador = alumnoContador - listaAlumnosArray.length;
+        contadorClaseDia++;
+    };
     
-    asistenciaClaseDia.innerHTML = contadorClaseDia
-    asistenciaPosicion.innerHTML = alumnosTest[alumnoContador + 1][1].posicion;
-    asistenciaAlumno.innerHTML = alumnosTest[alumnoContador + 1][1].nombre;
+    asistenciaClaseDia.innerHTML = contadorClaseDia;
+    asistenciaPosicion.innerHTML = listaAlumnosArray[alumnoContador + 1][1].posicion;
+    asistenciaAlumno.innerHTML = listaAlumnosArray[alumnoContador + 1][1].nombre;
     
-    alumnoContador++
+    alumnoContador++;
 
-}
+    if (contadorClaseDia == (clasesTotales + 1)) {
+
+        asistenciaClaseDia.innerHTML = `<span style="color: green;">"Fin del semestre"</span>`;
+        asistenciaPosicion.innerHTML = "0";
+        asistenciaAlumno.innerHTML = `<span style="color: green;">Disfruten las vacaciones mis estudiantes</span>`;
+    };
+};
+
+
+const mostrarListaAsistencias = (promedioAsistenciaMinima) => {
+
+    listaAlumnosArray.forEach(([key, value]) => {
+    
+        if (value.asistencias <= promedioAsistenciaMinima) {
+            
+            asistenciaResultado.innerHTML += `
+            <b>${value.posicion} | ${value.nombre}: 
+                <span style="color: red;"> ${value.asistencias} de ${clasesTotales} DESAPROBADO </span> 
+            </b> 
+            <hr>
+            `;
+
+        } else {
+
+            asistenciaResultado.innerHTML += `
+            <b>${value.posicion} | ${value.nombre}: 
+                <span style="color: green;"> ${value.asistencias} de ${clasesTotales} </span> 
+            </b> 
+            <hr>
+            `;
+
+        };
+    
+    });
+
+    finSemestre = true;
+
+};
