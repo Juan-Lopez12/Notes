@@ -1153,3 +1153,129 @@ const mostrarListaAsistencias = (promedioAsistenciaMinima) => {
     finSemestre = true;
 
 };
+
+
+
+
+
+//^ ----------------------------------- 
+//^ -            Problema 3           - 
+//^ ----------------------------------- 
+
+
+const calculadoraContainer = document.getElementById('calculadoraContainer');
+
+const calculadoraBtnClear = document.getElementById('calculadoraBtnClear');
+const calculadoraBtnDivide = document.getElementById('calculadoraBtnDivide');
+const calculadoraBtnMultiply = document.getElementById('calculadoraBtnMultiply');
+const calculadoraBtnDelete = document.getElementById('calculadoraBtnDelete');
+
+const calculadoraBtnMinus = document.getElementById('calculadoraBtnMinus');
+const calculadoraBtnPlus = document.getElementById('calculadoraBtnPlus');
+const calculadoraBtnEqual = document.getElementById('calculadoraBtnEqual');
+const calculadoraBtnDot = document.getElementById('calculadoraBtnDot');
+
+const calculadoraBtnPercent = document.getElementById('calculadoraBtnPercent');
+
+const calculadoraBtn1 = document.getElementById('calculadoraBtn1');
+const calculadoraBtn2 = document.getElementById('calculadoraBtn2');
+const calculadoraBtn3 = document.getElementById('calculadoraBtn3');
+
+const calculadoraBtn4 = document.getElementById('calculadoraBtn4');
+const calculadoraBtn5 = document.getElementById('calculadoraBtn5');
+const calculadoraBtn6 = document.getElementById('calculadoraBtn6');
+
+const calculadoraBtn7 = document.getElementById('calculadoraBtn7');
+const calculadoraBtn8 = document.getElementById('calculadoraBtn8');
+const calculadoraBtn9 = document.getElementById('calculadoraBtn9');
+
+const calculadoraEcuacion = document.getElementById('calculadoraEcuacion');
+
+const calculadoraResultado = document.getElementById('calculadoraResultado');
+
+
+calculadoraContainer.addEventListener('click', (e) => {
+
+    console.log(e.target)
+
+    if (e.target && e.target.id === "calculadoraBtnClear") {
+
+        calculadoraEcuacion.innerHTML = ""
+
+    } else if (e.target && e.target.id === "calculadoraBtnDivide") {
+
+        calculadoraEcuacion.innerHTML += "÷"
+
+    } else if (e.target && e.target.id === "calculadoraBtnMultiply") {
+
+        calculadoraEcuacion.innerHTML += "x"
+
+    } else if (e.target && e.target.id === "calculadoraBtnDelete") {
+
+        calculadoraEcuacion.innerHTML = calculadoraEcuacion.innerHTML.slice(0, -1)
+
+    } else if (e.target && e.target.id === "calculadoraBtn7") {
+
+        calculadoraEcuacion.innerHTML += 7
+
+    } else if (e.target && e.target.id === "calculadoraBtn8") {
+
+        calculadoraEcuacion.innerHTML += 8
+
+    } else if (e.target && e.target.id === "calculadoraBtn9") {
+
+        calculadoraEcuacion.innerHTML += 9
+
+    } else if (e.target && e.target.id === "calculadoraBtnMinus") {
+
+        calculadoraEcuacion.innerHTML += "-"
+
+    } else if (e.target && e.target.id === "calculadoraBtn4") {
+
+        calculadoraEcuacion.innerHTML += 4
+
+    } else if (e.target && e.target.id === "calculadoraBtn5") {
+
+        calculadoraEcuacion.innerHTML += 5
+
+    } else if (e.target && e.target.id === "calculadoraBtn6") {
+
+        calculadoraEcuacion.innerHTML += 6
+
+    } else if (e.target && e.target.id === "calculadoraBtnPlus") {
+
+        calculadoraEcuacion.innerHTML += "+"
+
+    } else if (e.target && e.target.id === "calculadoraBtn1") {
+
+        calculadoraEcuacion.innerHTML += 1
+        // calculadoraResultado.innerHTML += 1
+
+    } else if (e.target && e.target.id === "calculadoraBtn2") {
+
+        calculadoraEcuacion.innerHTML += 2
+
+    } else if (e.target && e.target.id === "calculadoraBtn3") {
+
+        calculadoraEcuacion.innerHTML += 3
+
+    } else if (e.target && e.target.id === "calculadoraBtnEqual") {
+
+        calculadoraResultado.innerHTML = calculadoraEcuacion.innerHTML;
+
+        calculadoraEcuacion.innerHTML = ""
+
+    } else if (e.target && e.target.id === "calculadoraBtnPercent") {
+
+
+    } else if (e.target && e.target.id === "calculadoraBtn0") {
+
+        calculadoraEcuacion.innerHTML += 0
+
+    } else if (e.target && e.target.id === "calculadoraBtnDot") {
+
+        calculadoraEcuacion.innerHTML += "."
+
+    }
+
+})

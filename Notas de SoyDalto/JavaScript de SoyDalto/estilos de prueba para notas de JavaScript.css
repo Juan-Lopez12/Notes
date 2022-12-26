@@ -1,0 +1,121 @@
+
+
+.calculadora-container {
+    margin-left: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(7, auto);
+    grid-template-areas:
+    "equation equation equation equation"
+    "result result result result" 
+    "clear divide multiply delete"
+    "seven eight nine minus"
+    "four five six plus"
+    "one two three equal"
+    "percent zero dot equal";
+}
+
+.calculadora__boton {
+    padding: 10px 30px;
+    font-weight: bold;
+}
+
+.calculadora__p {
+    margin-top: 0;
+    margin-bottom: 7px;
+    width: 100%;
+    padding: 5px 30px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.calculadora__p--ecuacion {
+    grid-area: equation;
+    height: 38px;
+    outline: 1px black solid;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.calculadora__p--resultado {
+    grid-area: result;
+    height: 30px;
+    outline: 1px gray solid;
+    font-size: 1.2em;
+}
+
+.calculadora__boton--clear {
+    grid-area: clear;
+}
+
+.calculadora__boton--divide {
+    grid-area: divide;
+}
+
+.calculadora__boton--multiply {
+    grid-area: multiply;
+}
+
+.calculadora__boton--delete {
+    grid-area: delete;
+}
+
+.calculadora__boton--minus {
+    grid-area: minus;
+}
+
+.calculadora__boton--plus {
+    grid-area: plus;
+}
+
+.calculadora__boton--equal {
+    grid-area: equal;
+}
+
+.calculadora__boton--dot {
+    grid-area: dot;
+}
+
+.calculadora__boton--percent {
+    grid-area: percent;
+}
+
+.calculadora__boton--1 {
+    grid-area: one;
+}
+
+.calculadora__boton--2 {
+    grid-area: two;
+}
+
+.calculadora__boton--3 {
+    grid-area: three;
+}
+
+.calculadora__boton--4 {
+    grid-area: four;
+}
+
+.calculadora__boton--5 {
+    grid-area: five;
+}
+
+.calculadora__boton--6 {
+    grid-area: six;
+}
+
+.calculadora__boton--7 {
+    grid-area: seven;
+}
+
+.calculadora__boton--8 {
+    grid-area: eight;
+}
+
+.calculadora__boton--9 {
+    grid-area: nine;
+}
+
+.calculadora__boton--0 {
+    grid-area: zero;
+}
