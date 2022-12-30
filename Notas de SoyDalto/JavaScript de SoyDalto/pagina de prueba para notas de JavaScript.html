@@ -13,120 +13,150 @@
 
     <h2>Historia de Cofla 1</h2>
 
-    <h3 id="a">Problema de Cofla 1</h3>
-    <p>¿Cuanto dinero tienes?</p>
-    <div id="dineroDiv">
-        <label for="dineroDeRoberto">Dinero de Roberto</label>
-        <input type="number" id="dineroDeRoberto">
+    <div>
+        <h3 id="a">Problema de Cofla 1</h3>
+        <p>¿Cuanto dinero tienes?</p>
+        <div id="dineroDiv">
+            <label for="dineroDeRoberto">Dinero de Roberto</label>
+            <input type="number" id="dineroDeRoberto">
+            <br><br>
+            <label for="dineroDePedro">Dinero de Pedro</label>
+            <input type="number" id="dineroDePedro">
+            <br><br>
+            <label for="dineroDeCofla">Dinero de Cofla</label>
+            <input type="number" id="dineroDeCofla">
+        </div>
+        <p class="">
+            Dinero total: <b class="dineroTotal"></b>
+        </p>
+        <p>
+            Te alcanza para: <b class="tipoDeHelado"></b>
+        </p>
+        <p>
+            Y te queda <b class="vuelto"></b>$ de vuelto
+        </p>
         <br><br>
-        <label for="dineroDePedro">Dinero de Pedro</label>
-        <input type="number" id="dineroDePedro">
         <br><br>
-        <label for="dineroDeCofla">Dinero de Cofla</label>
-        <input type="number" id="dineroDeCofla">
+        <p>¡Hola Juan! ¿Como fue tu día?</p>
+        <input id="inputRespuestaFunction" type="text">
+        <p>
+            <b id="respuestaFunction"></b>
+        </p>
+        <br><br>
+        <br><br>
+        <p>¡Hola López! ¿Como fue tu día?</p>
+        <input id="inputRespuestaFunction2" type="text">
+        <p>
+            <b id="respuestaFunction2"></b>
+        </p>
     </div>
-    <p class="">
-        Dinero total: <b class="dineroTotal"></b>
-    </p>
-    <p>
-        Te alcanza para: <b class="tipoDeHelado"></b>
-    </p>
-    <p>
-        Y te queda <b class="vuelto"></b>$ de vuelto
-    </p>
-    <br><br>
-    <br><br>
-    <p>¡Hola Juan! ¿Como fue tu día?</p>
-    <input id="inputRespuestaFunction" type="text">
-    <p>
-        <b id="respuestaFunction"></b>
-    </p>
-    <br><br>
-    <br><br>
-    <p>¡Hola López! ¿Como fue tu día?</p>
-    <input id="inputRespuestaFunction2" type="text">
-    <p>
-        <b id="respuestaFunction2"></b>
-    </p>
     <br><br>
     <br><br>
     <h2>Historia de Cofla 2</h2>
-    <h3>Problema 1</h3><br>
-    <div id="fiestaDiv">
-        <p>
-            <b>Hora</b>: <span id="fiestaHora">11</span>:<span id="fiestaMinutos">00</span> <span id="fiestaAM">P.M.</span>
-        </p>
-        <p>Buenas noches, cual es tu nombre y edad</p>
-
-        <label for="fiestaNombre">Nombre</label>
-        <input type="text" name="" id="fiestaNombre"> <br>
-
-        <label for="FiestaEdad">Edad</label>
-        <input type="number" name="" id="fiestaEdad" min="0">
+    <div>
+        <h3>Problema 1</h3><br>
+        <div id="fiestaDiv">
+            <p>
+                <b>Hora</b>: <span id="fiestaHora">11</span>:<span id="fiestaMinutos">00</span> <span id="fiestaAM">P.M.</span>
+            </p>
+            <p>Buenas noches, cual es tu nombre y edad</p>
+            <label for="fiestaNombre">Nombre</label>
+            <input type="text" name="" id="fiestaNombre"> <br>
+            <label for="FiestaEdad">Edad</label>
+            <input type="number" name="" id="fiestaEdad" min="0">
         
-        <input type="button" value="Decir" id="fiestaBoton">
-        <p>
-            <b id="fiestaRespuesta"></b>
-        </p>
-    </div>
-    <br><br>
-
-    <h3>Problema 2</h3><br>
-    <div style="margin-left: 40px;">
-        <p>
-            <b>Clase <span id="asistenciaClaseDia"></span></b>
-        </p>
-        <p>
-            N° de alumno: <b id="asistenciaPosicion"></b> de 19
-        </p>
-        <p>
-            Alumno: <b id="asistenciaAlumno"></b>
-        </p>
-        <div id="asistenciaDivBotones">
-            <input id="asistenciaBotonPresentes" type="button" value="Presente">
-            <input id="asistenciaBotonAusentes" type="button" value="Ausente">
-        </div>
-        <p>
-            <b>N° | Estudiante | Asistencias totales</b>
-        </p>
-        <hr>
-        <div id="asistenciaResultado">
-
+            <input type="button" value="Decir" id="fiestaBoton">
+            <p>
+                <b id="fiestaRespuesta"></b>
+            </p>
         </div>
     </div>
     <br><br>
-    <h3>Problema 3</h3><br>
 
-    
-    
-    <div id="calculadoraContainer" class="calculadora-container">
+    <div>
+        <h3>Problema 2</h3><br>
+        <div style="margin-left: 40px;">
+            <p>
+                <b>Clase <span id="asistenciaClaseDia"></span></b>
+            </p>
+            <p>
+                N° de alumno: <b id="asistenciaPosicion"></b> de 19
+            </p>
+            <p>
+                Alumno: <b id="asistenciaAlumno"></b>
+            </p>
+            <div id="asistenciaDivBotones">
+                <input id="asistenciaBotonPresentes" type="button" value="Presente">
+                <input id="asistenciaBotonAusentes" type="button" value="Ausente">
+            </div>
+            <p>
+                <b>N° | Estudiante | Asistencias totales</b>
+            </p>
+            <hr>
+            <div id="asistenciaResultado">
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <h3>Problema 3 version 1</h3>
+        <br>
         
-        <p id="calculadoraEcuacion" class="calculadora__p calculadora__p--ecuacion"></p>
-        <p id="calculadoraResultado" class="calculadora__p calculadora__p--resultado"></p>
+        <div id="calculadoraContainer" class="calculadora-container">
         
-        <button id="calculadoraBtnClear" class="calculadora__boton calculadora__boton--clear">C</button>
-        <button id="calculadoraBtnDivide" class="calculadora__boton calculadora__boton--divide">÷</button>
-        <button id="calculadoraBtnMultiply" class="calculadora__boton calculadora__boton--multiply">x</button>
-        <button id="calculadoraBtnDelete" class="calculadora__boton calculadora__boton--delete">Borrar</button>
-        <button id="calculadoraBtnMinus" class="calculadora__boton calculadora__boton--minus">-</button>
-        <button id="calculadoraBtnPlus" class="calculadora__boton calculadora__boton--plus">+</button>
-        <button id="calculadoraBtnEqual" class="calculadora__boton calculadora__boton--equal">=</button>
-        <button id="calculadoraBtnDot" class="calculadora__boton calculadora__boton--dot">.</button>
-        <button id="calculadoraBtnPercent" class="calculadora__boton calculadora__boton--percent">%</button>
-        <button id="calculadoraBtn1" class="calculadora__boton calculadora__boton--1">1</button>
-        <button id="calculadoraBtn2" class="calculadora__boton calculadora__boton--2">2</button>
-        <button id="calculadoraBtn3" class="calculadora__boton calculadora__boton--3">3</button>
-        <button id="calculadoraBtn4" class="calculadora__boton calculadora__boton--4">4</button>
-        <button id="calculadoraBtn5" class="calculadora__boton calculadora__boton--5">5</button>
-        <button id="calculadoraBtn6" class="calculadora__boton calculadora__boton--6">6</button>
-        <button id="calculadoraBtn7" class="calculadora__boton calculadora__boton--7">7</button>
-        <button id="calculadoraBtn8" class="calculadora__boton calculadora__boton--8">8</button>
-        <button id="calculadoraBtn9" class="calculadora__boton calculadora__boton--9">9</button>
-        <button id="calculadoraBtn0" class="calculadora__boton calculadora__boton--0">0</button>
-
+            <p id="calculadoraEcuacion" class="calculadora__p calculadora__p--ecuacion"></p>
+            <p id="calculadoraResultado" class="calculadora__p calculadora__p--resultado"></p>
+            <button id="calculadoraBtnClear" class="calculadora__boton calculadora__boton--clear">C</button>
+            <button id="calculadoraBtnDivide" class="calculadora__boton calculadora__boton--divide">÷</button>
+            <button id="calculadoraBtnMultiply" class="calculadora__boton calculadora__boton--multiply">x</button>
+            <button id="calculadoraBtnDelete" class="calculadora__boton calculadora__boton--delete calculadora__numero">Borrar</button>
+            <button id="calculadoraBtnMinus" class="calculadora__boton calculadora__boton--minus">-</button>
+            <button id="calculadoraBtnPlus" class="calculadora__boton calculadora__boton--plus">+</button>
+            <button id="calculadoraBtnEqual" class="calculadora__boton calculadora__boton--equal">=</button>
+            <button id="calculadoraBtnDot" class="calculadora__boton calculadora__boton--dot">.</button>
+            <button id="calculadoraBtn1" class="calculadora__boton calculadora__boton--1 calculadora__numero">1</button>
+            <button id="calculadoraBtn2" class="calculadora__boton calculadora__boton--2 calculadora__numero">2</button>
+            <button id="calculadoraBtn3" class="calculadora__boton calculadora__boton--3 calculadora__numero">3</button>
+            <button id="calculadoraBtn4" class="calculadora__boton calculadora__boton--4 calculadora__numero">4</button>
+            <button id="calculadoraBtn5" class="calculadora__boton calculadora__boton--5 calculadora__numero">5</button>
+            <button id="calculadoraBtn6" class="calculadora__boton calculadora__boton--6 calculadora__numero">6</button>
+            <button id="calculadoraBtn7" class="calculadora__boton calculadora__boton--7 calculadora__numero">7</button>
+            <button id="calculadoraBtn8" class="calculadora__boton calculadora__boton--8 calculadora__numero">8</button>
+            <button id="calculadoraBtn9" class="calculadora__boton calculadora__boton--9 calculadora__numero">9</button>
+            <button id="calculadoraBtn0" class="calculadora__boton calculadora__boton--0 calculadora__numero">0</button>
+        </div>
     </div>
 
     <br><br>
+
+    <div>
+        <h3>Problema 3 version 2</h3>
+        <br>
+
+        <div id="calculadora2Container" class="calculadora-container">
+        
+            <p id="calculadora2Ecuacion" class="calculadora__p calculadora__p--ecuacion"></p>
+            <!-- <p id="calculadora2Resultado" class="calculadora__p calculadora__p--resultado"></p> -->
+            <input type="button" value="C" id="calculadora2BtnClear" class="calculadora__boton calculadora__boton--clear">
+            <input type="button" value="/" id="calculadora2BtnDivide" class="calculadora__boton calculadora__boton--divide calculadora__operador">
+            <input type="button" value="*" id="calculadora2BtnMultiply" class="calculadora__boton calculadora__boton--multiply calculadora__operador">
+            <input type="button" value="Borrar" id="calculadora2BtnDelete" class="calculadora__boton calculadora__boton--delete">
+            <input type="button" value="-" id="calculadora2BtnMinus" class="calculadora__boton calculadora__boton--minus calculadora__operador">
+            <input type="button" value="+" id="calculadora2BtnPlus" class="calculadora__boton calculadora__boton--plus calculadora__operador">
+            <input type="button" value="=" id="calculadora2BtnEqual" class="calculadora__boton calculadora__boton--equal">
+            <input type="button" value="." id="calculadora2BtnDot" class="calculadora__boton calculadora__boton--dot">
+            <input type="button" value="1" id="calculadora2Btn1" class="calculadora__boton calculadora__boton--1 calculadora__numero">
+            <input type="button" value="2" id="calculadora2Btn2" class="calculadora__boton calculadora__boton--2 calculadora__numero">
+            <input type="button" value="3" id="calculadora2Btn3" class="calculadora__boton calculadora__boton--3 calculadora__numero">
+            <input type="button" value="4" id="calculadora2Btn4" class="calculadora__boton calculadora__boton--4 calculadora__numero">
+            <input type="button" value="5" id="calculadora2Btn5" class="calculadora__boton calculadora__boton--5 calculadora__numero">
+            <input type="button" value="6" id="calculadora2Btn6" class="calculadora__boton calculadora__boton--6 calculadora__numero">
+            <input type="button" value="7" id="calculadora2Btn7" class="calculadora__boton calculadora__boton--7 calculadora__numero">
+            <input type="button" value="8" id="calculadora2Btn8" class="calculadora__boton calculadora__boton--8 calculadora__numero">
+            <input type="button" value="9" id="calculadora2Btn9" class="calculadora__boton calculadora__boton--9 calculadora__numero">
+            <input type="button" value="0" id="calculadora2Btn0" class="calculadora__boton calculadora__boton--0 calculadora__numero">
+        </div>
+    </div>
     <script src="notas de JS de SoyDalto 15-12-2022.js"></script>
 </body>
 </html>

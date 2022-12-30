@@ -12,7 +12,7 @@
     "seven eight nine minus"
     "four five six plus"
     "one two three equal"
-    "percent zero dot equal";
+    "zero zero dot equal";
 }
 
 .calculadora__boton {
@@ -74,10 +74,6 @@
 
 .calculadora__boton--dot {
     grid-area: dot;
-}
-
-.calculadora__boton--percent {
-    grid-area: percent;
 }
 
 .calculadora__boton--1 {

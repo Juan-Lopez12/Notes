@@ -952,7 +952,10 @@ const asistenciaResultado = document.getElementById('asistenciaResultado');
 
 let finSemestre = false;
 
+
+//* ----- ----- Cambiar cuantas clases totales habra en el semestre, cambiando el resultado de toda la funcionalidad ----- ----- 
 const clasesTotales = 22;
+//^ ----- -----  ----- ----- 
 
 
 const listaAlumnos = {
@@ -1159,9 +1162,8 @@ const mostrarListaAsistencias = (promedioAsistenciaMinima) => {
 
 
 //^ ----------------------------------- 
-//^ -            Problema 3           - 
+//^ -          Problema 3   version 1 - 
 //^ ----------------------------------- 
-
 
 const calculadoraContainer = document.getElementById('calculadoraContainer');
 
@@ -1174,8 +1176,6 @@ const calculadoraBtnMinus = document.getElementById('calculadoraBtnMinus');
 const calculadoraBtnPlus = document.getElementById('calculadoraBtnPlus');
 const calculadoraBtnEqual = document.getElementById('calculadoraBtnEqual');
 const calculadoraBtnDot = document.getElementById('calculadoraBtnDot');
-
-const calculadoraBtnPercent = document.getElementById('calculadoraBtnPercent');
 
 const calculadoraBtn1 = document.getElementById('calculadoraBtn1');
 const calculadoraBtn2 = document.getElementById('calculadoraBtn2');
@@ -1190,29 +1190,50 @@ const calculadoraBtn8 = document.getElementById('calculadoraBtn8');
 const calculadoraBtn9 = document.getElementById('calculadoraBtn9');
 
 const calculadoraEcuacion = document.getElementById('calculadoraEcuacion');
-
 const calculadoraResultado = document.getElementById('calculadoraResultado');
 
 
 calculadoraContainer.addEventListener('click', (e) => {
+    
+    if (calculadoraEcuacion.textContent.slice(-1) != "-" && 
+        calculadoraEcuacion.textContent.slice(-1) != "+" && 
+        calculadoraEcuacion.textContent.slice(-1) != "*" && 
+        calculadoraEcuacion.textContent.slice(-1) != "/" &&
+        calculadoraEcuacion.textContent.slice(-1) != "") {
 
-    console.log(e.target)
+        if (e.target && e.target.id === "calculadoraBtnDivide") {
+
+            calculadoraEcuacion.innerHTML += "/"
+    
+        } else if (e.target && e.target.id === "calculadoraBtnMultiply") {
+    
+            calculadoraEcuacion.innerHTML += "*"
+    
+        } else if (e.target && e.target.id === "calculadoraBtnMinus") {
+
+            calculadoraEcuacion.innerHTML += "-"
+    
+        } else if (e.target && e.target.id === "calculadoraBtnPlus") {
+
+            calculadoraEcuacion.innerHTML += "+"
+    
+        }
+    }
 
     if (e.target && e.target.id === "calculadoraBtnClear") {
 
         calculadoraEcuacion.innerHTML = ""
-
-    } else if (e.target && e.target.id === "calculadoraBtnDivide") {
-
-        calculadoraEcuacion.innerHTML += "÷"
-
-    } else if (e.target && e.target.id === "calculadoraBtnMultiply") {
-
-        calculadoraEcuacion.innerHTML += "x"
+        calculadoraResultado.innerHTML = ""
 
     } else if (e.target && e.target.id === "calculadoraBtnDelete") {
 
         calculadoraEcuacion.innerHTML = calculadoraEcuacion.innerHTML.slice(0, -1)
+
+        if (calculadoraEcuacion.innerHTML == "") {
+
+            calculadoraResultado.innerHTML = 0
+
+        }
 
     } else if (e.target && e.target.id === "calculadoraBtn7") {
 
@@ -1226,10 +1247,6 @@ calculadoraContainer.addEventListener('click', (e) => {
 
         calculadoraEcuacion.innerHTML += 9
 
-    } else if (e.target && e.target.id === "calculadoraBtnMinus") {
-
-        calculadoraEcuacion.innerHTML += "-"
-
     } else if (e.target && e.target.id === "calculadoraBtn4") {
 
         calculadoraEcuacion.innerHTML += 4
@@ -1242,14 +1259,9 @@ calculadoraContainer.addEventListener('click', (e) => {
 
         calculadoraEcuacion.innerHTML += 6
 
-    } else if (e.target && e.target.id === "calculadoraBtnPlus") {
-
-        calculadoraEcuacion.innerHTML += "+"
-
     } else if (e.target && e.target.id === "calculadoraBtn1") {
 
         calculadoraEcuacion.innerHTML += 1
-        // calculadoraResultado.innerHTML += 1
 
     } else if (e.target && e.target.id === "calculadoraBtn2") {
 
@@ -1261,11 +1273,7 @@ calculadoraContainer.addEventListener('click', (e) => {
 
     } else if (e.target && e.target.id === "calculadoraBtnEqual") {
 
-        calculadoraResultado.innerHTML = calculadoraEcuacion.innerHTML;
-
-        calculadoraEcuacion.innerHTML = ""
-
-    } else if (e.target && e.target.id === "calculadoraBtnPercent") {
+        calculadoraEcuacion.innerHTML = calculadoraResultado.textContent
 
 
     } else if (e.target && e.target.id === "calculadoraBtn0") {
@@ -1278,4 +1286,248 @@ calculadoraContainer.addEventListener('click', (e) => {
 
     }
 
+    if (e.target && e.target.classList.contains("calculadora__numero") === true) {
+
+        if (calculadoraEcuacion.innerHTML != "") {
+
+            if (calculadoraEcuacion.textContent.slice(-1) != "-" && 
+                calculadoraEcuacion.textContent.slice(-1) != "+" && 
+                calculadoraEcuacion.textContent.slice(-1) != "*" && 
+                calculadoraEcuacion.textContent.slice(-1) != "/") {
+    
+                calculadoraResultado.innerHTML = eval(calculadoraEcuacion.innerHTML)
+
+            }
+        }
+    }
+
+    if (calculadoraEcuacion.textContent.slice(-1) == "-" || 
+        calculadoraEcuacion.textContent.slice(-1) == "+" || 
+        calculadoraEcuacion.textContent.slice(-1) == "*" || 
+        calculadoraEcuacion.textContent.slice(-1) == "/" ) {
+
+        calculadoraResultado.innerHTML = ""
+
+    }
+
+    if (calculadoraResultado.innerHTML == "Infinity") {
+
+        calculadoraResultado.innerHTML = "0"
+
+    }
+    
 })
+
+//^ ----- ----- Manera usando expresiones regulares y el teclado en la calculadora ----- ----- 
+
+// const expresion = /[\d()*/+-]+/
+
+// const comprobar = (e) => {
+
+//     if (expresion.test(e.key)) {
+
+//         console.log("yes")
+//         return true
+
+//     } else {
+
+//         return false
+//     }
+
+// }
+
+
+
+
+
+//^ ----------------------------------- 
+//^ -            Problema 3 version 2 - 
+//^ ----------------------------------- 
+
+
+const getId = selector => document.getElementById(selector) 
+
+const calculadora2Container = getId("calculadora2Container")
+
+const calculadora2BtnClear = getId("calculadora2BtnClear")
+const calculadora2BtnDivide = getId("calculadora2BtnDivide")
+const calculadora2BtnMultiply = getId("calculadora2BtnMultiply")
+const calculadora2BtnDelete = getId("calculadora2BtnDelete")
+
+const calculadora2BtnMinus = getId("calculadora2BtnMinus")
+const calculadora2BtnPlus = getId("calculadora2BtnPlus")
+const calculadora2BtnEqual = getId("calculadora2BtnEqual")
+const calculadora2BtnDot = getId("calculadora2BtnDot")
+
+const calculadora2Btn1 = getId("calculadora2Btn1")
+const calculadora2Btn2 = getId("calculadora2Btn2")
+const calculadora2Btn3 = getId("calculadora2Btn3")
+
+const calculadora2Btn4 = getId("calculadora2Btn4")
+const calculadora2Btn5 = getId("calculadora2Btn5")
+const calculadora2Btn6 = getId("calculadora2Btn6")
+
+const calculadora2Btn7 = getId("calculadora2Btn7")
+const calculadora2Btn8 = getId("calculadora2Btn8")
+const calculadora2Btn9 = getId("calculadora2Btn9")
+
+const calculadora2Ecuacion = getId("calculadora2Ecuacion")
+
+let calcNum1
+let calcNum2
+let tipoEcuacion
+let operando = false
+
+let cacheNum1 = ""
+
+
+// Arreglar el error de cuando se le da al contenedor del event listener se vacia la ecuación (el operador)
+//? Arreglar error de cuando se usa un operador y despues otro, y luego se le da click a equal da NaN
+// Arreglar error de cuando se da a un operador, se borra y luego se le da click a otro operador
+//? Arreglar error de cuando se borra un operador se borra el cacheNum1
+// Arreglar error de que despues de usar un operador solo se peude poner un digito
+// Arreglar problema de cuando se escribe un numero, un operador, un numero y luego denuevo operador y otro numero
+// Arreglar error de cuando se hace una operación, el calcNum1 no recoge el valor que ya esta en el textContent
+//? Arreglar error de NaN
+
+const expReg = /[*/+-]/
+
+
+calculadora2Container.addEventListener('click', (e) => {
+    
+    const t = e.target
+    
+    console.log(t.tagName)
+
+    if (t && t.classList.contains("calculadora__numero") && 
+            (expReg.exec(calculadora2Ecuacion.innerHTML))) {
+        
+        console.log("es aqui?")
+        calculadora2Ecuacion.innerHTML = ""
+        // operando = false
+    }
+
+    if (t && t.classList.contains("calculadora__numero") &&
+        calculadora2Ecuacion.innerHTML === "0") {
+        
+        calculadora2Ecuacion.innerHTML = ""
+    }
+
+
+    if (t && t.value === "C") {
+        calculadora2Ecuacion.innerHTML = "0"
+        cacheNum1 = ""
+        calcNum1 = ""
+        calcNum2 = ""
+        operando = false
+        tipoEcuacion = null
+    }
+
+    if (t && t.value === "Borrar") {
+
+        if (operando === false) {
+
+            cacheNum1 = cacheNum1.slice(0, -1)
+            calcNum1 = calcNum1.slice(0, -1)
+            calculadora2Ecuacion.innerHTML = calculadora2Ecuacion.innerHTML.slice(0, -1)
+
+        } else if (operando === true) {
+            
+            tipoEcuacion = null
+            calculadora2Ecuacion.innerHTML = calculadora2Ecuacion.innerHTML.slice(0, -1)
+        }
+    }
+
+
+    if (t && t.classList.contains("calculadora__numero")) {
+
+        cacheNum1 += t.value
+        calculadora2Ecuacion.innerHTML += t.value
+    }
+
+
+    if (t && t.classList.contains("calculadora__operador")) {
+
+        if (calcNum1 === "" || calcNum1 === undefined) {
+
+            calcNum1 = cacheNum1
+            
+        }
+        calculadora2Ecuacion.textContent = t.value
+        tipoEcuacion = t.value
+        operando = true
+        cacheNum1 = ""
+    }
+
+
+
+    if (t && t.value === "=") {
+        
+        calcNum2 = calculadora2Ecuacion.innerHTML;
+        calcNum1 = Number(calcNum1);
+        calcNum2 = Number(calcNum2);
+        cacheNum1 = ""
+        operando = false
+
+        if (tipoEcuacion === "+") {
+            
+            plus(calcNum1, calcNum2)
+            
+            console.log(plus(calcNum1, calcNum2))
+
+        } else if (tipoEcuacion === "-") {
+            
+            minus(calcNum1, calcNum2)
+            
+        } else if (tipoEcuacion === "*") {
+            
+            multiply(calcNum1, calcNum2)
+            
+        } else if (tipoEcuacion === "/") {
+            
+            divide(calcNum1, calcNum2)
+        }
+
+        calcNum1 = calculadora2Ecuacion.innerHTML
+    }
+
+
+
+    if (calculadora2Ecuacion.innerHTML == "Infinity") {
+
+        calculadora2Ecuacion.innerHTML = "0"
+    }
+})
+
+
+
+const plus = (num1 = 0, num2 = 0) => {
+
+    res = num1 + num2
+    calculadora2Ecuacion.innerHTML = res;
+    tipoEcuacion = null
+}
+
+
+const minus = (num1, num2) => {
+
+    res = num1 - num2
+    calculadora2Ecuacion.innerHTML = res;
+    tipoEcuacion = null
+}
+
+
+const multiply = (num1, num2) => {
+
+    res = num1 * num2
+    calculadora2Ecuacion.innerHTML = res;
+    tipoEcuacion = null
+}
+
+
+const divide = (num1, num2) => {
+
+    res = num1 / num2
+    calculadora2Ecuacion.innerHTML = res;
+    tipoEcuacion = null
+}
