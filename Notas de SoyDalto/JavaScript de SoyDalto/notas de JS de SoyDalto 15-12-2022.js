@@ -1465,7 +1465,7 @@ calculadora2Container.addEventListener('click', (e) => {
         
         calcNum2 = calculadora2Ecuacion.innerHTML;
         calcNum1 = Number(calcNum1);
-        calcNum2 = Number(calcNum2);
+        // calcNum2 = Number(calcNum2);
         cacheNum1 = ""
         operando = false
 
@@ -1501,7 +1501,11 @@ calculadora2Container.addEventListener('click', (e) => {
 
 
 
-const plus = (num1 = 0, num2 = 0) => {
+const plus = (num1, num2) => {
+
+    if (num2 == undefined) {
+        num2 = 0
+    }
 
     res = num1 + num2
     calculadora2Ecuacion.innerHTML = res;
@@ -1531,3 +1535,4 @@ const divide = (num1, num2) => {
     calculadora2Ecuacion.innerHTML = res;
     tipoEcuacion = null
 }
+
