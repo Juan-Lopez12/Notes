@@ -1310,7 +1310,7 @@ calculadoraContainer.addEventListener('click', (e) => {
 
     }
 
-    if (calculadoraResultado.innerHTML == "Infinity") {
+    if (calculadoraResultado.innerHTML == "Infinity" || calculadoraResultado.innerHTML == "NaN" ) {
 
         calculadoraResultado.innerHTML = "0"
 
@@ -1348,28 +1348,6 @@ calculadoraContainer.addEventListener('click', (e) => {
 const getId = selector => document.getElementById(selector) 
 
 const calculadora2Container = getId("calculadora2Container")
-
-const calculadora2BtnClear = getId("calculadora2BtnClear")
-const calculadora2BtnDivide = getId("calculadora2BtnDivide")
-const calculadora2BtnMultiply = getId("calculadora2BtnMultiply")
-const calculadora2BtnDelete = getId("calculadora2BtnDelete")
-
-const calculadora2BtnMinus = getId("calculadora2BtnMinus")
-const calculadora2BtnPlus = getId("calculadora2BtnPlus")
-const calculadora2BtnEqual = getId("calculadora2BtnEqual")
-const calculadora2BtnDot = getId("calculadora2BtnDot")
-
-const calculadora2Btn1 = getId("calculadora2Btn1")
-const calculadora2Btn2 = getId("calculadora2Btn2")
-const calculadora2Btn3 = getId("calculadora2Btn3")
-
-const calculadora2Btn4 = getId("calculadora2Btn4")
-const calculadora2Btn5 = getId("calculadora2Btn5")
-const calculadora2Btn6 = getId("calculadora2Btn6")
-
-const calculadora2Btn7 = getId("calculadora2Btn7")
-const calculadora2Btn8 = getId("calculadora2Btn8")
-const calculadora2Btn9 = getId("calculadora2Btn9")
 
 const calculadora2Ecuacion = getId("calculadora2Ecuacion")
 
@@ -1465,7 +1443,7 @@ calculadora2Container.addEventListener('click', (e) => {
         
         calcNum2 = calculadora2Ecuacion.innerHTML;
         calcNum1 = Number(calcNum1);
-        // calcNum2 = Number(calcNum2);
+        calcNum2 = Number(calcNum2);
         cacheNum1 = ""
         operando = false
 
@@ -1501,11 +1479,11 @@ calculadora2Container.addEventListener('click', (e) => {
 
 
 
-const plus = (num1, num2) => {
+const plus = (num1, num2 = 0) => {
 
-    if (num2 == undefined) {
-        num2 = 0
-    }
+    // if (num2 == undefined) {
+    //     num2 = 0
+    // }
 
     res = num1 + num2
     calculadora2Ecuacion.innerHTML = res;
@@ -1513,7 +1491,7 @@ const plus = (num1, num2) => {
 }
 
 
-const minus = (num1, num2) => {
+const minus = (num1, num2 = 0) => {
 
     res = num1 - num2
     calculadora2Ecuacion.innerHTML = res;
@@ -1521,7 +1499,7 @@ const minus = (num1, num2) => {
 }
 
 
-const multiply = (num1, num2) => {
+const multiply = (num1, num2 = 1) => {
 
     res = num1 * num2
     calculadora2Ecuacion.innerHTML = res;
@@ -1529,10 +1507,419 @@ const multiply = (num1, num2) => {
 }
 
 
-const divide = (num1, num2) => {
+const divide = (num1, num2 = 1) => {
 
     res = num1 / num2
     calculadora2Ecuacion.innerHTML = res;
     tipoEcuacion = null
 }
+
+
+//^ ----------------------------------- 
+//^ -    PROGRAMACIÓN ORIENTADA A OBJETOS  - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 36.- El POO es un paradigma de la programación, donde instanciamos objetos como en la vida real, y evitar repetir codigo. ----- ----- 
+
+//^ ----- ----- 37.- Una clase es como una receta, donde tendra propiedades (variables) y metodos (funciones) ----- ----- 
+
+//^ ----- ----- 37,1.- usaremos "constructor" antes de definir las propiedades del objeto ----- ----- 
+
+class AnimalPOO {
+    constructor(especie, edad, color){
+        this.especie = especie;
+        this.edad = edad;
+        this.color = color;
+        this.info = `Soy ${this.especie}, tengo ${this.edad} años y soy de color ${this.color} ${br}`;
+    };
+    
+    verInfo = () => {
+        document.write(`${this.info}`);
+    };
+    ladrar = () => {
+        if (this.especie === "perro") {
+            document.write(`${br} ¡Waw! ${br}`);
+        } else {
+            document.write(`No puede ladrar ya que es un ${this.especie} ${br}`);
+        }
+    }
+
+};
+
+const perro = new AnimalPOO("perro", 5, "marron");
+const gato = new AnimalPOO("gato", 2, "negro");
+const pajaro = new AnimalPOO("pajaro", 1, "verde");
+
+// document.write(`${br} ${perro.info}`);
+// document.write(`${br} ${gato.info}`);
+// document.write(`${br} ${pajaro.info}`);
+
+perro.ladrar();
+gato.verInfo();
+pajaro.verInfo();
+
+
+
+//^ ----- ----- 38.- La "abstracción" seria resumir lo más que podamos el objeto ----- ----- 
+
+//^ ----- ----- 39.- la "modularidad" es dividir un problema grande en en poblemas mas pequeños ----- ----- 
+
+//^ ----- ----- 40.- El "encapsulamiento" es encerrar los datos para que el usuario no pueda acceder a ellos ----- ----- 
+
+//^ ----- ----- 41.- El "polimorfismo" es la manera en la que un objeto se comportara diferente por sus propiedades ante un metodo ----- ----- 
+
+
+//^ ----- ----- 42.- La herencia es pasarle propiedades u metodos de una clase a otra ----- ----- 
+
+//^ ----- ----- 42,1.- usamos "super" y "extends" para usar la herencia de las propiedades que vamos a pasar ----- ----- 
+
+//^ ----- ----- 42,2.- si usamos la palabra reservada "static" en un metodo, podremos acceder a ese metodo sin necesidad de crear el objeto (solo funciona si el metodo no utiliza ninguna propiedad del objeto) ----- ----- 
+
+//^ ----- ----- 43.- usaremos setters para definir un valor de una propiedad y getters para obtener el valor de una propiedad (y los 2 funcionaran como propiedades a pesar de que son metodos) ----- ----- 
+
+class PerroPOO extends AnimalPOO {
+    constructor(especie, edad, color, raza){
+        super(especie, edad, color);
+        this.raza = null;
+    }
+    static ladrar = () => {
+        alert("¡WAW!")
+    }
+    set setRaza(newName) {
+        this.raza = newName;
+    }
+    get getRaza() {
+        return this.raza;
+    }
+}
+
+const perro2 = new PerroPOO("perro", 4, "negro", "doberman");
+
+perro2.verInfo();
+//? PerroPOO.ladrar();
+
+perro2.setRaza = "Pedro"
+document.write(perro2.getRaza)
+
+
+
+//? ----------------------------------- 
+//^ -       HISTORIA DE COFLA 3       - 
+//^ ----------------------------------- 
+
+
+
+//^ ----------------------------------- 
+//^ -           PROBLEMA 1            - 
+//^ ----------------------------------- 
+
+
+const telefonosDiv = document.getElementById("telefonosDiv");
+
+class CelularPOO {
+    constructor(id, marca, color, peso, pantalla, camaraRes, ram) {
+        this.id = id;
+        this.marca = marca;
+        this.color = color;
+        this.peso = peso;
+        this.pantalla = pantalla;
+        this.camaraRes = camaraRes;
+        this.ram = ram;
+        this.on = false;
+        this.recording = false
+    };
+    
+    specs = (letraColor) => {
+        const styleColor = `<b style="color: ${letraColor};">`;
+        telefonosDiv.innerHTML +=
+        `<br><br>
+        Marca: ${styleColor} ${this.marca}</b> <br>
+        Color: ${styleColor} ${this.color}</b> <br>
+        Peso: ${styleColor} ${this.peso}</b> <br>
+        Pantalla: ${styleColor} ${this.pantalla}</b> <br>
+        Camara: ${styleColor} ${this.camaraRes}</b> <br>
+        Ram: ${styleColor} ${this.ram}</b> <br>
+        `;
+    };
+
+    prender = () => {
+        if (this.on === false) {
+            alert("El teléfono se ha encendido"), 
+            this.on = true
+        } else {
+            alert("El teléfono se ha apagado"), 
+            this.on = false,
+            this.recording = false
+        }
+    };
+
+    reiniciar = () => this.on ? (alert("El teléfono se ha reiniciado"), this.recording = false) : alert("Enciende el teléfono para poder reinicarlo");
+
+    tomarFoto = () => this.on ? alert(`*Click* se ha guardado la foto en "${this.camaraRes}"`) : alert("No puedes tomar foto con el telefono apagado");
+
+    grabar = () => {
+        if (this.on === true && this.recording === false) {
+            alert(`Se ha iniciado la grabación en "${this.camaraRes}"`);
+            this.recording = true;
+        } else if (this.on === true && this.recording === true) {
+            alert(`Se ha guardado la grabación`);
+            this.recording = false;
+        } else {
+            alert("No puedes grabar con el teléfono apagado, tontito")
+        };
+    };
+
+    funcionesTLF = (color) => {
+        this.specs(color)
+        telefonosDiv.innerHTML += `
+        <div>
+            <input type="button" value="Prender" data-on="${this.id}">
+            <input type="button" value="Reiniciar" data-restart="${this.id}">
+            <input type="button" value="Tomar foto" data-foto="${this.id}">
+            <input type="button" value="Grabar" data-video="${this.id}">
+        </div>
+        `;
+
+        telefonosDiv.addEventListener('click', (e) => {
+
+            if (e.target && e.target.dataset.on === this.id) {
+                this.prender();
+            } else if (e.target && e.target.dataset.restart === this.id) {
+                this.reiniciar();
+            } else if (e.target && e.target.dataset.foto === this.id) {
+                this.tomarFoto();
+            } else if (e.target && e.target.dataset.video === this.id) {
+                this.grabar();
+            };
+        });
+    };
+};
+
+const celular1 = new CelularPOO("1", "Tecno Spark 8C", "Azul claro", "193g", "6.5 pulgadas", "Full HD", "4GB+3GB");
+
+const celular2 = new CelularPOO("2", "Motolora g7", "Azul oscuro", "172g", "6.2 pulgadas", "Full HD", "4GB");
+
+const celular3 = new CelularPOO("3", "Yezz", "Negro", "154g", "5.8 pulgadas", "HD", "2GB");
+
+
+celular1.funcionesTLF("orange");
+celular2.funcionesTLF("blue");
+celular3.funcionesTLF("brown");
+
+//* manera linda de recorrer la info de los celulares
+// const recorrerCelular = (celular, letraColor) => {
+//     document.write("<br>");
+//     Object.entries(celular).forEach(([key, value]) => {
+//         document.write(
+//             `<br>
+//             ${key[0].toUpperCase() + key.substring(1)}: 
+//             <b style="color: ${letraColor};">
+//                 ${value}
+//             </b>`
+//         );
+//     });
+//     document.write("<br>")
+// }
+//*
+
+
+//^ ----------------------------------- 
+//^ -           PROBLEMA 2            - 
+//^ -----------------------------------
+
+
+class CelularHighEndPOO extends CelularPOO {
+    constructor(id, marca, color, peso, pantalla, camaraRes, ram, camaraRes2){
+        super(id, marca, color, peso, pantalla, camaraRes, ram);
+        this.camaraRes2 = camaraRes2;
+    };
+
+    specsHighEnd = (color) => {
+        this.specs(color);
+        telefonosDiv.innerHTML +=`Resolución de camara extra: <b style="color: ${color};">${this.camaraRes2}</b>`;
+    };
+
+    funcionesTLFHighEnd = (color) => {
+        this.funcionesTLF(color);
+        telefonosDiv.innerHTML +=`Resolución de camara extra: <b style="color: ${color};">${this.camaraRes2}</b>`;
+        telefonosDiv.innerHTML += `
+        <div>
+            <input type="button" value="Camara super lenta" data-slow="${this.id}">
+            <input type="button" value="Reconocimiento facial" data-facial="${this.id}">
+        </div>
+        `;
+
+        telefonosDiv.addEventListener('click', (e) => {
+            if (e.target && e.target.dataset.slow === this.id) {
+                this.superSlowCamera();
+            } else if (e.target && e.target.dataset.facial === this.id) {
+                this.reconocimientoFacial();
+            };
+        });
+    };
+
+    superSlowCamera = () => {
+        if (this.on === true && this.recording === false) {
+            alert(`Se ha iniciado la grabación de "Camara super lenta" en "${this.camaraRes}"`);
+            this.recording = true;
+        } else if (this.on === true && this.recording === true) {
+            alert(`Se ha guardado la grabación`);
+            this.recording = false;
+        } else {
+            alert("No puedes grabar en 'Camara super lenta' con el teléfono apagado, tontito");
+        };
+    };
+
+    reconocimientoFacial = () => this.on ? alert("Se inicio el reconocimiento facial") : alert("No puedes usar el 'Reconocimiento facial' con el teléfono apagado, tontito")
+};
+
+const celularHigh1 = new CelularHighEndPOO("4", "Iphone 14 Pro Max", "Blanco", "240g", "6.7 pulgadas", "4K", "6GB", "2K");
+
+const celularHigh2 = new CelularHighEndPOO("5", "Samsung Galaxy S23 Ultra", "Crema", "234g", "6.8 pulgadas", "4K", "8GB/12GB", "2K");
+
+celularHigh1.funcionesTLFHighEnd("violet");
+celularHigh2.funcionesTLFHighEnd("chartreuse");
+
+
+
+//^ ----------------------------------- 
+//^ -           PROBLEMA 3            - 
+//^ ----------------------------------- 
+
+const appsDiv = document.getElementById("appsDiv");
+
+class AppPOO {
+    constructor(id, titulo, descargas, estrellas, peso){
+        this.id = id;
+        this.titulo = titulo;
+        this.descargas = descargas;
+        this.estrellas = estrellas;
+        this.peso = peso;
+        this.instalado = false;
+        this.abierto = false;
+    };
+
+    instalar = () => this.instalado ? alert(`"${this.titulo}" ya esta instalado en su dispositivo`) : (alert(`La aplicación "${this.titulo}" se ha instalado con exitó`), this.instalado = true);
+
+    abrir = () => {
+        if (this.abierto === false && this.instalado === true) {
+            alert(`Abriendo "${this.titulo}"`);
+            this.abierto = true;
+        } else if (this.abierto === true && this.instalado === true) {
+            alert(`La aplicación "${this.titulo}" ya esta abierta`);
+        } else {
+            alert(`Debes instalar la aplicación para poder abrirla`)
+        }
+    }
+
+    cerrar = () => {
+        if (this.abierto === true && this.instalado === true) {
+            alert(`"${this.titulo}" se ha cerrado`);
+            this.abierto = false;
+        } else if (this.abierto === false && this.instalado === true) {
+            alert(`La aplicación "${this.titulo}" ya esta cerrada`);
+        } else {
+            alert(`Como vas a cerrar una APP que no tienes boludo`);
+        }
+    }
+
+    desintalar = () => this.instalado ? (alert(`"${this.titulo}" se ha desintalado de su dispositivo`), this.abierto = false, this.instalado = false) : alert(`Esta aplicación no se encuentra en su dispositivo`);
+
+    detallesApp = (letraColor) => {
+        const styleColor = `<b style="color: ${letraColor};">`;
+        appsDiv.innerHTML += 
+        `<br><br>
+        Titulo: ${styleColor} ${this.titulo}</b> <br>
+        Descargas: ${styleColor} ${this.descargas}</b> <br>
+        Estrellas: ${styleColor} ${this.estrellas}⭐</b> <br>
+        Peso: ${styleColor} ${this.peso}</b> <br>
+        `;
+    };
+
+    funcionesApp = (color) => {
+        this.detallesApp(color)
+        appsDiv.innerHTML += `
+        <div>
+            <input type="button" value="Instalar" data-install="${this.id}">
+            <input type="button" value="Abrir" data-open="${this.id}">
+            <input type="button" value="Cerrar" data-close="${this.id}">
+            <input type="button" value="Desintalar" data-uninstall="${this.id}">
+        </div>
+        `;
+
+        appsDiv.addEventListener('click', (e) => {
+            if (e.target && e.target.dataset.install === this.id) {
+                this.instalar();
+            } else if (e.target && e.target.dataset.open === this.id) {
+                this.abrir();
+            } else if (e.target && e.target.dataset.close === this.id) {
+                this.cerrar();
+            } else if (e.target && e.target.dataset.uninstall === this.id) {
+                this.desintalar();
+            };
+        });
+    };
+};
+
+const app1 = new AppPOO("1", "Free Fire", "Más de 1000M", "4.3", "500 MB");
+const app2 = new AppPOO("2", "Mario Kart Tour", "Más de 100M", "4.1", "120 MB");
+const app3 = new AppPOO("3", "Candy Crush Saga", "Más de 1000M", "4.7", "89 MB");
+const app4 = new AppPOO("4", "FIFA Fútbol", "Más de 100M", "4.5", "713 MB");
+const app5 = new AppPOO("5", "Call of Duty: Mobile", "Más de 500M", "4.5", "2.2 GB");
+const app6 = new AppPOO("6", "Apex Legends Mobile", "Más de 10M", "4.7", "3.8 GB");
+const app7 = new AppPOO("7", "PUBG MOBILE", "Más de 500M", "4.1", "754 MB");
+
+app1.funcionesApp("lightsalmon");
+app2.funcionesApp("red");
+app3.funcionesApp("pink");
+app4.funcionesApp("blue");
+app5.funcionesApp("yellow");
+app6.funcionesApp("lightgreen");
+app7.funcionesApp("lightskyblue");
+
+
+
+//^ ----------------------------------- 
+//^ -        METODOS DE CADENAS       - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 44.- concat() junta 2 o mas cadenas y retorna una nueva ----- ----- 
+
+let cadena = new String("cadena de prueba prueba");
+let cadena2 = "cadena";
+let resultado = cadena.concat(cadena2);
+
+document.write(br, resultado);
+
+
+//^ ----- ----- 45.- starsWith() para que si una cadena empieza con los caracteres de otra cadena devuelve true, si no devuelve false ----- ----- 
+
+//^ ----- ----- 45,1.- endsWith() para ver si la cadena termina con los caracteres otra cadena ----- ----- 
+
+document.write(br, cadena.startsWith(cadena2))
+
+
+//^ ----- ----- 46.- includes() para buscar si una cadena se encuentra dentro de otra cadena. Devolvera true o false ----- ----- 
+
+document.write(br, cadena.includes("de prue"))
+
+
+//^ ----- ----- 47.- indexOf() nos devolvera la posición del primer caracter de una cadena de texto ----- ----- 
+
+//^ ----- ----- 47,1.- Si la palabra no se encuentra devolvera "-1" ----- ----- 
+
+
+document.write(br, cadena.indexOf("prueba"));
+
+
+//^ ----- ----- 48.- lastIndexOf() nos devolvera la posición del primer caracter PERO recorriendo desde atras hacia adelante de la cadena te texto ----- ----- 
+
+
+document.write(br, "último last Index Of: " + cadena.lastIndexOf("prueba"));
+
+
+//^ ----- ----- 49.-  ----- ----- 
+
 

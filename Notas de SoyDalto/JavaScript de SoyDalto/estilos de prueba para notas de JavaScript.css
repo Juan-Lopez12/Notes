@@ -1,4 +1,9 @@
 
+* {
+    font-family: Helvetica, sans-serif;
+    /* background-color: #2c2c2c;
+    color: #fff; */
+}
 
 .calculadora-container {
     margin-left: 60px;
@@ -114,4 +119,21 @@
 
 .calculadora__boton--0 {
     grid-area: zero;
+}
+
+
+.telefonos-div {
+    background-color: #727272;
+    padding: 20px;
+    font-size: 1.3em;
+    margin: 20px;
+}
+
+
+.apps-div {
+    background-color: #3d3d3d;
+    color: whitesmoke;
+    padding: 20px;
+    font-size: 1.3em;
+    margin: 20px;
 }

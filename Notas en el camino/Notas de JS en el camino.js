@@ -254,7 +254,7 @@ posts.some(post => post.tags.includes("React"));
 posts.every(post => post.tags.includes("javascript"));
 
 
-//^ ----- ----- 28.- con .map() podemos usarlo como si fuera un bucle for, pero de manera declarativa. Map tmabien te puede regresar un arreglo nuevo para guardarlo en una variable ----- ----- 
+//^ ----- ----- 28.- con .map() podemos usarlo como si fuera un bucle for, pero de manera declarativa. Map tambien te puede regresar un arreglo nuevo para guardarlo en una variable ----- ----- 
 
 
 posts.map(post => post.title);
