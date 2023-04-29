@@ -1920,6 +1920,173 @@ document.write(br, cadena.indexOf("prueba"));
 document.write(br, "último last Index Of: " + cadena.lastIndexOf("prueba"));
 
 
-//^ ----- ----- 49.-  ----- ----- 
+//^ ----- ----- 49.- padStart(cantidad, "caracter") va a rellenar el principio de una cadena con lo que le indiquemos, con la cantidad de caracteres que queramos + la cadena original ----- ----- 
+
+let abc = "Abc";
+
+document.write(br, abc.padStart(6, "12"));
+
+//^ ----- ----- 49,1.- padEnd() hace lo mismo, pero rellenando desde el final ----- ----- 
+
+
+document.write(br, abc.padEnd(6,"12"));
+
+
+//^ ----- ----- 50.- repeat() repite la cadena a la que se le aplic el metodo las veces que le indiquemos ----- ----- 
+
+
+document.write(br, abc.repeat(3));
+
+
+//^ ----- ----- 51.- split() toma un cadena y devuelve un array dividido por el caracter que le indiquemos, como "espacios" o "comas (,)" ----- ----- 
+
+
+let cadena3 = "Hola como estas";
+
+document.write(br, cadena3.split(" "));
+document.write(br, cadena3.split("como"));
+
+
+//^ ----- ----- 52.- substring(start index, end index) va a tomar un string y recortarlo desde el indice del caracter que le indiquemos hasta el final, retornando un nuevo string ----- ----- 
+
+
+document.write(br, cadena3.substring(3));
+
+
+//^ ----- ----- 53.- toLowerCase() convierte una cadena a minusculas ----- ----- 
+
+//^ ----- ----- 53,1.- y toUpperCase() convierte una una cadena a mayusculas ----- ----- 
+
+
+//^ ----- ----- 54.- toString() convierte un numero a un string, o tambien puede convertir un array a un string ----- ----- 
+
+
+//^ ----- ----- 55.- trim() elimina los espacios en blancos al principio y al final de una string ----- ----- 
+
+//^ ----- ----- 55,1.- trimEnd() elimina los espacios en blanco al final ----- ----- 
+
+//^ ----- ----- 55,2.- trimStart() elimina los espacios en blanco al principio ----- ----- 
+
+
+//^ ----- ----- 56.- length() nos devolvera la cantidad de caracters en una cadena, array u objeto ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -        METODOS DE ARRAY         - 
+//^ ----------------------------------- 
+
+//^ ----------------------------------- 
+//^ -      METODOS TRANSFORMADORES    - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 57.- pop() elimina el ultimo elemento del array y lo devuelve ----- ----- 
+
+
+const nombres1 = ["Pedro", "Maria", "Jorge"];
+
+document.write(br, nombres1, "<br>");
+document.write(nombres1.pop(), "<br>", nombres1);
+
+
+//^ ----- ----- 58.- shift() elimina el primer elemento de un array y lo devuelve ----- ----- 
+
+
+//^ ----- ----- 59.- push() agrega 1 o mas elementos a un array al final de su lista ----- ----- 
+
+document.write(br, nombres1, "<br>");
+nombres1.push("Juancito", "Roberto");
+document.write(nombres1);
+
+
+//^ ----- ----- 60.- reverse() invierte el orden de los elementos de un array y nos devuelve el array ----- ----- 
+
+
+//^ ----- ----- 61.- unshift() agrega uno o más elementos al inicio de un array y devuelve la nueva longitud del array ----- ----- 
+
+
+//^ ----- ----- 62.- sort() va a ordenar el array en orden alfabético y numérico ----- ----- 
+
+
+//^ ----- ----- 63.- splice(index, cantidad a borrar, elementos a añadir) va a tomar el indice de un array y desde ahi va a borrar los elementos (no borrara ninguno si ponemos "0") y luego añadira los elementos que le indiquemos ----- ----- 
+
+
+//^ ----- ----- 63,1.- toSpliced hace lo mismo que splice() pero copia el array original en vez de modificarlo ----- ----- 
+
+document.write(br, nombres1.toSpliced(2, 0, "Gustavo", "Máximo"));
+
+
+//^ ----------------------------------- 
+//^ -         METODOS ACCESORES       - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 64.- join(separador) une todos los elementos de un array y los covierte en una cadena de texto (string) y devuelve un nuevo array. Tambien podemos añadir que caracter se usara para separar los elementos en la cadena de texto ----- ----- 
+
+
+document.write(br, `<b>array:</b> ${nombres1}`, br, `<b>cadena:</b> ${nombres1.join("--")}`);
+
+
+//^ ----- ----- 65.- slice(start, end) devuelve un nuevo array, y agarrara los elementos desde la posición que le indiquemos, si usamos un valor negativo como -1, los tomara empezando desde el final del array ----- ----- 
+
+//^ ----- ----- 65,1.- si usamos los valores slice(0, 2) agarrará los primeros 2 elementos y los mostrara ----- ----- 
+
+
+//^ ----- ----- 66.- Algunos metodos de cadenas tambien funcionan para los arrays, tales como:  ----- ----- 
+
+//^ ----- ----- 66,1.- includes("palabra") y nos devolvera true o false ----- ----- 
+
+//^ ----- ----- 66,2.- indexOf("palabra") y nos devolvera la posición del elemento en el array ----- ----- 
+
+//^ ----- ----- 66,3.- lastIndexOf("palabra") y nos devolera la posición del elemento en el array pero empezando desde el final ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -       METODOS DE REPETICIÓN     - 
+//^ -----------------------------------
+
+
+//^ ----- ----- 67.- filter(callBack) va a ejecutar una función callBack por cada elemento en el array, y un nuevo array con los elementos que cumplan la condición de dicha función ----- ----- 
+
+
+document.write(br, nombres1.filter(nombre => nombre.length > 5));
+
+
+//^ ----- ----- 68.- forEach() va a ejecutar una función por cada elemento en el array ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -           OBJETO MATH           - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 69.- sqrt() Devuelve la raíz cuadrada positiva de un número ----- ----- 
+
+
+document.write(br, `La raíz cuadrada de 25 es: <b>${Math.sqrt(25)}</b>`);
+
+
+//^ ----- ----- 70.- cbrt() Devuelve la raíz cubica de un número ----- ----- 
+
+
+//^ ----- ----- 71.- max() Agarra el número más grande y lo devuelve ----- ----- 
+
+
+//^ ----- ----- 72.- min() devuelve el número más chiquito de todos los números que se les pasa ----- ----- 
+
+
+//^ ----- ----- 73.- random() devuelve un número aleatorio entre 0 y 1 ----- ----- 
+
+
+document.write(br, Math.random());
+
+
+//^ ----- ----- 74.- round() devuelve el valor de un número redondeado al número entero más cercano ----- ----- 
+
+
+document.write(br, Math.round(Math.random()*100));
+
+
+//^ ----- ----- 75.- floor() devuelve el mayor entero menor que o igual a un número ----- ----- 
 
 
