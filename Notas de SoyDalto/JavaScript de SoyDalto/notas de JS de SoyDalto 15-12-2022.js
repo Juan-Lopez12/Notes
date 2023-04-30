@@ -2090,3 +2090,85 @@ document.write(br, Math.round(Math.random()*100));
 //^ ----- ----- 75.- floor() devuelve el mayor entero menor que o igual a un número ----- ----- 
 
 
+document.write(br, Math.floor(4.9999));
+
+
+//^ ----- ----- 76.- trunc() elimina los decimales de un número ----- ----- 
+
+
+//^ ----- ----- 77.- PI() ratio de la circunferencia de un circulo respecto a su diametro, aproximadamente 3.14159 ----- ----- 
+
+
+document.write(br, Math.PI);
+
+
+//^ ----- ----- 78.- SQRT1_2() raíz cuadrada de un medio ----- ----- 
+
+
+//^ ----- ----- 79.- SQRT2 raíz() raíz cuadrada de 2 ----- ----- 
+
+
+const calcB = document.getElementById("calcB");
+const calcBEcu = document.getElementById("calcBEcu");
+const calcBSim = document.getElementById("calcBSim");
+const calcBRes = document.getElementById("calcBRes");
+
+
+const simbolos = ["+", "-", "*", "/"];
+
+
+
+calcB.addEventListener('click', (e) => {
+    
+    const t = e.target;
+
+    const start = calcBEcu.innerHTML
+    console.log(e.target.value);
+
+    if (t && Number(t.value) <= 9) {
+
+        if (calcBEcu.innerHTML.startsWith("+") || 
+            calcBEcu.innerHTML.startsWith("-") || 
+            calcBEcu.innerHTML.startsWith("*") || 
+            calcBEcu.innerHTML.startsWith("/")) {
+
+            calcBEcu.innerHTML = t.value;
+            
+
+        } else {
+
+            calcBEcu.innerHTML += t.value;
+
+        }
+
+
+
+    } else {
+
+
+        if (t && t.value === "Borrar") {
+
+            calcBEcu.innerHTML = calcBEcu.innerHTML.slice(0, -1);
+
+        } else if (t && (t.value === "+" || 
+                        t.value === "-" || 
+                        t.value === "*" || 
+                        t.value === "/")) {
+
+            calcBSim.innerHTML = t.value
+
+        }
+
+
+    }
+
+
+});
+
+
+const plusCalc = (num1, num2) => {
+
+    res = num1 + num2;
+
+    return res
+}

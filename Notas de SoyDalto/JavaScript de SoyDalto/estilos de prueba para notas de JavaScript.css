@@ -11,7 +11,7 @@
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: repeat(7, auto);
     grid-template-areas:
-    "equation equation equation equation"
+    "equation equation equation simbol"
     "result result result result" 
     "clear divide multiply delete"
     "seven eight nine minus"
@@ -37,6 +37,15 @@
 .calculadora__p--ecuacion {
     grid-area: equation;
     height: 38px;
+    outline: 1px black solid;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.calculadora__p--simbolo {
+    grid-area: simbol;
+    height: 38px;
+    padding-right: 40px;
     outline: 1px black solid;
     font-size: 1.6em;
     font-weight: bold;
