@@ -2108,67 +2108,107 @@ document.write(br, Math.PI);
 //^ ----- ----- 79.- SQRT2 raíz() raíz cuadrada de 2 ----- ----- 
 
 
+//^ ----------------------------------- 
+//^ -       HISTORIA DE COFLA 4       - 
+//^ ----------------------------------- 
+
+
+//^ ----------------------------------- 
+//^ -           PROBLEMA 1            - 
+//^ ----------------------------------- 
+
+
 const calcB = document.getElementById("calcB");
 const calcBEcu = document.getElementById("calcBEcu");
-const calcBSim = document.getElementById("calcBSim");
+const calcBOpe = document.getElementById("calcBOpe");
 const calcBRes = document.getElementById("calcBRes");
 
-
-const simbolos = ["+", "-", "*", "/"];
-
-
+//? Arreglar bug de poder poner ceros (0) sin limites
 
 calcB.addEventListener('click', (e) => {
     
     const t = e.target;
 
-    const start = calcBEcu.innerHTML
-    console.log(e.target.value);
-
-    if (t && Number(t.value) <= 9) {
-
-        if (calcBEcu.innerHTML.startsWith("+") || 
-            calcBEcu.innerHTML.startsWith("-") || 
-            calcBEcu.innerHTML.startsWith("*") || 
-            calcBEcu.innerHTML.startsWith("/")) {
-
-            calcBEcu.innerHTML = t.value;
-            
-
-        } else {
-
+    if (t && t.value <= 9) {
+    //^ Para escribir los números en pantalla
+        if (calcBOpe.innerHTML == "") {
             calcBEcu.innerHTML += t.value;
-
-        }
-
-
-
-    } else {
-
-
-        if (t && t.value === "Borrar") {
-
+        } else {
+            calcBRes.innerHTML += t.value;
+        };
+    };
+    
+    if (t && t.value === ".") {
+    //^ para escribir puntos en pantallo y verificar si ya hay un punto
+        if (calcBOpe.innerHTML == "") {
+            if (!calcBEcu.innerHTML.includes(".")) {
+                calcBEcu.innerHTML += t.value;
+            };
+        } else {
+            if (!calcBRes.innerHTML.includes(".")) {
+                calcBRes.innerHTML += t.value;
+            };
+        };
+    };
+    
+    if (t && t.value === "Borrar") {
+    //^ Para borrar
+        if (calcBOpe.innerHTML == "") {
             calcBEcu.innerHTML = calcBEcu.innerHTML.slice(0, -1);
+        } else {
+            calcBRes.innerHTML = calcBRes.innerHTML.slice(0, -1);
+        };
+    };
+    
+    if (t && (t.value === "+" || t.value === "-" || t.value === "x" || 
+    t.value === "÷" || t.value === "^" || t.value === "√" || t.value === "∛")) {
+    //^ Para escribir un operador
+        calcBOpe.innerHTML = t.value
+    };
+    
+    if (t && t.value === "C") {
+    //^ Para borrar todo
+        calcBEcu.innerHTML = "";
+        calcBOpe.innerHTML = "";
+        calcBRes.innerHTML = "";
+    };
+    
+    if (t && t.value === "=") {
+    //^ Para dar un resultado
+        if (calcBOpe.innerHTML !== "") {
+            if (calcBOpe.innerHTML === "+") {
+                calcBEcu.innerHTML = plusCalc(Number(calcBEcu.innerHTML), Number(calcBRes.innerHTML));
+                calcBRes.innerHTML = "";
+            } else if (calcBOpe.innerHTML === "-") {
+                calcBEcu.innerHTML = minusCalc(Number(calcBEcu.innerHTML), Number(calcBRes.innerHTML));
+                calcBRes.innerHTML = "";
+            } else if (calcBOpe.innerHTML === "x") {
+                calcBEcu.innerHTML = multiplyCalc(Number(calcBEcu.innerHTML), Number(calcBRes.innerHTML));
+                calcBRes.innerHTML = "";
+            } else if (calcBOpe.innerHTML === "÷") {
+                calcBEcu.innerHTML = divideCalc(Number(calcBEcu.innerHTML), Number(calcBRes.innerHTML));
+                calcBRes.innerHTML = "";
+            } else if (calcBOpe.innerHTML === "^") {
+                calcBEcu.innerHTML = powerCalc(Number(calcBEcu.innerHTML), Number(calcBRes.innerHTML));
+                calcBRes.innerHTML = "";
+            } else {
+                calcBEcu.innerHTML = calcBRes.innerHTML;
+                calcBRes.innerHTML = "";
+            };
+        };
+    };
 
-        } else if (t && (t.value === "+" || 
-                        t.value === "-" || 
-                        t.value === "*" || 
-                        t.value === "/")) {
-
-            calcBSim.innerHTML = t.value
-
-        }
-
-
-    }
-
-
+    if (t && t.value === "√") {
+    //^ Para dar un resultado cientifico
+        calcBRes.innerHTML = Math.sqrt(calcBEcu.textContent)
+    } else if (t && t.value === "∛") {
+        calcBRes.innerHTML = Math.cbrt(calcBEcu.textContent)
+    };
 });
 
+const plusCalc = (num1, num2) => num1 + num2;
+const minusCalc = (num1, num2) => num1 - num2;
+const multiplyCalc = (num1, num2) => num1 * num2;
+const divideCalc = (num1, num2) => num1 / num2;
+const powerCalc = (num1, num2) => num1 ** num2;
 
-const plusCalc = (num1, num2) => {
-
-    res = num1 + num2;
-
-    return res
-}

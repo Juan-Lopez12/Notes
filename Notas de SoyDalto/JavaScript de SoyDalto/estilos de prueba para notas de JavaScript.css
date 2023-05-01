@@ -13,6 +13,7 @@
     grid-template-areas:
     "equation equation equation simbol"
     "result result result result" 
+    "cuadrada cuadrada power cubica"
     "clear divide multiply delete"
     "seven eight nine minus"
     "four five six plus"
@@ -130,6 +131,18 @@
     grid-area: zero;
 }
 
+.calculadora__boton--power {
+    grid-area: power;
+}
+
+.calculadora__boton--cuadrada {
+    grid-area: cuadrada;
+    font-size: 20px;
+}
+
+.calculadora__boton--cubica {
+    grid-area: cubica;
+}
 
 .telefonos-div {
     background-color: #727272;
