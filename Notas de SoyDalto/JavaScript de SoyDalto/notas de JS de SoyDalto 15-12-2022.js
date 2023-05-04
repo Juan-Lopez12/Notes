@@ -2212,3 +2212,79 @@ const multiplyCalc = (num1, num2) => num1 * num2;
 const divideCalc = (num1, num2) => num1 / num2;
 const powerCalc = (num1, num2) => num1 ** num2;
 
+
+//^ ----------------------------------- 
+//^ -           PROBLEMA 2            - 
+//^ ----------------------------------- 
+
+
+const buscarClaseDiv = document.getElementById("buscarClaseDiv");
+const resultadoMaterias = document.getElementById("resultadoMaterias");
+const resultadoAlumnos = document.getElementById("resultadoAlumnos");
+
+
+buscarClaseDiv.addEventListener('input', (e) => {
+    
+    const t = e.target;
+
+    Object.keys(materias).forEach((key) => {
+        
+        if (t.value.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase() == key) {
+
+            resultadoMaterias.innerHTML = `
+            <br><b>
+            Matería: ${materias[key].materia} <br>
+            Profesor: ${materias[key].profesor} <br><br>
+            Alumnos: ${materias[key].cantidadAlumnos}
+            ${mostrarAlumnos(materias[key].cantidadAlumnos)}
+            </b>
+            `;
+
+            console.log(materias[key])
+
+        } else {
+
+            // resultadoMaterias.innerHTML = "<br><b>No se encontro la materia</b><br>"
+
+        }
+
+    });
+
+});
+
+const aea = Math.floor(Math.random()*15+5);
+
+const mostrarAlumnos = (integrados) => {
+    resultadoAlumnos.innerHTML = ""
+    for (let index = 0; index < integrados; index++) {
+        let ObAlumnos = Object.values(listaAlumnos)[index] 
+        resultadoAlumnos.innerHTML += `<br>${ObAlumnos.posicion}: ${ObAlumnos.nombre}`
+    }
+    return ""
+}
+
+
+const materias = {
+    "matematica": {
+
+        materia: "Matemáticas",
+        profesor: "Prof. Jodi Bradtke III",
+        alumnos: listaAlumnos,
+        cantidadAlumnos: Math.floor(Math.random()*15+5),
+    },
+    "fisica": {
+        materia: "Física",
+        profesor: "Prof. Calvin Murphy",
+        alumnos: listaAlumnos,
+        cantidadAlumnos: Math.floor(Math.random()*15+5),
+    },
+    "programacion": {
+        materia: "Programación",
+        profesor: "Profª. Darlene Fritsch",
+        alumnos: listaAlumnos,
+        cantidadAlumnos: Math.floor(Math.random()*15+5),
+    }
+}
+
+
+
