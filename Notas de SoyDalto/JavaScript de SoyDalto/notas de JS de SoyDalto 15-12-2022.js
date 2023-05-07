@@ -991,7 +991,7 @@ const listaAlumnos = {
         asistencias: 0,
     },
     alumno7: {
-        nombre: "Latoya Williamson",
+        nombre: "Cofla Dalto",
         posicion: 7,
         asistencias: 0,
     },
@@ -2222,69 +2222,173 @@ const buscarClaseDiv = document.getElementById("buscarClaseDiv");
 const resultadoMaterias = document.getElementById("resultadoMaterias");
 const resultadoAlumnos = document.getElementById("resultadoAlumnos");
 
-
 buscarClaseDiv.addEventListener('input', (e) => {
-    
     const t = e.target;
-
     Object.keys(materias).forEach((key) => {
-        
         if (t.value.normalize('NFD').replace(/[\u0300-\u036f]/g,"").toLowerCase() == key) {
+
+            const nombres = Object.values(materias[key].alumnos).map(value => value.nombre);
+
+            const mostrarNombres = () => {
+                let texto = "";
+                for (let i = 0; i < nombres.length; i++) {
+                    texto += `<br> <b>${i + 1}: ${nombres[i]}</b>`
+                }
+                return texto;
+            }
 
             resultadoMaterias.innerHTML = `
             <br><b>
             Matería: ${materias[key].materia} <br>
             Profesor: ${materias[key].profesor} <br><br>
-            Alumnos: ${materias[key].cantidadAlumnos}
-            ${mostrarAlumnos(materias[key].cantidadAlumnos)}
+            Alumnos: ${nombres.length}
             </b>
             `;
-
-            console.log(materias[key])
-
-        } else {
-
-            // resultadoMaterias.innerHTML = "<br><b>No se encontro la materia</b><br>"
-
-        }
-
+            
+            resultadoAlumnos.innerHTML = mostrarNombres();
+        };
     });
-
 });
-
-const aea = Math.floor(Math.random()*15+5);
-
-const mostrarAlumnos = (integrados) => {
-    resultadoAlumnos.innerHTML = ""
-    for (let index = 0; index < integrados; index++) {
-        let ObAlumnos = Object.values(listaAlumnos)[index] 
-        resultadoAlumnos.innerHTML += `<br>${ObAlumnos.posicion}: ${ObAlumnos.nombre}`
-    }
-    return ""
-}
-
 
 const materias = {
     "matematica": {
-
         materia: "Matemáticas",
         profesor: "Prof. Jodi Bradtke III",
-        alumnos: listaAlumnos,
-        cantidadAlumnos: Math.floor(Math.random()*15+5),
+        alumnos: {
+            alumno1: {
+                nombre: "Pedro Sanchez",
+                posicion: 1,
+            },
+            alumno2: {
+                nombre: "Jessica Uribe",
+                posicion: 2,
+            },
+            alumno3: {
+                nombre: "Juan López",
+                posicion: 3,
+            },
+            alumno4: {
+                nombre: "Luis Alfonso",
+                posicion: 4,
+            },
+            alumno5: {
+                nombre: "Maria Peréz",
+                posicion: 5,
+            },
+            alumno6: {
+                nombre: "Jerald Grimes",
+                posicion: 6,
+            },
+            alumno7: {
+                nombre: "Cofla Dalto",
+                posicion: 7,
+            },
+        },
     },
     "fisica": {
         materia: "Física",
         profesor: "Prof. Calvin Murphy",
-        alumnos: listaAlumnos,
-        cantidadAlumnos: Math.floor(Math.random()*15+5),
+        alumnos: {
+            alumno1: {
+                nombre: "Pedro Sanchez",
+                posicion: 1,
+            },
+            alumno2: {
+                nombre: "Jessica Uribe",
+                posicion: 2,
+            },
+            alumno3: {
+                nombre: "Juan López",
+                posicion: 3,
+            },
+            alumno4: {
+                nombre: "Luis Alfonso",
+                posicion: 4,
+            },
+            alumno5: {
+                nombre: "Maria Peréz",
+                posicion: 5,
+            },
+        },
     },
     "programacion": {
         materia: "Programación",
         profesor: "Profª. Darlene Fritsch",
-        alumnos: listaAlumnos,
-        cantidadAlumnos: Math.floor(Math.random()*15+5),
-    }
+        alumnos: {
+            alumno1: {
+                nombre: "Pedro Sanchez",
+                posicion: 1,
+            },
+            alumno2: {
+                nombre: "Jessica Uribe",
+                posicion: 2,
+            },
+            alumno3: {
+                nombre: "Juan López",
+                posicion: 3,
+            },
+            alumno4: {
+                nombre: "Luis Alfonso",
+                posicion: 4,
+            },
+            alumno5: {
+                nombre: "Maria Peréz",
+                posicion: 5,
+            },
+            alumno6: {
+                nombre: "Jerald Grimes",
+                posicion: 6,
+            },
+            alumno7: {
+                nombre: "Cofla Dalto",
+                posicion: 7,
+            },
+        },
+    }, 
+    "logica": {
+        materia: "Lógica",
+        profesor: "Prof. Casey Herman",
+        alumnos: {
+            alumno1: {
+                nombre: "Pedro Sanchez",
+                posicion: 1,
+            },
+            alumno2: {
+                nombre: "Jessica Uribe",
+                posicion: 2,
+            },
+            alumno3: {
+                nombre: "Juan López",
+                posicion: 3,
+            },
+        },
+    },
 }
 
+const buscarAlumnoDiv = document.getElementById("buscarAlumnoDiv");
+const buscarAlumnos = document.getElementById("buscarAlumnos");
+
+buscarAlumnoDiv.addEventListener('input', (e) => {
+    
+    const t = e.target;
+    let nombres1 = []
+
+    Object.keys(materias).forEach((key) => {
+        const nombres = Object.values(materias[key].alumnos).map(value => value.nombre);
+
+        if (nombres.includes(t.value)) {
+            nombres1.push(materias[key].materia)
+        }
+
+    });
+
+    buscarAlumnos.innerHTML = `${nombres1.join(", ")}`
+
+});
+
+
+//^ ----------------------------------- 
+//^ -           PROBLEMA 3            - 
+//^ ----------------------------------- 
 
 
