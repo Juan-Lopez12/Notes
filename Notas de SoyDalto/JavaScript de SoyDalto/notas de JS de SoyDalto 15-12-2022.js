@@ -2371,24 +2371,198 @@ const buscarAlumnos = document.getElementById("buscarAlumnos");
 buscarAlumnoDiv.addEventListener('input', (e) => {
     
     const t = e.target;
-    let nombres1 = []
+    let alumnoMaterias = []
 
     Object.keys(materias).forEach((key) => {
         const nombres = Object.values(materias[key].alumnos).map(value => value.nombre);
 
         if (nombres.includes(t.value)) {
-            nombres1.push(materias[key].materia)
+            alumnoMaterias.push(materias[key].materia)
         }
 
     });
 
-    buscarAlumnos.innerHTML = `${nombres1.join(", ")}`
+    buscarAlumnos.innerHTML = `${alumnoMaterias.join(", ")}`
 
 });
 
 
+
 //^ ----------------------------------- 
-//^ -           PROBLEMA 3            - 
+//^ -            CONSOLA              - 
 //^ ----------------------------------- 
 
 
+//^ ----------------------------------- 
+//^ -      FUNCIONES DE REGISTRO      - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 80.- assert() aparece un mensaje de error si la afirmación es falsa ----- ----- 
+
+
+//^ ----- ----- 81.- clear() limpia la consola ----- ----- 
+
+
+//^ ----- ----- 82.- error() Muestra un mensaje de error ----- ----- 
+
+
+//^ ----- ----- 83.- info() emite un mensaje informativo ----- ----- 
+
+
+//^ ----- ----- 84.- table() muestra una tabla de un array o un objeto ----- ----- 
+
+
+//^ ----- ----- 85.- warn() para mostrar una advertencia ----- ----- 
+
+
+//^ ----- ----- 86.- dir() nos muestra una lista interactiva del array u objeto ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -       FUNCIONES DE CONTEO       - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 87.- count() cuenta las veces que se llamo ----- ----- 
+
+//^ ----- ----- 87,1.- countReset() resetea el conteo ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -     FUNCIONES DE AGRUPACIÓN     - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 88.- group() crea un grupo en linea del registro ----- ----- 
+
+
+//^ ----- ----- 89.- groupEnd() remueve un grupo en linea en el registro ----- ----- 
+
+
+//^ ----- ----- 90.- groupCollapsed() crea un grupo pero cerrado ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -    FUNCIONES DE TEMPORIZACIÓN   - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 91.- time() inicia un temporizador ----- ----- 
+
+
+//^ ----- ----- 92.- timeLog() muestra el tiempo ----- ----- 
+
+
+//^ ----- ----- 93.- timeEnd() acabacon el conteo ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -       ESTILOS EN CONSOLA        - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 94.- .log() %c al inicio del texto para estilar, y en el segundo argumento se estila ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -      DOCUMENT OBJECT MODEL      - 
+//^ ----------------------------------- 
+
+
+//^ ----------------------------------- 
+//^ -    METODOS DE SELECCIÓN DE ELEMENTOS - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 95.- getElementById() seleccionaremos el elemento por ID ----- ----- 
+
+
+//^ ----- ----- 96.- getElementsByTagName("p") seleccionaremos los elementos por el nombre de la etiqueta ----- ----- 
+
+
+//^ ----- ----- 97.- querySelector(".parrafo") seleccionaremos un solo elemento usando los selectores de CSS como .clases o #Id's ----- ----- 
+
+
+//^ ----- ----- 98.- querySelectorAll() hace lo mismo pero seleccionando todas las coincidencias ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -       METODOS DE ATRIBUTOS      - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 99.- setAttribute("type", "text") va a crear un atributo o redefinirlo ----- ----- 
+
+
+//^ ----- ----- 100.- getAttribute("type") nos devolvera el valor de un atributo ----- ----- 
+
+
+//^ ----- ----- 101.- removeAttribute("type") remueve el atributo ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -        ATRIBUTOS GROBALES       - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 102.- "contentEditable", "true" nos permite poder editar el texto de un elemento como un H1 por ejemplo ----- ----- 
+
+
+//^ ----- ----- 103.- "dir", "ltr", "rtl" para cambiar la dirección del texto ----- ----- 
+
+
+//^ ----- ----- 104.- "hidden" oculta el elemento ----- ----- 
+
+
+//^ ----- ----- 105.- "tabindex" "0" nos permitira hacerle focus a un elemento, y saltara con tab al siguiente tabindex que le indiquemos ----- ----- 
+
+
+//^ ----- ----- 106.- "title" mostrara un texto al dejar el mouse encima del elemento ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -       ATRIBUTOS DE INPUTS       - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 107.- .className para acceder a la clase del elemento ----- ----- 
+
+
+//^ ----- ----- 108.- .value para que nos devuelva el valor ----- ----- 
+
+
+//^ ----- ----- 109.- .type = "text" para cambiar el tipo de input ----- ----- 
+
+
+//^ ----- ----- 110.- .accept "image/gif" para definir que puede aceptar ----- ----- 
+
+
+//^ ----- ----- 111.- .form "id" para enlazar un input con un form ----- ----- 
+
+
+//^ ----- ----- 112.- .minLength "numero" para definir el minimo de caracteres que debe de tener el input ----- ----- 
+
+
+//^ ----- ----- 113.- .placeholder "texto" para el texto antes de escribir ----- ----- 
+
+
+//^ ----- ----- 114.- .required " " para que el input no se pueda dejar vacio ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -          ATRIBUTO STYLE         - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 115.- .style nos permitira acceder al estilo de un elemento ----- ----- 
+
+//^ ----- ----- 115,1.- style.color "red" definiremos qué propiedad y valor cambiaremos ----- ----- 
+
+
+//^ ----- ----- 116.-  ----- ----- 
