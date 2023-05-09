@@ -2564,5 +2564,136 @@ buscarAlumnoDiv.addEventListener('input', (e) => {
 
 //^ ----- ----- 115,1.- style.color "red" definiremos qué propiedad y valor cambiaremos ----- ----- 
 
+//^ ----- ----- 115,2.- style.backgroundColor las propiedades se escriben en camelCase ----- ----- 
 
-//^ ----- ----- 116.-  ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -             CLASSLIST           - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 116.- .add() va a añadir una clase ----- ----- 
+
+
+//^ ----- ----- 117.- .remove() remueve la clase ----- ----- 
+
+
+//^ ----- ----- 118.- .item() nos devuelve la clase del indice especificado ----- ----- 
+
+
+//^ ----- ----- 119.- .contains() verifica si existe una clase y nos devolvera un valor booleano ----- ----- 
+
+
+//^ ----- ----- 120.- toggle(clase, force) si no tiene la clase especificada la agrega, si no la tiene la elimina ----- ----- 
+
+//^ ----- ----- 120,1.- el segundo parametro convertira a toggle en una operacion one way-only. Si es false la clase solo se eliminara sin añadirse, si es true solo sera añadida pero no eliminada ----- ----- 
+
+
+//^ ----- ----- 121.- replace("old", "new") va a remplazar la clase del primer parametro por el segundo ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -      OBTENCIÓN DE ELEMENTOS     - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 122.- textContent para obtener el texto plano, sin traernos las etiquetas como un "b" por ejemplo----- ----- 
+
+
+//^ ----- ----- 124.- innerHTML nos mostrara el contenido HTML del elemento ----- ----- 
+
+
+//^ ----- ----- 125.- outerHTML nos devolvera el elemento entero HTML y su contenido ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -      CREACIÓN DE ELEMENTOS      - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 126.- document.createElement("LI") para crear elementos y el nombre de la etiqueta debe ser siempre en mayuscula ----- ----- 
+
+
+//^ ----- ----- 127.- document.createTextNode() crea un nodo de tipo texto ----- ----- 
+
+
+//^ ----- ----- 128.- .appendChild(nodo) para meter un nodo dentro de otro ----- ----- 
+
+
+//^ ----- ----- .createDocumentFragment() para crear un fragmeto HTML para luego añadirlo, ahorrando recursos ----- ----- 
+
+
+//^ ----------------------------------- 
+//^ -  OBTENCIÓN Y MODIFICACIÓN DE CHILDS  - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 129.- .firstChild nos devolvera el primer hijo de un nodo ----- ----- 
+
+
+//^ ----- ----- 130.- .lastChild nos devolvera el ultimo hijo del nodo ----- ----- 
+
+
+//^ ----- ----- 131.- .firstElementChild nos devolvera el primer elemento hijo de un nodo ----- ----- 
+
+//^ ----- ----- 131,1.- .lastElementChild hara lo mismo pero con el ultimo elemento hijo de un nodo ----- ----- 
+
+
+//^ ----- ----- 132.- childNodes nos devolvera una lista con todos los hijos de un elemento ----- ----- 
+
+
+//^ ----- ----- 133.- children nos devolvera los elementos HTML ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -         METODOS DE CHILD        - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 134.- .replaceChild(new, old) remplaza un nodo hijo por otro ----- ----- 
+
+
+//^ ----- ----- 135.- .removeChild() para eliminar un nodo hijo ----- ----- 
+
+
+//^ ----- ----- 136.- .hasChildNodes() para verificar si un nodo tiene hijos y devolvera true o false ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -     PROPIEDADES DE LOS PARENTS   - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 137.- .parentElement nos devolvera el elemento HTML padre del nodo ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -      PROPIEDADES DE SIBLINGS    - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 138.- nextSibling devolvera el nodo hermano ----- ----- 
+
+//^ ----- ----- 138,1.- previousSibling nos dara el nodo hermano anterior ----- ----- 
+
+
+//^ ----- ----- 139.- nextElementSibling nos entregara el elemento hermano al nodo ----- ----- 
+
+//^ ----- ----- 139,1.- previousElementSibling devolvera el elemento anterior al hermano nodo ----- ----- 
+
+
+
+//^ ----------------------------------- 
+//^ -          NODOS - EXTRAS         - 
+//^ ----------------------------------- 
+
+
+//^ ----- ----- 140.- .closest() nos devolvera el elemento ascendente mas cercano ----- ----- 
+
+
