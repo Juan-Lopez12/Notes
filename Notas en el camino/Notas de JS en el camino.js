@@ -286,4 +286,128 @@ posts.reduce((allTags, post) => {
 }, []);
 
 
+//^ ----- ----- 32.- "color-scheme" es una propiedad css que cambiara el modo de un elemento a claro u oscuro, podemos usarlo en el ":root" o en un elemento en especifico para modo oscuro ----- ----- 
 
+
+//^ ----- ----- 33.- "crypto.randomUUID()" metodo nos devolvera un UUID unico, sin usar librerias ----- ----- 
+
+const uuid = crypto.randomUUID()
+
+
+//^ ----- ----- 34.- "Object.freeze()" hara que un objeto no sea mutable ----- ----- 
+
+
+const obj = Object.freeze({
+    name: "Juan",
+    age: 21,
+})
+
+Object.freeze(obj)
+
+
+//^ ----- ----- 35.- "new formData()" para guardar datos de un formulario ----- ----- 
+
+const formElement = document.querySelector("form");
+const formData = new FormData(formElement);
+
+
+//^ ----- ----- 36.- "New set" funciona como un objeto, podemos usarlo para guardar datos en un formato "key, value", y tampoco acepta valores repetidos, por lo que puede ser muy util para verificar si un elemento esta repetido o no con: .size ----- ----- 
+
+const numbers = ["1", "3", "3", "4"]
+const numbersSet = new Set(numbers)
+if (numbers.length !== numbersSet.size) console.log("Hay repetidos")
+
+const hasDuplicates = (array) =>
+    new Set(array).size < array.length
+
+
+//^ ----- ----- 37.- "Array.flat(infinity | 2)" para aplanar arrays, tambien le podemos indicar las veces que debe aplanar ----- ----- 
+
+//^ ----- ----- 37,1.- "Array.flatMap" mapea un array y luego lo aplana ----- ----- 
+
+
+//^ ----- ----- 38.- ".length = 2" puede funcionar como setter, podemos acortar un array asignandole un número, tambien podemos alargarlo y quedaran como <x empty items> ----- ----- 
+
+const array = [2, 4, 6, 8, 10]
+array.length = 2
+console.log(array)
+
+
+//^ ----- ----- 38.- "New URLPattern()" para hacer match sobre rutas para saber si existen o no ----- ----- 
+
+
+//^ ----- ----- 39.- "Intl.ListFormat('en').format(array)" para listar un array y que el ultimo elemento tenga su respectiva traducción (y | and, etc), tambien podemos cambiar si queremos que sea un "y" o un "o" ----- ----- 
+
+//^ ----- ----- 39,1.- "Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(array) ----- ----- 
+
+
+//^ ----- ----- 40.- "PARAMETROS NOMBRADOS" podemos usar la destructuración para pasarle parametros nombrados a una función, la función solo aceptara el nombre estrictamente si existe dentro del objeto que le pasamos, tambien podemos crear el objeto como argumento al momento de llamar la función, asi no importara el nombre y no importa si no pasamos todas las propiedades del objeto ----- ----- 
+
+const createGodzilla = ({ color, material = metal, weight = 200, sound, power }) => {
+    // ...
+}
+
+const godZillaParams = {
+    color: "blue",
+    material: "plastic",
+    sound: "GROARRR",
+    powers: ["lighting", "nuclear bomb"]
+}
+
+createGodzilla(godZillaParams)
+
+createGodzilla({
+    color: "blue",
+    material: "plastic",
+    sound: "GROARRR",
+    powers: ["lighting", "nuclear bomb"]
+})
+
+
+//^ ----- ----- 41.- "DICCIONARIOS o HASH TABLE (objetos)" al usar un IF y evitando el uso de SWITCH podemos usar diccionarios ----- ----- 
+
+const adversario = "Hulk"
+// ✅
+// tambien podemos añadir metodos o que sea cualquier tipo de datos que queramos
+const LOKI_DISFRACES = {
+    Thor: "Odin",
+    "Iron-Man": "Magneto",
+    Hulk: () => "Thanos",
+    Wolverine: 'Magneto' // añadiendo uno nuevo
+}
+// ✅
+
+const LOKI_DEFAULT_DISFRAZ = 'Loki'
+
+const lokiFunc = LOKI_DISFRACES[adversario]
+    ? LOKI_DEFAULT_DISFRAZ[adversario]()
+    : LOKI_DEFAULT_DISFRAZ
+
+const loki = LOKI_DISFRACES[adversario] || LOKI_DEFAULT_DISFRAZ
+console.log(loki)
+
+// ❌
+let lokiIfElse = ''
+if (adversario === 'Iron-Man') {
+    lokiIfElse = 'Magneto'
+} else if (adversario === 'Hulk') {
+    lokiIfElse = 'Thanos'
+} else {
+    lokiIfElse = 'Loki'
+}
+// ❌
+
+
+//^ ----- ----- 42.- "window.scrollTo()" para mandar a scrollear a una parte de la pagina por coordenadas o a un elemento en especifico capturado por su ID, podemos decirle si sera smooth o o instant ----- ----- 
+
+
+//^ ----- ----- 43.- "location.origin" nos devolvera el dominio de la pagina ----- ----- 
+
+
+//^ ----- ----- 44.- "new URL(url, base)" para capturar o guardar una URL, tambien podemos usar "event.destination.url" para para capturar una url en un evento 'navigate' ----- ----- 
+
+
+//^ ----- ----- 45.- "event.intercept()" ----- ----- 
+
+
+//^ ----- ----- 46.-  ----- ----- 
